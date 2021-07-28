@@ -1,0 +1,140 @@
+<template>
+	<view>
+		<view class="video">
+			<video :src="video.url" controls="true" :poster="video.cover"
+			@timeupdate="videoTimeUpdateEvent" ref="myVideo" id="myVideo"></video>
+		</view>
+		<view class="content">
+			<view class="chapter">课程简介</view>
+			<view>{{video.chapter}}</view>
+			<view>{{video.brief}}</view>
+			<view class="cen">
+				<view>{{video.cen}}人已学</view>
+				<view>时长:{{video.time}}</view>
+				<view>{{video.date}}</view>
+			</view>
+		</view>
+		<view class="buy">
+			<button>立即购买</button>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default{
+		data(){
+			return{
+				videoContext: {}, 
+				video:{
+					cover:"https://img2.baidu.com/it/u=4267680702,373970169&fm=26&fmt=auto&gp=0.jpg",
+						url:"https://video.pearvideo.com/mp4/adshort/20210727/cont-1736568-15730255_adpkg-ad_hd.mp4",
+						chapter:"第一章：基础护理知识和技能",
+						brief:"位提级放关增手响边价本问争史 院书称九省导上政同权取合技家新制容准证红最流算节深米证干院流四维年无实再入南证社联进他。手反难高此义当商社进头商调完时以今过家车克公必他青采资为斗长就期来集入思当打满你各气认任节飞广家却直长。空以细领那话教般属理消风北化步习叫际了题事好选会正同满次火场期化会南见等类理方结电米知是在便作本步易料更名白内力查广合海见人周好命内十发论原她。",
+						cen:99,
+						time:'00:19:23',
+						date:'2020-03-27'
+					}
+			}
+		},
+		onLoad(options) {
+		      console.log(options.id);
+			  if(options.time !== 0){
+				uni.showModal({
+					title: '提示',
+					content: '您上次观看到'+options.time+'是否继续观看',
+					confirmText: "继续观看",
+					success: function (res) {
+						if (res.confirm) {
+							uni.createVideoContext('myVideo').seek(options.time)
+							uni.createVideoContext('myVideo').play()
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
+				});
+			  }
+		    },
+		created() {
+			// 创建视频实例指向视频控件
+			this.videoContext = uni.createVideoContext('myVideo');
+		},
+		methods:{
+			videoTimeUpdateEvent(e) { // 播放进度改变
+				// e.detail.currentTime为每次触发时,视频的当前播放时间
+				let currentTime = Number(e.detail.currentTime);
+				console.log('播放进度条改变', currentTime)
+				if(currentTime == e.detail.duration){
+					uni.showModal({
+						title: '提示',
+						content: '恭喜您！已完成本年度学习任务请等待证书发放',
+						success: function (res) {
+							if (res.confirm) {
+								console.log('用户点击确定');
+							} else if (res.cancel) {
+								console.log('用户点击取消');
+							}
+						}
+					});
+				}
+				// 试看结束 this.class_info.freed_time为试看时间
+				// if (currentTime >= this.class_info.freed_time) {
+				// 	// 试看结束,在这做一些想做的操作,例如停止视频播放
+				// 	this.videoContext.exitFullScreen();
+				// 	this.videoContext.pause();
+				// 	this.videoContext.seek(0);
+				// }
+			}
+		}
+	}
+</script>
+
+<style>
+	.video video{
+		width: 750rpx;
+		margin-top: 8rpx;
+	}
+	.content{
+		width: 680rpx;
+		margin: auto;
+	}
+	.chapter{
+		color: #51565D;
+		font-size: 28rpx;
+		border-left: 6rpx solid #1890FF;
+		width: 142rpx;
+		text-align: center;
+		margin: 54rpx 0 20rpx 0;
+	}
+	.content view:nth-child(2){
+		color: #51565D;
+		font-size: 30rpx;
+		margin-bottom: 20rpx;
+	}
+	.content view:nth-child(3){
+		color: #51565D;
+		font-size: 26rpx;
+		line-height: 37rpx;
+	}
+	.cen{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20rpx;
+	}
+	.cen view{
+		font-size: 24rpx!important;
+		color: #9EA3A7!important;
+	}
+	.buy button{
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		width: 680rpx;
+		height: 76rpx;
+		background: #1890FF;
+		border-radius: 39rpx;
+		color: #fff;
+		font-size: 28rpx;
+		bottom: 72rpx;
+	}
+</style>

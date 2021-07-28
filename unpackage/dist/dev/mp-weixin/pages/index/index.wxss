@@ -1,0 +1,94 @@
+
+._li{
+	list-style: none;
+}
+.banner image{
+	width: 750rpx;
+	position: relative;
+}
+.iconlist{
+	width: 720rpx;
+	height: 322rpx;
+	background: #FFFFFF;
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);
+	        box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);
+	border-radius: 14px;
+	margin: 23rpx auto;
+}
+.iconlist ._ul{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	margin: auto;
+}
+.iconlist ._ul ._li{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	width: 100rpx;
+	height: 100rpx;
+	margin-right: 50rpx;
+	padding-top: 25rpx;
+}
+.iconlist ._ul ._li text{
+	display: block;
+	color: #666666;
+	padding-top: 10rpx;
+}
+.iconlist ._ul ._li image{
+	width: 84rpx;
+	height: 84rpx;
+	margin: auto;
+	display: block;
+}
+.ullist{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	float: left;
+	font-size: 30rpx;
+	-webkit-box-pack: start;
+	-webkit-justify-content: start;
+	        justify-content: start;
+}
+.ullist view{
+	margin-right: 30rpx;
+}
+.new{
+	width: 720rpx;
+	background: #FFFFFF;
+	border-radius: 14px;
+	margin: auto;
+}
+.ullist .active{
+	border-bottom: 3px solid #1890FF;
+}
+.child{
+	float: left;
+	padding: 40rpx 0 60rpx 0;
+}
+.dropDown uni-view,.lauwen-select-input{
+	border: 0rpx;
+	width: 160rpx;
+}
+.dropDown{
+	position: absolute;
+	top: 20rpx;
+	left: 4rpx;
+	color: #fff;
+}
+.lauwen-option{
+	background: #1890FF;
+}
+.rectangle{
+	position: absolute;
+	top: 20rpx;
+	right: 2rpx;
+}
+.rectangle image{
+	width: 66rpx;
+	height: 66rpx;
+}
+
