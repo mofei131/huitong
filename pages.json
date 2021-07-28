@@ -96,6 +96,11 @@
     	// "style": {
     	// 	"navigationBarTitleText": "用户协议"
     	// }
+    },{
+    	"path": "pages/index/itemDetails"
+    	// "style": {
+    	// 	"navigationBarTitleText": "用户协议"
+    	// }
     }
 	],
 	// "globalStyle": {

@@ -1,5 +1,7 @@
 <template>
-	
+	<view class="details">
+		<image></image>
+	</view>
 </template>
 
 <script>
@@ -12,8 +14,11 @@
 		onLoad(options){
 			console.log(options.id)
 			uni.setNavigationBarTitle({
-			    title: '检测详情'
+			    title: '检测详情',
 			});
+			uni.setNavigationBarColor({
+				backgroundColor: '#1890FF',
+			})
 		},
 		mounted(){
 			

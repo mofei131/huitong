@@ -77,7 +77,8 @@
 	}
 	.listRight{
 		width: 158rpx;
-		margin-left: 32rpx;
+		/* margin-left: 32rpx; */
+		margin: auto;
 	}
 	.listRight view{
 		width: 158rpx;
