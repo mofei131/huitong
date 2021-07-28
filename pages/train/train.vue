@@ -2,14 +2,12 @@
 	<view>
 	<view class="search">
 		<image src="@/static/images/seache.png"></image>
-		<input type="text" focus 
+		<input type="text"
 		    placeholder="请输入关键字" 
 		    placeholder-style="font-size:30rpx;color:#B5B9BF"
-			 v-model="fname"
-			   value="1"
-			   @focus="search_site"/>
-			<image src="@/static/images/close.png" @click="clearInput('fname')"></image>
-			<text @click="clearInput('fname')">取消</text>
+			@input="aaaa"/>
+			<image src="@/static/images/close.png" ></image>
+			<text >取消</text>
 	</view>
 	<view class="videList">
 		<view class="viewItem" v-for="(item,index) in videoList" @click="openinfo(item.id,item.time)">
@@ -56,48 +54,16 @@
 				]
 			}
 		},
-		mounted(){
-		     this.init(); 
-		},
 		methods:{
 			 openinfo(id,time) {
 			            uni.navigateTo({
 			                url: '/pages/train/video?id='+id+'&time='+time,
 			            });
 			        },
-			init(){
-			          //调用后台接口获取数据展示到页面中
-			     },
-			     search(value){
-			          let _self =this;
-			          if(!value){
-			             _self.siteDatas=[];
-			             return;
-			           };
-			           //调用后台接口获取数据展示到页面中
-			     },
-			     // 点击取消按钮清空输入框
-			     clearInput(val) {
-			           this[val] ="";
-			           this.siteDatas=[];
-			           this.init();
-			     },
-			     // 站点输入框模糊查询
-			     search_site(){
-			           if(document.querySelector('input')==document.activeElement){
-			                  //往输入框中传入值，根据值调后台接口进行查询
-			                  this.search(this.fname.trim());
-			            }
-			            if(this.fname ==''){
-			                   //当输入框为空的时候再次调用接口显示全部数据
-			                   this.init();
-			             }
-			    }
-		},
-		watch: {
-		    fname:function(){       //调用模糊查询函数
-		        this.search_site();
-		    }
+					
+					aaaa(e) {
+						console.log(e)
+					}
 		}
 	}
 </script>

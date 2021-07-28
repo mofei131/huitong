@@ -15,37 +15,9 @@
 		</view>
 		<view class="iconlist">
 			<view class="iconul">
-				<view>
-					<image src="@/static/images/inicon1.png"></image>
-					<text>环境保护</text>
-				</view>
-				<view>
-					<image src="@/static/images/inicon2.png"></image>
-					<text> 安全生产</text>
-				</view>
-				<view>
-					<image src="@/static/images/inicon3.png"></image>
-					<text>职业卫生</text>
-				</view>
-				<view>
-					<image src="@/static/images/inicon4.png"></image>
-					<text>消防安全</text>
-				</view>
-				<view>
-					<image src="@/static/images/inicon5.png"></image>
-					<text>食品安全</text>
-				</view>
-				<view>
-					<image src="@/static/images/inicon6.png"></image>
-					<text>医疗机构</text>
-				</view>
-				<view>
-					<image src="@/static/images/inicon7.png"></image>
-					<text>其他行业</text>
-				</view>
-				<view>
-					<image src="@/static/images/inicon8.png"></image>
-					<text>手续速办</text>
+				<view v-for="(item,index) in iconList" @click="toUrl(item.id,item.title)">
+					<image :src="item.imgUrl"></image>
+					<text>{{item.title}}</text>
 				</view>
 			</view>
 		</view>
@@ -99,6 +71,41 @@
 						date:"2020年03月18日 06:36",
 						imageUrl:"https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
 					}
+				],
+				iconList:[
+					{
+						id:'0',
+						title:'环境保护',
+						imgUrl:'../../static/images/inicon1.png'
+					},{
+						id:'1',
+						title:'安全生产',
+						imgUrl:'../../static/images/inicon2.png'
+					},{
+						id:'2',
+						title:'职业卫生',
+						imgUrl:'../../static/images/inicon3.png'
+					},{
+						id:'3',
+						title:'消防安全',
+						imgUrl:'../../static/images/inicon4.png'
+					},{
+						id:'4',
+						title:'食品安全',
+						imgUrl:'../../static/images/inicon5.png'
+					},{
+						id:'5',
+						title:'医疗机构',
+						imgUrl:'../../static/images/inicon6.png'
+					},{
+						id:'6',
+						title:'其他行业',
+						imgUrl:'../../static/images/inicon7.png'
+					},{
+						id:'7',
+						title:'手续速办',
+						imgUrl:'../../static/images/inicon8.png'
+					}
 				]
 			}
 		},
@@ -112,7 +119,12 @@
 			examinationType(e) {
 			    this.examinationTypeIndex = e.target.value;
 			    this.examinationTypeArrayType=this.examinationTypeArray[this.examinationTypeIndex]
-				}
+				},
+			toUrl(id,title){
+				uni.navigateTo({
+				    url: '/pages/index/itemList?id='+id+'&title='+title,
+				});
+			}
 		}
 	}
 </script>
