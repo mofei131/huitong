@@ -91,6 +91,11 @@
     	"style": {
     		"navigationBarTitleText": "用户协议"
     	}
+    },{
+    	"path": "pages/index/itemList"
+    	// "style": {
+    	// 	"navigationBarTitleText": "用户协议"
+    	// }
     }
 	],
 	// "globalStyle": {
