@@ -6,7 +6,7 @@
 			<view>{{item.content}}</view>
 		</view>
 		<view class="listRight">
-			<view>查看详情</view>
+			<view @click="toUrl(item.id)">查看详情</view>
 		</view>
 	</view>
 	</view>
@@ -33,9 +33,19 @@
 				]
 			}
 		},
+		methods:{
+			toUrl(id){
+				uni.navigateTo({
+				    url: '/pages/index/itemDetails?id='+id,
+				});
+			}
+		},
 		onLoad(options){
 			console.log(options.id)
-		}
+			uni.setNavigationBarTitle({
+			    title: options.title,
+			});
+		},
 	}
 </script>
 

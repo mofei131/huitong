@@ -15,7 +15,7 @@
 		</view>
 		<view class="iconlist">
 			<view class="iconul">
-				<view v-for="(item,index) in iconList" @click="toUrl(item.id)">
+				<view v-for="(item,index) in iconList" @click="toUrl(item.id,item.title)">
 					<image :src="item.imgUrl"></image>
 					<text>{{item.title}}</text>
 				</view>
@@ -120,9 +120,9 @@
 			    this.examinationTypeIndex = e.target.value;
 			    this.examinationTypeArrayType=this.examinationTypeArray[this.examinationTypeIndex]
 				},
-			toUrl(id){
+			toUrl(id,title){
 				uni.navigateTo({
-				    url: '/pages/index/itemList?id='+id,
+				    url: '/pages/index/itemList?id='+id+'&title='+title,
 				});
 			}
 		}
