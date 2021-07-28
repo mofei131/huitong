@@ -1,0 +1,128 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style":{
+				"navigationBarTitleText": "首页",
+				"app-plus":{
+									"titleNView":false
+								}
+
+			}
+			
+		},{
+			"path": "pages/train/train",
+			"style":{
+				"navigationBarTitleText": "培训"
+			}
+		},{
+			"path": "pages/mine/mine",
+			"style":{
+				"navigationBarTitleText": "我的",
+				"app-plus":{
+									"titleNView":false
+								}
+
+			}
+		},{
+    "path":"pages/mine/order",
+	"style":{
+		"navigationBarTitleText": "环保检测"
+	}
+		},{
+    "path":"pages/mine/authe",
+	"style":{
+		"navigationBarTitleText": "认证",
+		"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"text":"修改",
+								"fontSize": "26rpx",
+								"float":"right"
+							}
+						]
+					}
+				}
+	}
+		},{
+		"path":"pages/mine/about",
+		"style":{
+			"navigationBarTitleText": "关于我们"
+		}
+		},{
+		"path":"pages/mine/contract",
+		"style":{
+			"navigationBarTitleText": "服务协议"
+		}
+		},{
+		"path":"pages/train/video",
+		"style":{
+			"navigationBarTitleText": "视频"
+		}
+		},{
+		"path":"pages/mine/setUp",
+		"style":{
+			"navigationBarTitleText": "账号与安全"
+		}
+		},{
+    	"path": "pages/login/login",
+    	"style": {
+    		"navigationBarTitleText": "",
+        "navigationBarBackgroundColor":"#FFFFFF"
+    	}
+    },
+    {
+    	"path": "pages/login/reg",
+    	"style": {
+    		"navigationBarTitleText": "",
+        "navigationBarBackgroundColor":"#FFFFFF"
+    	}
+    },
+    {
+    	"path": "pages/login/forget",
+    	"style": {
+    		"navigationBarTitleText": "忘记密码",
+        "navigationBarBackgroundColor":"#FFFFFF"
+    	}
+    },
+    {
+    	"path": "pages/login/agreement",
+    	"style": {
+    		"navigationBarTitleText": "用户协议"
+    	}
+    }
+	],
+	// "globalStyle": {
+	// 		"navigationStyle":"custom",
+	// 		"app-plus":{
+	// 			"titleView":false
+	// 		}
+	// },
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		// "navigationBarTitleText": "uni-app",
+		// "navigationBarBackgroundColor": "#F8F8F8",
+		// "backgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor":"#1890FF"
+	},
+	
+	"tabBar": {
+	    "list": [{
+	        "pagePath": "pages/index/index",
+	        "iconPath": "static/images/index.png",
+	        "selectedIconPath": "static/images/index2.png",
+	        "text": "首页"
+	    }, {
+	        "pagePath": "pages/train/train",
+	        "iconPath": "static/images/BAI.png",
+	        "selectedIconPath": "static/images/BAI2.png",
+	        "text": "培训"
+	    }, {
+	        "pagePath": "pages/mine/mine",
+	        "iconPath": "static/images/wode.png",
+	        "selectedIconPath": "static/images/wode2.png",
+	        "text": "我的"
+	    }]
+	}
+}
