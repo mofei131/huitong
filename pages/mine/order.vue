@@ -24,25 +24,35 @@
 	export default{
 		data(){
 			return{
-				order:[
-					{
-						name:"环保检测",
-						content:"不要以“为别人考虑”做理由，其实丢弃了“舍我其谁”的使命感",
-						whether:1
-					},
-					{
-						name:"环保检测2",
-						content:"testtesttesttesttesttesttesttesttesttesttest",
-						whether:0
-					},
-					{
-						name:"环保检测3",
-						content:"testtesttesttesttesttesttesttesttesttesttest",
-						whether:1
-					}
-				]
+				page: 1,
+				limit: 10,
+				order:[]
 			}
-		}
+		},
+		onLoad() {
+			this.getList()
+		},
+		onReachBottom() {
+			this.page++
+			this.getList()
+		},
+		methods: {
+			getList() {
+				let that = this
+				this.http.ajax({
+					url: 'service/myAppoinment',
+					method: 'GET',
+					data: {
+						user_id: wx.getStorageSync('userInfo').id,
+						page: this.page,
+						limit: this.limit,
+					},
+					success: function(res) {
+						that.order = that.order.concat(res.data)
+					}
+				});
+			},
+		},
 	}
 </script>
 
