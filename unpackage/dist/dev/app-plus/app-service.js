@@ -49,6 +49,7 @@ __definePage('pages/login/agreement', function () {return Vue.extend(__webpack_r
 __definePage('pages/index/itemList', function () {return Vue.extend(__webpack_require__(/*! pages/index/itemList.vue?mpType=page */ 99).default);});
 __definePage('pages/index/itemDetails', function () {return Vue.extend(__webpack_require__(/*! pages/index/itemDetails.vue?mpType=page */ 104).default);});
 __definePage('pages/train/pay', function () {return Vue.extend(__webpack_require__(/*! pages/train/pay.vue?mpType=page */ 109).default);});
+__definePage('pages/mine/modifyphone', function () {return Vue.extend(__webpack_require__(/*! pages/mine/modifyphone.vue?mpType=page */ 123).default);});
 
 /***/ }),
 /* 2 */
@@ -2401,54 +2402,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
-try {
-  components = {
-    uniList: __webpack_require__(/*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 22)
-      .default,
-    uniListItem: __webpack_require__(/*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 27)
-      .default
-  }
-} catch (e) {
-  if (
-    e.message.indexOf("Cannot find module") !== -1 &&
-    e.message.indexOf(".vue") !== -1
-  ) {
-    console.error(e.message)
-    console.error("1. 排查组件名称拼写是否正确")
-    console.error(
-      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
-    )
-    console.error(
-      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
-    )
-  } else {
-    throw e
-  }
-}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "view",
-    [
-      _c(
-        "uni-list",
-        { attrs: { _i: 1 } },
-        [
-          _c("uni-list-item", {
-            attrs: { title: "修改手机号", link: true, to: "./order", _i: 2 }
-          }),
-          _c("uni-list-item", {
-            attrs: { title: "修改登陆密码", link: true, to: "./order", _i: 3 }
-          }),
-          _c("uni-list-item", { attrs: { title: "APP更新", _i: 4 } })
-        ],
-        1
-      )
-    ],
-    1
-  )
+  return _c("view", [
+    _c(
+      "view",
+      { staticClass: _vm._$s(1, "sc", "itemlist"), attrs: { _i: 1 } },
+      [
+        _c(
+          "view",
+          {
+            staticClass: _vm._$s(2, "sc", "listitem"),
+            attrs: { _i: 2 },
+            on: {
+              click: function($event) {
+                return _vm.modifyphone()
+              }
+            }
+          },
+          [
+            _c(
+              "view",
+              { staticClass: _vm._$s(3, "sc", "list"), attrs: { _i: 3 } },
+              [_c("view"), _c("image", { attrs: { _i: 5 } })]
+            )
+          ]
+        ),
+        _c(
+          "view",
+          { staticClass: _vm._$s(6, "sc", "listitem"), attrs: { _i: 6 } },
+          [
+            _c(
+              "view",
+              { staticClass: _vm._$s(7, "sc", "list"), attrs: { _i: 7 } },
+              [_c("view"), _c("image", { attrs: { _i: 9 } })]
+            )
+          ]
+        ),
+        _c(
+          "view",
+          { staticClass: _vm._$s(10, "sc", "listitem"), attrs: { _i: 10 } },
+          [
+            _c(
+              "view",
+              { staticClass: _vm._$s(11, "sc", "updata"), attrs: { _i: 11 } },
+              [_c("view")]
+            )
+          ]
+        )
+      ]
+    )
+  ])
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -2473,9 +2479,10 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _HBu
   !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!D:/mofei/Item/huitong/pages/mine/setUp.vue?vue&type=script&lang=js&mpType=page ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("//\n//\n//\n//\n//\n//\n//\n//\n//\n////# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbWluZS9zZXRVcC52dWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJmaWxlIjoiNzQuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuXG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///74\n");
+"use strict";
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {};\n\n\n  },\n  methods: {\n    modifyphone: function modifyphone() {\n      uni.navigateTo({\n        url: '/pages/mine/modifyphone' });\n\n    } } };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbWluZS9zZXRVcC52dWUiXSwibmFtZXMiOlsiZGF0YSIsIm1ldGhvZHMiLCJtb2RpZnlwaG9uZSIsInVuaSIsIm5hdmlnYXRlVG8iLCJ1cmwiXSwibWFwcGluZ3MiOiJ3RkFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRWM7QUFDYkEsTUFEYSxrQkFDUDtBQUNMLFdBQU0sRUFBTjs7O0FBR0EsR0FMWTtBQU1iQyxTQUFPLEVBQUM7QUFDUEMsZUFETyx5QkFDTTtBQUNaQyxTQUFHLENBQUNDLFVBQUosQ0FBZTtBQUNkQyxXQUFHLEVBQUMseUJBRFUsRUFBZjs7QUFHQSxLQUxNLEVBTkssRSIsImZpbGUiOiI3NC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cblxuZXhwb3J0IGRlZmF1bHR7XG5cdGRhdGEoKXtcblx0XHRyZXR1cm57XG5cdFx0XHRcblx0XHR9XG5cdH0sXG5cdG1ldGhvZHM6e1xuXHRcdG1vZGlmeXBob25lKCl7XG5cdFx0XHR1bmkubmF2aWdhdGVUbyh7XG5cdFx0XHRcdHVybDonL3BhZ2VzL21pbmUvbW9kaWZ5cGhvbmUnXG5cdFx0XHR9KVxuXHRcdH1cblx0fVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///74\n");
 
 /***/ }),
 /* 75 */
@@ -4763,6 +4770,138 @@ eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports
 
 "use strict";
 eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;var baseUrl = 'http://huitong.boyaokj.cn/api/';\nvar imgUrl = 'http://store.boyaokj.cn/';\n/* 封装ajax函数\r\n                                          * @param {string}opt.type http连接的方式，包括POST和GET两种方式\r\n                                          * @param {string}opt.url 发送请求的url\r\n                                          * @param {boolean}opt.async 是否为异步请求，true为异步的，false为同步的\r\n                                          * @param {object}opt.data 发送的参数，格式为对象类型\r\n                                          * @param {function}opt.success ajax发送并接收成功调用的回调函数\r\n                                          */\n\nfunction getHeader() {//header头部\n  return {\n    \"Accept\": \"application/json\",\n    'Content-Type': 'application/json; charset=utf-8' // app header头\n    // 　　　　'Content-Type': 'application/x-www-form-urlencoded', // h5 header头\n    // 　　　　'ACCESS_TOKEN': `${token}`,\n  };\n}\n\nvar ajax = function ajax(opt) {\n  opt = opt || {};\n  opt.method = opt.method && opt.method.toUpperCase() || 'POST';\n  opt.url = baseUrl + opt.url || '';\n  opt.async = opt.async || true;\n  opt.data = opt.data || null;\n  opt.success = opt.success || function () {};\n  opt.fail = opt.fail || function () {};\n  opt.complete = opt.complete || function () {};\n  uni.request({\n    method: opt.method,\n    dataType: 'json',\n    url: opt.url,\n    data: opt.data,\n    header: getHeader(),\n    success: function success(res) {\n      opt.success(res.data);\n    },\n    fail: function fail(res) {\n      opt.fail(res);\n    },\n    complete: function complete(res) {\n      opt.complete(res);\n    } });\n\n  // var xmlHttp = null;\n  // if (XMLHttpRequest) {\n  // \txmlHttp = new XMLHttpRequest();\n  // } else {\n  // \txmlHttp = new ActiveXObject('Microsoft.XMLHTTP');\n  // }\n  // var params = [];\n  // if (opt.data && !opt.data.i) {\n  // \topt.url = opt.url + '&' + 'i=2'\n  // }\n\n  // for (var key in opt.data) {\n  // \topt.url = opt.url + '&' + key + '=' + opt.data[key]\n  // \t// params.push(key + '=' + opt.data[key]);\n  // }\n  // var postData = params.join('&');\n  // if (opt.method.toUpperCase() === 'POST') {\n  // \txmlHttp.open(opt.method, opt.url, opt.async);\n  // \txmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');\n  // \txmlHttp.send(postData);\n  // } else if (opt.method.toUpperCase() === 'GET') {\n  // \txmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);\n  // \txmlHttp.send(null);\n  // }\n  // xmlHttp.onreadystatechange = function() {\n  // \tif (xmlHttp.readyState == 4 && xmlHttp.status == 200) {\n  // \t\topt.success(xmlHttp.responseText);\n  // \t}\n  // };\n};\n\nvar checkLogin = function checkLogin() {\n  if (uni.getStorageSync('members')) {\n    var userInfo = uni.getStorageSync('members');\n    if (!userInfo.token) {\n      uni.showToast({\n        title: '登录已过期，请重新登录',\n        icon: 'none' });\n\n      uni.clearStorageSync();\n      setTimeout(function () {\n        uni.redirectTo({\n          url: '/pages/login/register' });\n\n      }, 1000);\n    } else {\n      ajax({\n        url: 'app',\n        data: {\n          op: 'checkLogin',\n          user_id: userInfo.id,\n          token: userInfo.token },\n\n        method: 'GET',\n        success: function success(res) {\n          if (res.data.errno != 0) {\n            uni.showToast({\n              title: '您的账号已在其他终端登录',\n              icon: 'none' });\n\n            uni.clearStorageSync();\n            setTimeout(function () {\n              uni.redirectTo({\n                url: '/pages/login/register' });\n\n            }, 1000);\n          }\n        } });\n\n    }\n  }\n};var _default =\n\n{\n  baseUrl: baseUrl,\n  imgUrl: imgUrl,\n  ajax: ajax,\n  checkLogin: checkLogin };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vY29tbW9uL2h0dHAuanMiXSwibmFtZXMiOlsiYmFzZVVybCIsImltZ1VybCIsImdldEhlYWRlciIsImFqYXgiLCJvcHQiLCJtZXRob2QiLCJ0b1VwcGVyQ2FzZSIsInVybCIsImFzeW5jIiwiZGF0YSIsInN1Y2Nlc3MiLCJmYWlsIiwiY29tcGxldGUiLCJ1bmkiLCJyZXF1ZXN0IiwiZGF0YVR5cGUiLCJoZWFkZXIiLCJyZXMiLCJjaGVja0xvZ2luIiwiZ2V0U3RvcmFnZVN5bmMiLCJ1c2VySW5mbyIsInRva2VuIiwic2hvd1RvYXN0IiwidGl0bGUiLCJpY29uIiwiY2xlYXJTdG9yYWdlU3luYyIsInNldFRpbWVvdXQiLCJyZWRpcmVjdFRvIiwib3AiLCJ1c2VyX2lkIiwiaWQiLCJlcnJubyJdLCJtYXBwaW5ncyI6InVGQUFBLElBQU1BLE9BQU8sR0FBRyxnQ0FBaEI7QUFDQSxJQUFNQyxNQUFNLEdBQUcsMEJBQWY7QUFDQTs7Ozs7Ozs7QUFRQSxTQUFTQyxTQUFULEdBQXFCLENBQUU7QUFDdEIsU0FBTztBQUNOLGNBQVUsa0JBREo7QUFFTixvQkFBZ0IsaUNBRlYsQ0FFNkM7QUFDbkQ7QUFDQTtBQUpNLEdBQVA7QUFNQTs7QUFFRCxJQUFNQyxJQUFJLEdBQUcsU0FBUEEsSUFBTyxDQUFTQyxHQUFULEVBQWM7QUFDMUJBLEtBQUcsR0FBR0EsR0FBRyxJQUFJLEVBQWI7QUFDQUEsS0FBRyxDQUFDQyxNQUFKLEdBQWNELEdBQUcsQ0FBQ0MsTUFBSixJQUFjRCxHQUFHLENBQUNDLE1BQUosQ0FBV0MsV0FBWCxFQUFmLElBQTRDLE1BQXpEO0FBQ0FGLEtBQUcsQ0FBQ0csR0FBSixHQUFVUCxPQUFPLEdBQUdJLEdBQUcsQ0FBQ0csR0FBZCxJQUFxQixFQUEvQjtBQUNBSCxLQUFHLENBQUNJLEtBQUosR0FBWUosR0FBRyxDQUFDSSxLQUFKLElBQWEsSUFBekI7QUFDQUosS0FBRyxDQUFDSyxJQUFKLEdBQVdMLEdBQUcsQ0FBQ0ssSUFBSixJQUFZLElBQXZCO0FBQ0FMLEtBQUcsQ0FBQ00sT0FBSixHQUFjTixHQUFHLENBQUNNLE9BQUosSUFBZSxZQUFXLENBQUUsQ0FBMUM7QUFDQU4sS0FBRyxDQUFDTyxJQUFKLEdBQVdQLEdBQUcsQ0FBQ08sSUFBSixJQUFZLFlBQVcsQ0FBRSxDQUFwQztBQUNBUCxLQUFHLENBQUNRLFFBQUosR0FBZVIsR0FBRyxDQUFDUSxRQUFKLElBQWdCLFlBQVcsQ0FBRSxDQUE1QztBQUNBQyxLQUFHLENBQUNDLE9BQUosQ0FBWTtBQUNYVCxVQUFNLEVBQUVELEdBQUcsQ0FBQ0MsTUFERDtBQUVYVSxZQUFRLEVBQUUsTUFGQztBQUdYUixPQUFHLEVBQUVILEdBQUcsQ0FBQ0csR0FIRTtBQUlYRSxRQUFJLEVBQUVMLEdBQUcsQ0FBQ0ssSUFKQztBQUtYTyxVQUFNLEVBQUVkLFNBQVMsRUFMTjtBQU1YUSxXQUFPLEVBQUUsaUJBQUNPLEdBQUQsRUFBUztBQUNqQmIsU0FBRyxDQUFDTSxPQUFKLENBQVlPLEdBQUcsQ0FBQ1IsSUFBaEI7QUFDQSxLQVJVO0FBU1hFLFFBQUksRUFBRSxjQUFDTSxHQUFELEVBQVM7QUFDZGIsU0FBRyxDQUFDTyxJQUFKLENBQVNNLEdBQVQ7QUFDQSxLQVhVO0FBWVhMLFlBQVEsRUFBRSxrQkFBQ0ssR0FBRCxFQUFTO0FBQ2xCYixTQUFHLENBQUNRLFFBQUosQ0FBYUssR0FBYjtBQUNBLEtBZFUsRUFBWjs7QUFnQkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsQ0F0REQ7O0FBd0RBLElBQU1DLFVBQVUsR0FBRyxTQUFiQSxVQUFhLEdBQVc7QUFDN0IsTUFBSUwsR0FBRyxDQUFDTSxjQUFKLENBQW1CLFNBQW5CLENBQUosRUFBbUM7QUFDbEMsUUFBSUMsUUFBUSxHQUFHUCxHQUFHLENBQUNNLGNBQUosQ0FBbUIsU0FBbkIsQ0FBZjtBQUNBLFFBQUksQ0FBQ0MsUUFBUSxDQUFDQyxLQUFkLEVBQXFCO0FBQ3BCUixTQUFHLENBQUNTLFNBQUosQ0FBYztBQUNiQyxhQUFLLEVBQUUsYUFETTtBQUViQyxZQUFJLEVBQUUsTUFGTyxFQUFkOztBQUlBWCxTQUFHLENBQUNZLGdCQUFKO0FBQ0FDLGdCQUFVLENBQUMsWUFBTTtBQUNoQmIsV0FBRyxDQUFDYyxVQUFKLENBQWU7QUFDZHBCLGFBQUcsRUFBRSx1QkFEUyxFQUFmOztBQUdBLE9BSlMsRUFJUCxJQUpPLENBQVY7QUFLQSxLQVhELE1BV087QUFDTkosVUFBSSxDQUFDO0FBQ0pJLFdBQUcsRUFBRSxLQUREO0FBRUpFLFlBQUksRUFBRTtBQUNMbUIsWUFBRSxFQUFFLFlBREM7QUFFTEMsaUJBQU8sRUFBRVQsUUFBUSxDQUFDVSxFQUZiO0FBR0xULGVBQUssRUFBRUQsUUFBUSxDQUFDQyxLQUhYLEVBRkY7O0FBT0poQixjQUFNLEVBQUUsS0FQSjtBQVFKSyxlQUFPLEVBQUUsaUJBQVNPLEdBQVQsRUFBYztBQUN0QixjQUFJQSxHQUFHLENBQUNSLElBQUosQ0FBU3NCLEtBQVQsSUFBa0IsQ0FBdEIsRUFBeUI7QUFDeEJsQixlQUFHLENBQUNTLFNBQUosQ0FBYztBQUNiQyxtQkFBSyxFQUFFLGNBRE07QUFFYkMsa0JBQUksRUFBRSxNQUZPLEVBQWQ7O0FBSUFYLGVBQUcsQ0FBQ1ksZ0JBQUo7QUFDQUMsc0JBQVUsQ0FBQyxZQUFNO0FBQ2hCYixpQkFBRyxDQUFDYyxVQUFKLENBQWU7QUFDZHBCLG1CQUFHLEVBQUUsdUJBRFMsRUFBZjs7QUFHQSxhQUpTLEVBSVAsSUFKTyxDQUFWO0FBS0E7QUFDRCxTQXJCRyxFQUFELENBQUo7O0FBdUJBO0FBQ0Q7QUFDRCxDQXhDRCxDOztBQTBDZTtBQUNkUCxTQUFPLEVBQVBBLE9BRGM7QUFFZEMsUUFBTSxFQUFOQSxNQUZjO0FBR2RFLE1BQUksRUFBSkEsSUFIYztBQUlkZSxZQUFVLEVBQVZBLFVBSmMsRSIsImZpbGUiOiIxMjIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBiYXNlVXJsID0gJ2h0dHA6Ly9odWl0b25nLmJveWFva2ouY24vYXBpLyc7XHJcbmNvbnN0IGltZ1VybCA9ICdodHRwOi8vc3RvcmUuYm95YW9rai5jbi8nO1xyXG4vKiDlsIHoo4VhamF45Ye95pWwXHJcbiAqIEBwYXJhbSB7c3RyaW5nfW9wdC50eXBlIGh0dHDov57mjqXnmoTmlrnlvI/vvIzljIXmi6xQT1NU5ZKMR0VU5Lik56eN5pa55byPXHJcbiAqIEBwYXJhbSB7c3RyaW5nfW9wdC51cmwg5Y+R6YCB6K+35rGC55qEdXJsXHJcbiAqIEBwYXJhbSB7Ym9vbGVhbn1vcHQuYXN5bmMg5piv5ZCm5Li65byC5q2l6K+35rGC77yMdHJ1ZeS4uuW8guatpeeahO+8jGZhbHNl5Li65ZCM5q2l55qEXHJcbiAqIEBwYXJhbSB7b2JqZWN0fW9wdC5kYXRhIOWPkemAgeeahOWPguaVsO+8jOagvOW8j+S4uuWvueixoeexu+Wei1xyXG4gKiBAcGFyYW0ge2Z1bmN0aW9ufW9wdC5zdWNjZXNzIGFqYXjlj5HpgIHlubbmjqXmlLbmiJDlip/osIPnlKjnmoTlm57osIPlh73mlbBcclxuICovXHJcblxyXG5mdW5jdGlvbiBnZXRIZWFkZXIoKSB7IC8vaGVhZGVy5aS06YOoXHJcblx0cmV0dXJuIHtcclxuXHRcdFwiQWNjZXB0XCI6IFwiYXBwbGljYXRpb24vanNvblwiLFxyXG5cdFx0J0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uOyBjaGFyc2V0PXV0Zi04JywgLy8gYXBwIGhlYWRlcuWktFxyXG5cdFx0Ly8g44CA44CA44CA44CAJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQnLCAvLyBoNSBoZWFkZXLlpLRcclxuXHRcdC8vIOOAgOOAgOOAgOOAgCdBQ0NFU1NfVE9LRU4nOiBgJHt0b2tlbn1gLFxyXG5cdH07XHJcbn1cclxuXHJcbmNvbnN0IGFqYXggPSBmdW5jdGlvbihvcHQpIHtcclxuXHRvcHQgPSBvcHQgfHwge307XHJcblx0b3B0Lm1ldGhvZCA9IChvcHQubWV0aG9kICYmIG9wdC5tZXRob2QudG9VcHBlckNhc2UoKSkgfHwgJ1BPU1QnO1xyXG5cdG9wdC51cmwgPSBiYXNlVXJsICsgb3B0LnVybCB8fCAnJztcclxuXHRvcHQuYXN5bmMgPSBvcHQuYXN5bmMgfHwgdHJ1ZTtcclxuXHRvcHQuZGF0YSA9IG9wdC5kYXRhIHx8IG51bGw7XHJcblx0b3B0LnN1Y2Nlc3MgPSBvcHQuc3VjY2VzcyB8fCBmdW5jdGlvbigpIHt9O1xyXG5cdG9wdC5mYWlsID0gb3B0LmZhaWwgfHwgZnVuY3Rpb24oKSB7fTtcclxuXHRvcHQuY29tcGxldGUgPSBvcHQuY29tcGxldGUgfHwgZnVuY3Rpb24oKSB7fTtcclxuXHR1bmkucmVxdWVzdCh7XHJcblx0XHRtZXRob2Q6IG9wdC5tZXRob2QsXHJcblx0XHRkYXRhVHlwZTogJ2pzb24nLFxyXG5cdFx0dXJsOiBvcHQudXJsLFxyXG5cdFx0ZGF0YTogb3B0LmRhdGEsXHJcblx0XHRoZWFkZXI6IGdldEhlYWRlcigpLFxyXG5cdFx0c3VjY2VzczogKHJlcykgPT4ge1xyXG5cdFx0XHRvcHQuc3VjY2VzcyhyZXMuZGF0YSk7XHJcblx0XHR9LFxyXG5cdFx0ZmFpbDogKHJlcykgPT4ge1xyXG5cdFx0XHRvcHQuZmFpbChyZXMpO1xyXG5cdFx0fSxcclxuXHRcdGNvbXBsZXRlOiAocmVzKSA9PiB7XHJcblx0XHRcdG9wdC5jb21wbGV0ZShyZXMpO1xyXG5cdFx0fSxcclxuXHR9KVxyXG5cdC8vIHZhciB4bWxIdHRwID0gbnVsbDtcclxuXHQvLyBpZiAoWE1MSHR0cFJlcXVlc3QpIHtcclxuXHQvLyBcdHhtbEh0dHAgPSBuZXcgWE1MSHR0cFJlcXVlc3QoKTtcclxuXHQvLyB9IGVsc2Uge1xyXG5cdC8vIFx0eG1sSHR0cCA9IG5ldyBBY3RpdmVYT2JqZWN0KCdNaWNyb3NvZnQuWE1MSFRUUCcpO1xyXG5cdC8vIH1cclxuXHQvLyB2YXIgcGFyYW1zID0gW107XHJcblx0Ly8gaWYgKG9wdC5kYXRhICYmICFvcHQuZGF0YS5pKSB7XHJcblx0Ly8gXHRvcHQudXJsID0gb3B0LnVybCArICcmJyArICdpPTInXHJcblx0Ly8gfVxyXG5cclxuXHQvLyBmb3IgKHZhciBrZXkgaW4gb3B0LmRhdGEpIHtcclxuXHQvLyBcdG9wdC51cmwgPSBvcHQudXJsICsgJyYnICsga2V5ICsgJz0nICsgb3B0LmRhdGFba2V5XVxyXG5cdC8vIFx0Ly8gcGFyYW1zLnB1c2goa2V5ICsgJz0nICsgb3B0LmRhdGFba2V5XSk7XHJcblx0Ly8gfVxyXG5cdC8vIHZhciBwb3N0RGF0YSA9IHBhcmFtcy5qb2luKCcmJyk7XHJcblx0Ly8gaWYgKG9wdC5tZXRob2QudG9VcHBlckNhc2UoKSA9PT0gJ1BPU1QnKSB7XHJcblx0Ly8gXHR4bWxIdHRwLm9wZW4ob3B0Lm1ldGhvZCwgb3B0LnVybCwgb3B0LmFzeW5jKTtcclxuXHQvLyBcdHhtbEh0dHAuc2V0UmVxdWVzdEhlYWRlcignQ29udGVudC1UeXBlJywgJ2FwcGxpY2F0aW9uL3gtd3d3LWZvcm0tdXJsZW5jb2RlZDtjaGFyc2V0PXV0Zi04Jyk7XHJcblx0Ly8gXHR4bWxIdHRwLnNlbmQocG9zdERhdGEpO1xyXG5cdC8vIH0gZWxzZSBpZiAob3B0Lm1ldGhvZC50b1VwcGVyQ2FzZSgpID09PSAnR0VUJykge1xyXG5cdC8vIFx0eG1sSHR0cC5vcGVuKG9wdC5tZXRob2QsIG9wdC51cmwgKyAnPycgKyBwb3N0RGF0YSwgb3B0LmFzeW5jKTtcclxuXHQvLyBcdHhtbEh0dHAuc2VuZChudWxsKTtcclxuXHQvLyB9XHJcblx0Ly8geG1sSHR0cC5vbnJlYWR5c3RhdGVjaGFuZ2UgPSBmdW5jdGlvbigpIHtcclxuXHQvLyBcdGlmICh4bWxIdHRwLnJlYWR5U3RhdGUgPT0gNCAmJiB4bWxIdHRwLnN0YXR1cyA9PSAyMDApIHtcclxuXHQvLyBcdFx0b3B0LnN1Y2Nlc3MoeG1sSHR0cC5yZXNwb25zZVRleHQpO1xyXG5cdC8vIFx0fVxyXG5cdC8vIH07XHJcbn1cclxuXHJcbmNvbnN0IGNoZWNrTG9naW4gPSBmdW5jdGlvbigpIHtcclxuXHRpZiAodW5pLmdldFN0b3JhZ2VTeW5jKCdtZW1iZXJzJykpIHtcclxuXHRcdGxldCB1c2VySW5mbyA9IHVuaS5nZXRTdG9yYWdlU3luYygnbWVtYmVycycpXHJcblx0XHRpZiAoIXVzZXJJbmZvLnRva2VuKSB7XHJcblx0XHRcdHVuaS5zaG93VG9hc3Qoe1xyXG5cdFx0XHRcdHRpdGxlOiAn55m75b2V5bey6L+H5pyf77yM6K+36YeN5paw55m75b2VJyxcclxuXHRcdFx0XHRpY29uOiAnbm9uZSdcclxuXHRcdFx0fSlcclxuXHRcdFx0dW5pLmNsZWFyU3RvcmFnZVN5bmMoKVxyXG5cdFx0XHRzZXRUaW1lb3V0KCgpID0+IHtcclxuXHRcdFx0XHR1bmkucmVkaXJlY3RUbyh7XHJcblx0XHRcdFx0XHR1cmw6ICcvcGFnZXMvbG9naW4vcmVnaXN0ZXInXHJcblx0XHRcdFx0fSlcclxuXHRcdFx0fSwgMTAwMCk7XHJcblx0XHR9IGVsc2Uge1xyXG5cdFx0XHRhamF4KHtcclxuXHRcdFx0XHR1cmw6ICdhcHAnLFxyXG5cdFx0XHRcdGRhdGE6IHtcclxuXHRcdFx0XHRcdG9wOiAnY2hlY2tMb2dpbicsXHJcblx0XHRcdFx0XHR1c2VyX2lkOiB1c2VySW5mby5pZCxcclxuXHRcdFx0XHRcdHRva2VuOiB1c2VySW5mby50b2tlblxyXG5cdFx0XHRcdH0sXHJcblx0XHRcdFx0bWV0aG9kOiAnR0VUJyxcclxuXHRcdFx0XHRzdWNjZXNzOiBmdW5jdGlvbihyZXMpIHtcclxuXHRcdFx0XHRcdGlmIChyZXMuZGF0YS5lcnJubyAhPSAwKSB7XHJcblx0XHRcdFx0XHRcdHVuaS5zaG93VG9hc3Qoe1xyXG5cdFx0XHRcdFx0XHRcdHRpdGxlOiAn5oKo55qE6LSm5Y+35bey5Zyo5YW25LuW57uI56uv55m75b2VJyxcclxuXHRcdFx0XHRcdFx0XHRpY29uOiAnbm9uZSdcclxuXHRcdFx0XHRcdFx0fSlcclxuXHRcdFx0XHRcdFx0dW5pLmNsZWFyU3RvcmFnZVN5bmMoKVxyXG5cdFx0XHRcdFx0XHRzZXRUaW1lb3V0KCgpID0+IHtcclxuXHRcdFx0XHRcdFx0XHR1bmkucmVkaXJlY3RUbyh7XHJcblx0XHRcdFx0XHRcdFx0XHR1cmw6ICcvcGFnZXMvbG9naW4vcmVnaXN0ZXInXHJcblx0XHRcdFx0XHRcdFx0fSlcclxuXHRcdFx0XHRcdFx0fSwgMTAwMCk7XHJcblx0XHRcdFx0XHR9XHJcblx0XHRcdFx0fSxcclxuXHRcdFx0fSk7XHJcblx0XHR9XHJcblx0fVxyXG59XHJcblxyXG5leHBvcnQgZGVmYXVsdCB7XHJcblx0YmFzZVVybCxcclxuXHRpbWdVcmwsXHJcblx0YWpheCxcclxuXHRjaGVja0xvZ2luXHJcbn1cclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///122\n");
+
+/***/ }),
+/* 123 */
+/*!********************************************************************!*\
+  !*** D:/mofei/Item/huitong/pages/mine/modifyphone.vue?mpType=page ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modifyphone.vue?vue&type=template&id=3b9eb181&mpType=page */ 124);\n/* harmony import */ var _modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modifyphone.vue?vue&type=script&lang=js&mpType=page */ 126);\n/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));\n/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 12);\n\nvar renderjs\n\n\n\n\n/* normalize component */\n\nvar component = Object(_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null,\n  false,\n  _modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__[\"components\"],\n  renderjs\n)\n\ncomponent.options.__file = \"pages/mine/modifyphone.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBbUk7QUFDbkk7QUFDMEU7QUFDTDs7O0FBR3JFO0FBQ21LO0FBQ25LLGdCQUFnQiw2S0FBVTtBQUMxQixFQUFFLDRGQUFNO0FBQ1IsRUFBRSxpR0FBTTtBQUNSLEVBQUUsMEdBQWU7QUFDakI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEVBQUUscUdBQVU7QUFDWjtBQUNBOztBQUVBO0FBQ2UsZ0YiLCJmaWxlIjoiMTIzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgcmVuZGVyLCBzdGF0aWNSZW5kZXJGbnMsIHJlY3ljbGFibGVSZW5kZXIsIGNvbXBvbmVudHMgfSBmcm9tIFwiLi9tb2RpZnlwaG9uZS52dWU/dnVlJnR5cGU9dGVtcGxhdGUmaWQ9M2I5ZWIxODEmbXBUeXBlPXBhZ2VcIlxudmFyIHJlbmRlcmpzXG5pbXBvcnQgc2NyaXB0IGZyb20gXCIuL21vZGlmeXBob25lLnZ1ZT92dWUmdHlwZT1zY3JpcHQmbGFuZz1qcyZtcFR5cGU9cGFnZVwiXG5leHBvcnQgKiBmcm9tIFwiLi9tb2RpZnlwaG9uZS52dWU/dnVlJnR5cGU9c2NyaXB0Jmxhbmc9anMmbXBUeXBlPXBhZ2VcIlxuXG5cbi8qIG5vcm1hbGl6ZSBjb21wb25lbnQgKi9cbmltcG9ydCBub3JtYWxpemVyIGZyb20gXCIhLi4vLi4vLi4vLi4vSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy92dWUtbG9hZGVyL2xpYi9ydW50aW1lL2NvbXBvbmVudE5vcm1hbGl6ZXIuanNcIlxudmFyIGNvbXBvbmVudCA9IG5vcm1hbGl6ZXIoXG4gIHNjcmlwdCxcbiAgcmVuZGVyLFxuICBzdGF0aWNSZW5kZXJGbnMsXG4gIGZhbHNlLFxuICBudWxsLFxuICBudWxsLFxuICBudWxsLFxuICBmYWxzZSxcbiAgY29tcG9uZW50cyxcbiAgcmVuZGVyanNcbilcblxuY29tcG9uZW50Lm9wdGlvbnMuX19maWxlID0gXCJwYWdlcy9taW5lL21vZGlmeXBob25lLnZ1ZVwiXG5leHBvcnQgZGVmYXVsdCBjb21wb25lbnQuZXhwb3J0cyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///123\n");
+
+/***/ }),
+/* 124 */
+/*!**************************************************************************************************!*\
+  !*** D:/mofei/Item/huitong/pages/mine/modifyphone.vue?vue&type=template&id=3b9eb181&mpType=page ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-0!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./modifyphone.vue?vue&type=template&id=3b9eb181&mpType=page */ 125);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_template_id_3b9eb181_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
+
+/***/ }),
+/* 125 */
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!D:/mofei/Item/huitong/pages/mine/modifyphone.vue?vue&type=template&id=3b9eb181&mpType=page ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("view", [
+    _c(
+      "view",
+      { staticClass: _vm._$s(1, "sc", "itemlist"), attrs: { _i: 1 } },
+      [
+        _c(
+          "view",
+          { staticClass: _vm._$s(2, "sc", "listitem"), attrs: { _i: 2 } },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.phone,
+                  expression: "phone"
+                }
+              ],
+              attrs: { _i: 3 },
+              domProps: { value: _vm._$s(3, "v-model", _vm.phone) },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.phone = $event.target.value
+                }
+              }
+            }),
+            _c("image", { attrs: { _i: 4 } })
+          ]
+        ),
+        _c(
+          "view",
+          { staticClass: _vm._$s(5, "sc", "listitem"), attrs: { _i: 5 } },
+          [
+            _c("input", {}),
+            _c(
+              "view",
+              {
+                staticClass: _vm._$s(7, "sc", "yzm"),
+                class: _vm._$s(7, "c", { yzms: _vm.second > 0 }),
+                attrs: { _i: 7 },
+                on: { click: _vm.getcode }
+              },
+              [_vm._v(_vm._$s(7, "t0-0", _vm._s(_vm.yanzhengma)))]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 126 */
+/*!********************************************************************************************!*\
+  !*** D:/mofei/Item/huitong/pages/mine/modifyphone.vue?vue&type=script&lang=js&mpType=page ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-1!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./modifyphone.vue?vue&type=script&lang=js&mpType=page */ 127);\n/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));\n /* harmony default export */ __webpack_exports__[\"default\"] = (_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_modifyphone_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); //# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQWtqQixDQUFnQiw0a0JBQUcsRUFBQyIsImZpbGUiOiIxMjYuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgbW9kIGZyb20gXCItIS4uLy4uLy4uLy4uL0hCdWlsZGVyWC9wbHVnaW5zL3VuaWFwcC1jbGkvbm9kZV9tb2R1bGVzL2JhYmVsLWxvYWRlci9saWIvaW5kZXguanMhLi4vLi4vLi4vLi4vSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy93ZWJwYWNrLXByZXByb2Nlc3MtbG9hZGVyL2luZGV4LmpzPz9yZWYtLTYtMSEuLi8uLi8uLi8uLi9IQnVpbGRlclgvcGx1Z2lucy91bmlhcHAtY2xpL25vZGVfbW9kdWxlcy9AZGNsb3VkaW8vdnVlLWNsaS1wbHVnaW4tdW5pL3BhY2thZ2VzL3dlYnBhY2stdW5pLWFwcC1sb2FkZXIvdXNpbmctY29tcG9uZW50cy5qcyEuLi8uLi8uLi8uLi9IQnVpbGRlclgvcGx1Z2lucy91bmlhcHAtY2xpL25vZGVfbW9kdWxlcy9AZGNsb3VkaW8vdnVlLWNsaS1wbHVnaW4tdW5pL3BhY2thZ2VzL3Z1ZS1sb2FkZXIvbGliL2luZGV4LmpzPz92dWUtbG9hZGVyLW9wdGlvbnMhLi9tb2RpZnlwaG9uZS52dWU/dnVlJnR5cGU9c2NyaXB0Jmxhbmc9anMmbXBUeXBlPXBhZ2VcIjsgZXhwb3J0IGRlZmF1bHQgbW9kOyBleHBvcnQgKiBmcm9tIFwiLSEuLi8uLi8uLi8uLi9IQnVpbGRlclgvcGx1Z2lucy91bmlhcHAtY2xpL25vZGVfbW9kdWxlcy9iYWJlbC1sb2FkZXIvbGliL2luZGV4LmpzIS4uLy4uLy4uLy4uL0hCdWlsZGVyWC9wbHVnaW5zL3VuaWFwcC1jbGkvbm9kZV9tb2R1bGVzL0BkY2xvdWRpby92dWUtY2xpLXBsdWdpbi11bmkvcGFja2FnZXMvd2VicGFjay1wcmVwcm9jZXNzLWxvYWRlci9pbmRleC5qcz8/cmVmLS02LTEhLi4vLi4vLi4vLi4vSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy93ZWJwYWNrLXVuaS1hcHAtbG9hZGVyL3VzaW5nLWNvbXBvbmVudHMuanMhLi4vLi4vLi4vLi4vSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy92dWUtbG9hZGVyL2xpYi9pbmRleC5qcz8/dnVlLWxvYWRlci1vcHRpb25zIS4vbW9kaWZ5cGhvbmUudnVlP3Z1ZSZ0eXBlPXNjcmlwdCZsYW5nPWpzJm1wVHlwZT1wYWdlXCIiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///126\n");
+
+/***/ }),
+/* 127 */
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!D:/mofei/Item/huitong/pages/mine/modifyphone.vue?vue&type=script&lang=js&mpType=page ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\nvar _this, js;var _default =\n{\n  onLoad: function onLoad() {\n    _this = this;\n\n  },\n  onUnload: function onUnload() {\n    clearInterval(js);\n    this.second = 0;\n  },\n  data: function data() {\n    return {\n      second: 0,\n      phone: '' };\n\n  },\n  computed: {\n    yanzhengma: function yanzhengma() {\n      if (this.second == 0) {\n        return '获取验证码';\n      } else {\n        if (this.second < 10) {\n          return '重新获取0' + this.second;\n        } else {\n          return '重新获取' + this.second;\n        }\n      }\n    } },\n\n  methods: {\n    clear: function clear() {\n      clearInterval(js);\n      js = null;\n      this.second = 0;\n    },\n    getcode: function getcode() {\n      if (this.phone.length != 11) {\n        uni.showToast({\n          icon: 'none',\n          title: '手机号不正确' });\n\n        return;\n      }\n      if (this.second > 0) {\n        return;\n      }\n      this.second = 60;\n      this.http.ajax({\n        url: 'user/getVerifyCode',\n        method: 'GET',\n        data: {\n          mobile: this.phone },\n\n        success: function success(res) {\n          js = setInterval(function () {\n            _this.second--;\n            if (_this.second == 0) {\n              _this.clear();\n            }\n          }, 1000);\n        } });\n\n\n\n    } } };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbWluZS9tb2RpZnlwaG9uZS52dWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7OztBQWdCQSxjO0FBQ0E7QUFDQSxRQURBLG9CQUNBO0FBQ0E7O0FBRUEsR0FKQTtBQUtBLFVBTEEsc0JBS0E7QUFDQTtBQUNBO0FBQ0EsR0FSQTtBQVNBLE1BVEEsa0JBU0E7QUFDQTtBQUNBLGVBREE7QUFFQSxlQUZBOztBQUlBLEdBZEE7QUFlQTtBQUNBLGNBREEsd0JBQ0E7QUFDQTtBQUNBO0FBQ0EsT0FGQSxNQUVBO0FBQ0E7QUFDQTtBQUNBLFNBRkEsTUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEtBWEEsRUFmQTs7QUE0QkE7QUFDQSxTQURBLG1CQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsS0FMQTtBQU1BLFdBTkEscUJBTUE7QUFDQTtBQUNBO0FBQ0Esc0JBREE7QUFFQSx5QkFGQTs7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLGlDQURBO0FBRUEscUJBRkE7QUFHQTtBQUNBLDRCQURBLEVBSEE7O0FBTUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsV0FMQSxFQUtBLElBTEE7QUFNQSxTQWJBOzs7O0FBaUJBLEtBbkNBLEVBNUJBLEUiLCJmaWxlIjoiMTI3LmpzIiwic291cmNlc0NvbnRlbnQiOlsiPHRlbXBsYXRlPlxyXG5cdDx2aWV3PlxyXG5cdFx0PHZpZXcgY2xhc3M9XCJpdGVtbGlzdFwiPlxyXG5cdFx0XHQ8dmlldyBjbGFzcz1cImxpc3RpdGVtXCI+XHJcblx0XHRcdFx0PGlucHV0IHR5cGU9XCJudW1iZXJcIiB2LW1vZGVsPVwicGhvbmVcIiBwbGFjZWhvbGRlcj1cIuivt+i+k+WFpeaJi+acuuWPt1wiIC8+XHJcblx0XHRcdFx0PGltYWdlIHNyYz1cIkAvc3RhdGljL2ltYWdlcy9jbG9zZS5wbmdcIj48L2ltYWdlPlxyXG5cdFx0XHQ8L3ZpZXc+XHJcblx0XHRcdDx2aWV3IGNsYXNzPVwibGlzdGl0ZW1cIj5cclxuXHRcdFx0XHQ8aW5wdXQgdHlwZT1cIm51bWJlclwiIHBsYWNlaG9sZGVyPVwi6K+36L6T5YWl6aqM6K+B56CBXCIgLz5cclxuXHRcdFx0XHQ8dmlldyBjbGFzcz1cInl6bVwiIDpjbGFzcz1cInsgeXptczogc2Vjb25kPjAgfVwiIEB0YXA9XCJnZXRjb2RlXCI+e3t5YW56aGVuZ21hfX08L3ZpZXc+XHJcblx0XHRcdDwvdmlldz5cclxuXHRcdDwvdmlldz5cclxuXHQ8L3ZpZXc+XG48L3RlbXBsYXRlPlxuXG48c2NyaXB0PlxyXG5cdHZhciBfdGhpcywganM7XHJcblx0ZXhwb3J0IGRlZmF1bHR7XHRcclxuXHRcdG9uTG9hZCgpIHtcclxuXHRcdFx0X3RoaXMgPSB0aGlzO1xyXG5cdFx0XHJcblx0XHR9LFxyXG5cdFx0b25VbmxvYWQoKSB7XHJcblx0XHRcdGNsZWFySW50ZXJ2YWwoanMpXHJcblx0XHRcdHRoaXMuc2Vjb25kID0gMDtcclxuXHRcdH0sXHJcblx0XHRkYXRhKCl7XHJcblx0XHRcdHJldHVybntcclxuXHRcdFx0XHRzZWNvbmQ6IDAsXHJcblx0XHRcdFx0cGhvbmU6ICcnLFxyXG5cdFx0XHR9XHJcblx0XHR9LFxyXG5cdFx0Y29tcHV0ZWQ6IHtcclxuXHRcdFx0eWFuemhlbmdtYSgpIHtcclxuXHRcdFx0XHRpZiAodGhpcy5zZWNvbmQgPT0gMCkge1xyXG5cdFx0XHRcdFx0cmV0dXJuICfojrflj5bpqozor4HnoIEnO1xyXG5cdFx0XHRcdH0gZWxzZSB7XHJcblx0XHRcdFx0XHRpZiAodGhpcy5zZWNvbmQgPCAxMCkge1xyXG5cdFx0XHRcdFx0XHRyZXR1cm4gJ+mHjeaWsOiOt+WPljAnICsgdGhpcy5zZWNvbmQ7XHJcblx0XHRcdFx0XHR9IGVsc2Uge1xyXG5cdFx0XHRcdFx0XHRyZXR1cm4gJ+mHjeaWsOiOt+WPlicgKyB0aGlzLnNlY29uZDtcclxuXHRcdFx0XHRcdH1cclxuXHRcdFx0XHR9XHJcblx0XHRcdH1cclxuXHRcdH0sXHJcblx0XHRtZXRob2RzOntcclxuXHRcdFx0Y2xlYXIoKSB7XHJcblx0XHRcdFx0Y2xlYXJJbnRlcnZhbChqcylcclxuXHRcdFx0XHRqcyA9IG51bGxcclxuXHRcdFx0XHR0aGlzLnNlY29uZCA9IDBcclxuXHRcdFx0fSxcclxuXHRcdFx0Z2V0Y29kZSgpIHtcclxuXHRcdFx0XHRpZiAodGhpcy5waG9uZS5sZW5ndGggIT0gMTEpIHtcclxuXHRcdFx0XHRcdHVuaS5zaG93VG9hc3Qoe1xyXG5cdFx0XHRcdFx0XHRpY29uOiAnbm9uZScsXHJcblx0XHRcdFx0XHRcdHRpdGxlOiAn5omL5py65Y+35LiN5q2j56GuJ1xyXG5cdFx0XHRcdFx0fSk7XHJcblx0XHRcdFx0XHRyZXR1cm47XHJcblx0XHRcdFx0fVxyXG5cdFx0XHRcdGlmICh0aGlzLnNlY29uZCA+IDApIHtcclxuXHRcdFx0XHRcdHJldHVybjtcclxuXHRcdFx0XHR9XHJcblx0XHRcdFx0dGhpcy5zZWNvbmQgPSA2MDtcclxuXHRcdFx0XHR0aGlzLmh0dHAuYWpheCh7XHJcblx0XHRcdFx0XHR1cmw6ICd1c2VyL2dldFZlcmlmeUNvZGUnLFxyXG5cdFx0XHRcdFx0bWV0aG9kOiAnR0VUJyxcclxuXHRcdFx0XHRcdGRhdGE6IHtcclxuXHRcdFx0XHRcdFx0bW9iaWxlOiB0aGlzLnBob25lLFxyXG5cdFx0XHRcdFx0fSxcclxuXHRcdFx0XHRcdHN1Y2Nlc3M6IGZ1bmN0aW9uKHJlcykge1xyXG5cdFx0XHRcdFx0XHRqcyA9IHNldEludGVydmFsKGZ1bmN0aW9uKCkge1xyXG5cdFx0XHRcdFx0XHRcdF90aGlzLnNlY29uZC0tO1xyXG5cdFx0XHRcdFx0XHRcdGlmIChfdGhpcy5zZWNvbmQgPT0gMCkge1xyXG5cdFx0XHRcdFx0XHRcdFx0X3RoaXMuY2xlYXIoKVxyXG5cdFx0XHRcdFx0XHRcdH1cclxuXHRcdFx0XHRcdFx0fSwgMTAwMClcclxuXHRcdFx0XHRcdH1cclxuXHRcdFx0XHR9KTtcclxuXHRcdFx0XHJcblx0XHRcdFxyXG5cdFx0XHR9LFxyXG5cdFx0fVxyXG5cdH1cbjwvc2NyaXB0PlxuXG48c3R5bGU+XHJcblx0Lmxpc3RpdGVtIGltYWdle1xyXG5cdFx0d2lkdGg6IDY2cnB4O1xyXG5cdFx0aGVpZ2h0OiA2NnJweDtcclxuXHR9XHJcblx0Lnl6bSB7XHJcblx0XHRjb2xvcjogIzE4OTBGRjtcclxuXHRcdGZvbnQtc2l6ZTogMjZycHg7XHJcblx0XHRsaW5lLWhlaWdodDogNjRycHg7XHJcblx0XHRwYWRkaW5nLWxlZnQ6IDEwcnB4O1xyXG5cdFx0cGFkZGluZy1yaWdodDogMTBycHg7XHJcblx0XHR3aWR0aDogYXV0bztcclxuXHRcdGhlaWdodDogNjRycHg7XHJcblx0XHQvKiBib3JkZXI6IDFycHggc29saWQgI0ZGQTgwMDsgKi9cclxuXHRcdGJvcmRlci1yYWRpdXM6IDUwcnB4O1xyXG5cdH1cbjwvc3R5bGU+XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///127\n");
 
 /***/ })
 ],[[0,"app-config"]]]);
