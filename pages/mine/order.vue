@@ -4,15 +4,14 @@
 		<view class="topTitle">环保检测</view>
 	</view> -->
 	<view class="uniList">
-		<view class="uniListItem" v-for="(item,index) in order">
+		<view class="uniListItem" v-for="(item,index) in order" @click="toDetail(item.service_id)">
 			<view class="order">
 				<view class="orderLeft">
-					<view>{{item.name}}</view>
-					<view>{{item.content}}</view>
+					<view>{{item.htService.name}}</view>
+					<view>{{item.htService.sub_name}}</view>
 				</view>
 				<view class="orderRight">
-				<view :class="{active:item.whether == 1}" v-if="item.whether == 1">已预约</view>
-				<view v-if="item.whether == 0">未预约</view>
+				<view class="active">已预约</view>
 				</view>
 			</view>
 		</view>
@@ -50,6 +49,11 @@
 					success: function(res) {
 						that.order = that.order.concat(res.data)
 					}
+				});
+			},
+			toDetail(id){
+				uni.navigateTo({
+				    url: '/pages/index/itemDetails?id='+id,
 				});
 			},
 		},

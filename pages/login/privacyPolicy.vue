@@ -17,7 +17,7 @@
 				url: 'index/xieyi',
 				method: 'GET',
 				data: {
-					name: 'fuwu',
+					name: 'yinsi',
 				},
 				success: function(res) {
 					that.content = res.data.value

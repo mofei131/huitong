@@ -1,38 +1,34 @@
 <template>
 	<view>
 		<view class="video">
-			<video :src="video.url" :show-play-btn="false" :show-center-play-btn="false"
-				:enable-progress-gesture="false" ref="myVideo" id="myVideo" @ended="ended"></video>
+			<cover-view@click.stop="test" v-if="!isQuan" class="noquanback">
+				</cover-view>
+				<video x5-video-player-type='h5-page' :src="video.video" @play="playVideo" @pause="pauseVideo"
+					@fullscreenchange="fullscreenchange" :poster="video.cover"
+					:show-center-play-btn="false" :enable-progress-gesture="false" ref="myVideo" id="myVideo"
+					@ended="ended" @timeupdate="timeupdate">
+
+					<cover-view @click.stop="test" v-if="isQuan" class="quanback"></cover-view>
+				</video>
 		</view>
 		<view class="content">
 			<view class="chapter">课程简介</view>
-			<view>{{video.chapter}}</view>
-			<view>{{video.brief}}</view>
+			<view>{{video.title}}</view>
+			<view v-html="video.content"></view>
 			<view class="cen">
-				<view>{{video.cen}}人已学</view>
-				<view>时长:{{video.time}}</view>
-				<view>{{video.date}}</view>
+				<view>{{video.study}}人已学</view>
+				<view>时长:{{video.long}}</view>
+				<view>{{video.create_time}}</view>
 			</view>
 		</view>
-		<my-dialog :showDialog="showDialog"
-		:content="content"
-		:bts="bts"
-		@clickCancel="clickCancel"
-		@clickConfirm="clickConfirm"
-		></my-dialog>
-		<my-dialog :showDialog="showDialogWifi"
-		:content="contentWifi"
-		:bts="btsWifi"
-		@clickCancel="clickCancelWifi"
-		@clickConfirm="clickConfirmWifi"
-		></my-dialog>
-		<my-dialog :showDialog="showDialogOut"
-		:content="contentOut"
-		@closeDialog="closeDialog"
-		></my-dialog>
-		<view class="buy">
+		<my-dialog :showDialog="showDialog" :content="content" :bts="bts" @clickCancel="clickCancel"
+			@clickConfirm="clickConfirm"></my-dialog>
+		<my-dialog :showDialog="showDialogWifi" :content="contentWifi" :bts="btsWifi" @clickCancel="clickCancelWifi"
+			@clickConfirm="clickConfirmWifi"></my-dialog>
+		<my-dialog :showDialog="showDialogOut" :content="contentOut" @closeDialog="closeDialog"></my-dialog>
+		<!-- <view class="buy">
 			<button @click="pay(video.id,video.price,video.chapter)">立即购买</button>
-		</view>
+		</view> -->
 	</view>
 	</view>
 </template>
@@ -41,31 +37,27 @@
 	export default {
 		data() {
 			return {
+				id: 0,
+				isQuan: false,
 				videoContext: {},
 				showDialog: false,
 				showDialogOut: false,
 				showDialogWifi: false,
 				time: 0,
 				content: [],
-				contentOut: [
-					{
-						title: '恭喜您！已完成本年度学习任务请等待证书发放'
-					}
-				],
+				contentOut: [{
+					title: '恭喜您！已完成本年度学习任务请等待证书发放'
+				}],
 				contentWifi: [],
 				bts: [],
 				btsWifi: [],
-				video: {
-					cover:"https://img2.baidu.com/it/u=4267680702,373970169&fm=26&fmt=auto&gp=0.jpg",
-					url: "https://video.pearvideo.com/mp4/adshort/20210727/cont-1736568-15730255_adpkg-ad_hd.mp4",
-					chapter: "第一章：基础护理知识和技能",
-					brief: "位提级放关增手响边价本问争史 院书称九省导上政同权取合技家新制容准证红最流算节深米证干院流四维年无实再入南证社联进他。手反难高此义当商社进头商调完时以今过家车克公必他青采资为斗长就期来集入思当打满你各气认任节飞广家却直长。空以细领那话教般属理消风北化步习叫际了题事好选会正同满次火场期化会南见等类理方结电米知是在便作本步易料更名白内力查广合海见人周好命内十发论原她。",
-					cen: 99,
-					time: '00:00:59',
-					date: '2020-03-27',
-					price:19.88
-				}
+				videoTime: '',
+				videoTimeNum: 0,
+				video: {}
 			}
+		},
+		onLoad(options) {
+			this.id = options.id
 		},
 		onReady() {
 			this.getTime()
@@ -103,74 +95,86 @@
 
 			getTime() {
 				let that = this
-				let time = 10
+				this.http.ajax({
+					url: 'video/detail',
+					method: 'GET',
+					data: {
+						id: this.id,
+						user_id: uni.getStorageSync('userInfo').id
+					},
+					success: function(res) {
+						that.video = res.data
+						let time = res.data.now
+						that.videoTimeNum = res.data.now
+						let text = that.getTimeText(time)
+						if (time > 0) {
+							that.content = [{
+									title: '您上次观看到'
+								},
+								{
+									title: ' ' + text + ' ',
+									color: '#1890FF'
+								},
+								{
+									title: '是否继续观看'
+								}
+							]
+							that.bts = [{
+									title: '取消',
+									background: '#fff',
+									borderColor: '#1890FF',
+									color: '#1890FF'
+								},
+								{
+									title: '继续观看',
+									background: '#1890FF',
+									borderColor: '#1890FF',
+									color: '#fff'
+								},
+							]
+							that.time = time
+							that.showDialog = true
+						}
+					}
+				});
+			},
+
+			getTimeText(time) {
 				let h = parseInt(time / 3600)
 				let m = parseInt((time / 60) - (h * 60))
 				let s = time % 60
 				h = h < 10 ? '0' + h : h
 				m = m < 10 ? '0' + m : m
 				s = s < 10 ? '0' + s : s
-				if (time > 0) {
-					this.content = [
-						{
-							title: '您上次观看到'
-						},
-						{
-							title: ' ' + h + ':' + m + ':' + s + ' ',
-							color: '#1890FF'
-						},
-						{
-							title: '是否继续观看'
-						}
-					]
-					this.bts = [
-						{
-							title: '取消',
-							background: '#fff',
-							borderColor: '#1890FF',
-							color: '#1890FF'
-						},
-						{
-							title: '继续观看',
-							background: '#1890FF',
-							borderColor: '#1890FF',
-							color: '#fff'
-						},
-					]
-					this.time = time
-					this.showDialog = true
-					// uni.showModal({
-					// 	title: '提示',
-					// 	content: '您上次观看到' + h + ':' + m + ':' + s + '是否继续观看',
-					// 	confirmText: "继续观看",
-					// 	success: function(res) {
-					// 		if (res.confirm) {
-					// 			that.time = time
-					// 			uni.createVideoContext('myVideo').seek(that.time)
-					// 			uni.createVideoContext('myVideo').play()
-					// 		} else if (res.cancel) {
-					// 			uni.createVideoContext('myVideo').play()
-					// 		}
-					// 	}
-					// });
-				} else {
-					uni.createVideoContext('myVideo').play()
-				}
+				return h + ':' + m + ':' + s
 			},
-			
+
 			ended() {
 				this.showDialogOut = true
-				this.contentOut = [
-					{
-						title: '恭喜您！已完成本年度学习任务请等待证书发放'
+				this.contentOut = [{
+					title: '恭喜您！已完成本年度学习任务请等待证书发放'
+				}]
+				let that = this
+				this.videoTimeNum = 0
+				this.http.ajax({
+					url: 'video/addTime',
+					method: 'GET',
+					data: {
+						video_id: this.id,
+						user_id: uni.getStorageSync('userInfo').id,
+						now: 69,
+						long: 69,
+					},
+					success: function(res) {
+						console.log(res)
 					}
-				]
+				});
 			},
-			
+
 			closeDialog() {
 				this.showDialogOut = false
 			},
-			
+
 			clickCancel() {
 				this.showDialog = false
 				uni.getNetworkType({
@@ -182,13 +186,10 @@
 							case '4g':
 							case '5g':
 								this.showDialogWifi = true,
-								this.contentWifi = [
-									{
+									this.contentWifi = [{
 										title: '您正在使用移动网络,继续观看会耗费通讯流量'
-									}
-								]
-								this.btsWifi = [
-									{
+									}]
+								this.btsWifi = [{
 										title: '取消',
 										background: '#fff',
 										borderColor: '#1890FF',
@@ -202,14 +203,14 @@
 									},
 								]
 								break;
-							default: 
+							default:
 								uni.createVideoContext('myVideo').play()
 								break;
 						}
 					}
 				})
 			},
-			
+
 			clickConfirm() {
 				this.showDialog = false
 				uni.getNetworkType({
@@ -221,13 +222,10 @@
 							case '4g':
 							case '5g':
 								this.showDialogWifi = true,
-								this.contentWifi = [
-									{
+									this.contentWifi = [{
 										title: '您正在使用移动网络,继续观看会耗费通讯流量'
-									}
-								]
-								this.btsWifi = [
-									{
+									}]
+								this.btsWifi = [{
 										title: '取消',
 										background: '#fff',
 										borderColor: '#1890FF',
@@ -242,7 +240,7 @@
 								]
 								uni.createVideoContext('myVideo').seek(this.time)
 								break;
-							default: 
+							default:
 								uni.createVideoContext('myVideo').seek(this.time)
 								uni.createVideoContext('myVideo').play()
 								break;
@@ -250,28 +248,84 @@
 					}
 				})
 			},
-			
+
 			clickCancelWifi() {
 				this.showDialogWifi = false
 			},
-			
+
 			clickConfirmWifi() {
 				this.showDialogWifi = false
 				uni.createVideoContext('myVideo').play()
 			},
-			pay(id,price,chapter){
+			pay(id, price, chapter) {
 				uni.navigateTo({
-					url: '/pages/train/pay?id='+id+'&price='+price+'&chapter='+chapter,
+					url: '/pages/train/pay?id=' + id + '&price=' + price + '&chapter=' + chapter,
 				})
-			}
+			},
+
+			fullscreenchange(e) {
+				console.log(e)
+				this.isQuan = e.detail.fullScreen
+			},
+
+			playVideo(e) {
+				// console.log(e)
+			},
+
+			pauseVideo(e) {
+				// console.log(e)
+			},
+			
+			timeupdate(e) {
+				if (parseInt(this.videoTimeNum) + 5 == parseInt(e.detail.currentTime)) {
+					this.videoTimeNum = parseInt(e.detail.currentTime)
+					let that = this
+					this.http.ajax({
+						url: 'video/addTime',
+						method: 'GET',
+						data: {
+							video_id: this.id,
+							user_id: uni.getStorageSync('userInfo').id,
+							now: parseInt(e.detail.currentTime),
+							long: 69,
+						},
+						success: function(res) {
+							console.log(res)
+						}
+					});
+				}
+			},
 		}
 	}
 </script>
 
 <style>
+	.video {
+		position: relative;
+	}
+
 	.video video {
 		width: 750rpx;
 		margin-top: 8rpx;
+		z-index: 10;
+	}
+
+	.noquanback {
+		position: absolute;
+		bottom: 5rpx;
+		height: 80rpx;
+		width: 610rpx;
+		left: 70rpx;
+		z-index: 99999999;
+	}
+
+	.quanback {
+		position: absolute;
+		bottom: 5rpx;
+		height: 80rpx;
+		width: 610rpx;
+		left: 70rpx;
+		z-index: 99999999;
 	}
 
 	.content {

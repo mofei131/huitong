@@ -2,22 +2,22 @@
 	<view>
 		<view class="topMian" @click="login()">
 			<view class="tmLeft">
-				<image :src="user.headPort"></image>
+				<image :src="headPort"></image>
 				<image src="@/static/images/rzsucess.png" v-if="user.authe == 1"></image>
 			</view>
 			<view class="tmRight">
-				<view>{{user.name}}</view>
-				<view>{{user.company}}</view>
+				<view>{{user.renzheng_name ? user.renzheng_name : '游客' + user.id}}</view>
+				<view>{{user.renzheng_company}}</view>
 			</view>
 		</view>
 		<view class="list">
 			<uni-list>
 			    <uni-list-item thumb="../../static/images/meico1.png" title="我的预约" link to="./order"   ></uni-list-item>
-				<view v-if="user.authe == 1">
+				<view v-if="user.renzheng_company">
 			    <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="已认证"  link to="./authe"   ></uni-list-item>
 				</view>
-				<view v-if="user.authe == 0">
-				 <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证"  link to="#"   ></uni-list-item>
+				<view v-if="!user.renzheng_company">
+				 <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证"  link to="./authe"   ></uni-list-item>
 				 </view>
 				<uni-list-item thumb="../../static/images/meico3.png" title="联系客服" rightText="400-820-2550" link @click="cell()"   ></uni-list-item>
 				<uni-list-item thumb="../../static/images/meico4.png" title="服务协议" link to="./contract"   ></uni-list-item>
@@ -32,13 +32,12 @@
 export default{
 	data(){
 		return{
-			user:{
-					name:"张三风",
-					company:"山东省xxx咨询科技公司",
-					authe:1,
-					headPort:"https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f11f3a292df5e0fef6409b715e6034a85edf7261.jpg",
-				}
+			headPort:"https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f11f3a292df5e0fef6409b715e6034a85edf7261.jpg",
+			user:{}
 		}
+	},
+	onShow() {
+		this.user = wx.getStorageSync('userInfo')
 	},
 	methods:{
 		cell(){

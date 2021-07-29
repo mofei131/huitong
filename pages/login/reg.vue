@@ -25,7 +25,7 @@
 		<view class="agreement">
 			<text v-if="password == ''">密码为6-20位，可由数字、字母、符号组成。</text>
 			<text v-if="password != ''">登录即代表同意<navigator url="agreement" open-type="navigate" class="xiahuaxian">用户协议</navigator>及<navigator
-					class="xiahuaxian" url="agreement" open-type="navigate">隐私政策</navigator></text>
+					class="xiahuaxian" url="privacyPolicy" open-type="navigate">隐私政策</navigator></text>
 		</view>
 		<view class="button-login" hover-class="button-hover" @tap="bindLogin">
 			<text>立即注册</text>

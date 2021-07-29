@@ -27,8 +27,8 @@
 		</view>
 		<view class="new">
 			<view class="ullist">
-				<view v-for="(item,index) in data" :key=index @click="dzclick(index)" :class="{active:active == index}">
-					{{item}}
+				<view v-for="(item,index) in data" :key=index @click="dzclick(item.id)" :class="{active:active == item.id}">
+					{{item.title}}
 				</view>
 			</view>
 			<view class="child">
@@ -50,25 +50,11 @@
 				examinationTypeIndex: 0,
 				examinationTypeArrayType: '',
 				bannerList: [],
-				active: 0,
-				data: ["企业信息发布", "政府政策", "法律条文"],
-				info: [{
-					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
-					date: "2020年03月18日 06:36",
-					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
-				}, {
-					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
-					date: "2020年03月18日 06:36",
-					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
-				}, {
-					title: "山东两批返鲁援湖北医疗队员战“疫”纪实山东两批返鲁援湖北医疗队员战“疫”纪实",
-					date: "2020年03月18日 06:36",
-					imageUrl: null
-				}, {
-					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
-					date: "2020年03月18日 06:36",
-					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
-				}],
+				active: 'companyNews',
+				page: 1,
+				limit: 10,
+				data: [{title: '企业信息发布', id: 'companyNews'}, {title: '政府政策', id: 'policyNews'}, {title: '法律条文', id: 'lawNews'}],
+				info: [],
 				iconList: []
 			}
 		},
@@ -80,12 +66,15 @@
 			}
 			this._load()
 		},
+		onReachBottom() {
+			this.page++
+			this.getList()
+		},
 		methods: {
 			_load() {
 				this.getBanner();
 				this.getIcon();
 				this.getCity();
-				this.getList();
 			},
 			getBanner() {
 				let that = this
@@ -134,21 +123,38 @@
 							that.examinationTypeArrayType = res.data[0].name
 							that.examinationTypeIndex = 0
 							uni.setStorageSync('city', res.data[0].name)
+							that.getList()
 						}
 					}
 				});
 			},
 			getList() {
-				
+				let that = this
+				this.http.ajax({
+					url: 'news/list',
+					method: 'GET',
+					data: {
+						page: this.page,
+						limit: this.limit,
+						type: this.active,
+						city_id: this.examinationTypeArray[this.examinationTypeIndex].id
+					},
+					success: function(res) {
+						that.info = res.data
+					}
+				});
 			},
 			dzclick(id) {
 				this.active = id
+				this.info = []
+				this.page = 1
 				this.getList()
 			},
 			examinationType(e) {
 				this.examinationTypeIndex = e.target.value;
 				this.examinationTypeArrayType = this.examinationTypeArray[this.examinationTypeIndex].name
 				uni.setStorageSync('city', this.examinationTypeArrayType)
+				this.getList()
 			},
 			examinationTypeChange(e) {
 				console.log(e)

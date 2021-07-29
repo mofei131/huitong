@@ -91,6 +91,12 @@
     	"style": {
     		"navigationBarTitleText": "用户协议"
     	}
+    },
+    {
+    	"path": "pages/login/privacyPolicy",
+    	"style": {
+    		"navigationBarTitleText": "隐私政策"
+    	}
     },{
     	"path": "pages/index/itemList"
     	// "style": {

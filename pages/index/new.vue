@@ -8,12 +8,12 @@
 						{{item.title}}
 					</view>
 					<view>
-						{{item.date}}
+						{{item.create_time}}
 					</view>
 					</view>
-					<view class="listright" v-if="item.imageUrl !== null ">
+					<view class="listright" v-if="item.image">
 					<view>
-						<image :src="item.imageUrl"></image>
+						<image :src="item.image"></image>
 					</view>
 					</view>
 				</view>
@@ -35,6 +35,9 @@
 	.listItem{
 		display: flex;
 		padding-bottom: 30rpx;
+	}
+	.listleft {
+		width: 470rpx;
 	}
 	.listleft view{
 		padding-bottom: 9rpx;
