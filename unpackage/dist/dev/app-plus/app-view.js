@@ -244,21 +244,51 @@ var render = function() {
         "v-uni-view",
         { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
         [
-          _c("v-uni-image", {
-            attrs: { src: "/static/images/city.jpg", _i: 2 }
-          }),
+          _c(
+            "v-uni-swiper",
+            {
+              staticStyle: { width: "100%", height: "437rpx" },
+              attrs: { autoplay: true, circular: true, _i: 2 }
+            },
+            _vm._l(_vm._$g(3, "f"), function(item, index, $20, $30) {
+              return _c(
+                "v-uni-swiper-item",
+                { key: item, attrs: { _i: "3-" + $30 } },
+                [
+                  _c("v-uni-image", {
+                    attrs: {
+                      src: _vm._$g("4-" + $30, "a-src"),
+                      _i: "4-" + $30
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.$handleViewEvent($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            }),
+            1
+          ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
+            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
             [
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
                 [
                   _c(
                     "v-uni-picker",
                     {
-                      attrs: { range: _vm._$g(5, "a-range"), _i: 5 },
+                      attrs: {
+                        "range-key": "name",
+                        value: _vm._$g(7, "a-value"),
+                        range: _vm._$g(7, "a-range"),
+                        _i: 7
+                      },
                       on: {
                         change: function($event) {
                           return _vm.$handleViewEvent($event)
@@ -266,8 +296,8 @@ var render = function() {
                       }
                     },
                     [
-                      _c("v-uni-label", { attrs: { _i: 6 } }, [
-                        _vm._v(_vm._$g(6, "t0-0"))
+                      _c("v-uni-label", { attrs: { _i: 8 } }, [
+                        _vm._v(_vm._$g(8, "t0-0"))
                       ])
                     ],
                     1
@@ -280,10 +310,10 @@ var render = function() {
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+            { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
             [
               _c("v-uni-image", {
-                attrs: { src: "/static/images/Rectangle.png", mode: "", _i: 8 }
+                attrs: { src: "/static/images/Rectangle.png", mode: "", _i: 10 }
               })
             ],
             1
@@ -293,17 +323,17 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+        { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
-            _vm._l(_vm._$g(11, "f"), function(item, index, $20, $30) {
+            { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+            _vm._l(_vm._$g(13, "f"), function(item, index, $21, $31) {
               return _c(
                 "v-uni-view",
                 {
                   key: item,
-                  attrs: { _i: "11-" + $30 },
+                  attrs: { _i: "13-" + $31 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
@@ -313,12 +343,12 @@ var render = function() {
                 [
                   _c("v-uni-image", {
                     attrs: {
-                      src: _vm._$g("12-" + $30, "a-src"),
-                      _i: "12-" + $30
+                      src: _vm._$g("14-" + $31, "a-src"),
+                      _i: "14-" + $31
                     }
                   }),
-                  _c("v-uni-text", { attrs: { _i: "13-" + $30 } }, [
-                    _vm._v(_vm._$g("13-" + $30, "t0-0"))
+                  _c("v-uni-text", { attrs: { _i: "15-" + $31 } }, [
+                    _vm._v(_vm._$g("15-" + $31, "t0-0"))
                   ])
                 ],
                 1
@@ -331,53 +361,35 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+        { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
-            _vm._l(_vm._$g(16, "f"), function(item, index, $21, $31) {
+            { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+            _vm._l(_vm._$g(18, "f"), function(item, index, $22, $32) {
               return _c(
                 "v-uni-view",
                 {
                   key: item,
-                  class: _vm._$g("16-" + $31, "c"),
-                  attrs: { _i: "16-" + $31 },
+                  class: _vm._$g("18-" + $32, "c"),
+                  attrs: { _i: "18-" + $32 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
                     }
                   }
                 },
-                [_vm._v(_vm._$g("16-" + $31, "t0-0"))]
+                [_vm._v(_vm._$g("18-" + $32, "t0-0"))]
               )
             }),
             1
           ),
-          _vm._$g(17, "i")
-            ? _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-                [_c("child", { attrs: { _i: 18 } })],
-                1
-              )
-            : _vm._e(),
-          _vm._$g(19, "i")
-            ? _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                [_c("child", { attrs: { _i: 20 } })],
-                1
-              )
-            : _vm._e(),
-          _vm._$g(21, "i")
-            ? _c(
-                "v-uni-view",
-                { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-                [_c("child", { attrs: { _i: 22 } })],
-                1
-              )
-            : _vm._e()
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+            [_c("child", { attrs: { _i: 20 } })],
+            1
+          )
         ],
         1
       )
@@ -1261,7 +1273,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.banner uni-image{\n\twidth: 750rpx;\n\tposition: relative;\n}\n.iconlist{\n\twidth: 720rpx;\n\theight: 340rpx;\n\tbackground: #FFFFFF;\n\t-webkit-box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\t        box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\tborder-radius: 14px;\n\tmargin: 23rpx auto;\n}\n.iconul{\n\twidth: 720rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.iconul uni-view{\n\twidth: 180rpx;\n\tpadding-top: 25rpx;\n}\n.iconul uni-view uni-text{\n\tdisplay: block;\n\tcolor: #666666;\n\tpadding-top: 10rpx;\n\ttext-align: center;\n}\n.iconul uni-view uni-image{\n\twidth: 84rpx;\n\theight: 84rpx;\n\tmargin: auto;\n\tdisplay: block;\n}\n.ullist{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tfloat: left;\n\tfont-size: 30rpx;\n\t-webkit-box-pack: start;\n\t-webkit-justify-content: start;\n\t        justify-content: start;\n}\n.ullist uni-view{\n\tmargin-right: 30rpx;\n}\n.new{\n\twidth: 720rpx;\n\tbackground: #FFFFFF;\n\tborder-radius: 14px;\n\tmargin: auto;\n}\n.ullist .active{\n\tborder-bottom: 3px solid #1890FF;\n}\n.child{\n\tfloat: left;\n\tpadding: 40rpx 0 60rpx 0;\n}\n.dropDown uni-view,.lauwen-select-input{\n\tborder: 0rpx;\n\twidth: 160rpx;\n}\n.dropDown{\n\tposition: absolute;\n\ttop: 60rpx;\n\tleft: 10rpx;\n\tcolor: #fff;\n}\n.lauwen-option{\n\tbackground: #1890FF;\n}\n.rectangle{\n\tposition: absolute;\n\ttop: 60rpx;\n\tright: 10rpx;\n}\n.rectangle uni-image{\n\twidth: 66rpx;\n\theight: 66rpx;\n}\n", ""]);
+exports.push([module.i, "\n.banner uni-image {\n\twidth: 750rpx;\n\tposition: relative;\n}\n.iconlist {\n\twidth: 720rpx;\n\theight: 340rpx;\n\tbackground: #FFFFFF;\n\t-webkit-box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\t        box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\tborder-radius: 14px;\n\tmargin: 23rpx auto;\n}\n.iconul {\n\twidth: 720rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.iconul uni-view {\n\twidth: 180rpx;\n\tpadding-top: 25rpx;\n}\n.iconul uni-view uni-text {\n\tdisplay: block;\n\tcolor: #666666;\n\tpadding-top: 10rpx;\n\ttext-align: center;\n}\n.iconul uni-view uni-image {\n\twidth: 84rpx;\n\theight: 84rpx;\n\tmargin: auto;\n\tdisplay: block;\n}\n.ullist {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tfloat: left;\n\tfont-size: 30rpx;\n\t-webkit-box-pack: start;\n\t-webkit-justify-content: start;\n\t        justify-content: start;\n}\n.ullist uni-view {\n\tmargin-right: 30rpx;\n}\n.new {\n\twidth: 720rpx;\n\tbackground: #FFFFFF;\n\tborder-radius: 14px;\n\tmargin: auto;\n}\n.ullist .active {\n\tborder-bottom: 3px solid #1890FF;\n}\n.child {\n\tfloat: left;\n\tpadding: 40rpx 0 60rpx 0;\n}\n.dropDown uni-view,\n.lauwen-select-input {\n\tborder: 0rpx;\n\twidth: 160rpx;\n}\n.dropDown {\n\tposition: absolute;\n\ttop: 60rpx;\n\tleft: 10rpx;\n\tcolor: #fff;\n}\n.lauwen-option {\n\tbackground: #1890FF;\n}\n.rectangle {\n\tposition: absolute;\n\ttop: 60rpx;\n\tright: 10rpx;\n}\n.rectangle uni-image {\n\twidth: 66rpx;\n\theight: 66rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -5732,11 +5744,11 @@ var render = function() {
             { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
             [_vm._v("~产品介绍~")]
           ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
-            [_vm._v(_vm._$g(8, "t0-0"))]
-          )
+          _c("v-uni-view", {
+            staticClass: _vm._$g(8, "sc"),
+            attrs: { _i: 8 },
+            domProps: { innerHTML: _vm._s(_vm._$g(8, "v-html")) }
+          })
         ],
         1
       ),
@@ -5749,63 +5761,55 @@ var render = function() {
             { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
             [_vm._v("~服务说明~")]
           ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
-            [
-              _c("v-uni-view", { attrs: { _i: 12 } }, [_vm._v("服务时间:")]),
-              _c("v-uni-view", { attrs: { _i: 13 } }, [
-                _vm._v(_vm._$g(13, "t0-0"))
-              ])
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-            [
-              _c("v-uni-view", { attrs: { _i: 15 } }, [_vm._v("服务时间:")]),
-              _c("v-uni-view", { attrs: { _i: 16 } }, [
-                _vm._v(_vm._$g(16, "t0-0"))
-              ])
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _c(
-        "v-uni-view",
-        { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-        [
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
-            [_vm._v("~服务流程~")]
-          ),
-          _c("v-uni-image", {
-            attrs: { src: "/static/images/lcimg.png", _i: 19 }
+          _c("v-uni-view", {
+            staticClass: _vm._$g(11, "sc"),
+            attrs: { _i: 11 },
+            domProps: { innerHTML: _vm._s(_vm._$g(11, "v-html")) }
           })
         ],
         1
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+        { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
         [
           _c(
-            "v-uni-button",
-            {
-              style: _vm._$g(21, "s"),
-              attrs: { disabled: _vm._$g(21, "a-disabled"), _i: 21 },
-              on: {
-                click: function($event) {
-                  return _vm.$handleViewEvent($event)
-                }
-              }
-            },
-            [_vm._v("立即预约")]
-          )
+            "v-uni-view",
+            { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+            [_vm._v("~服务流程~")]
+          ),
+          _c("v-uni-image", {
+            attrs: { src: "/static/images/lcimg.png", _i: 14 }
+          })
+        ],
+        1
+      ),
+      _c(
+        "v-uni-view",
+        { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+        [
+          _vm._$g(16, "i")
+            ? _c(
+                "v-uni-button",
+                {
+                  staticClass: _vm._$g(16, "sc"),
+                  attrs: { _i: 16 },
+                  on: {
+                    click: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
+                  }
+                },
+                [_vm._v("立即预约")]
+              )
+            : _vm._e(),
+          _vm._$g(17, "i")
+            ? _c(
+                "v-uni-button",
+                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                [_vm._v("已预约")]
+              )
+            : _vm._e()
         ],
         1
       )
@@ -5901,7 +5905,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.banner uni-image{\n\twidth: 750rpx;\n}\n.explain{\n\twidth: 710rpx;\n\tbackground: #FFFFFF;\n\t-webkit-box-shadow: 0rpx 0rpx 19rpx 0rpx rgba(0, 0, 0, 0.11);\n\t        box-shadow: 0rpx 0rpx 19rpx 0rpx rgba(0, 0, 0, 0.11);\n\tborder-radius: 16rpx;\n\tmargin: auto;\n\tpadding: 23rpx;\n\tmargin-top: 20rpx;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n}\n.title{\n\tcolor: #40A9FF;\n\tfont-size: 24rpx;\n\ttext-align: center;\n\tfont-family: PingFangSC-Medium, PingFang SC;\n\tfont-weight: 500;\n\tline-height: 33rpx;\n}\n.content{\n\tcolor: #6A6A6A;\n\tfont-size: 22rpx;\n\tfont-family: PingFangSC-Regular, PingFang SC;\n\tfont-weight: 400;\n\tline-height: 30rpx;\n\tmargin-top: 29rpx;\n}\n.list{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 16rpx;\n}\n.list uni-view:nth-child(1){\n\tcolor: #6A6A6A;\n\tfont-size: 22rpx;\n\tfont-family: PingFangSC-Semibold, PingFang SC;\n\tfont-weight: 600;\n\tline-height: 30rpx;\n}\n.list uni-view:nth-child(2){\n\tcolor: #6A6A6A;\n\tfont-size: 22rpx;\n\tfont-family: PingFangSC-Semibold, PingFang SC;\n\tfont-weight: 400;\n\tline-height: 30rpx;\n\tmargin-left: 8rpx;\n}\n.first{\n\tpadding-top: 13rpx;\n}\n.explain uni-image{\n\twidth: 494rpx;\n\theight: 97rpx;\n\tmargin: 51rpx auto;\n\tdisplay: block;\n}\n.yuyue uni-button{\n\twidth: 680rpx;\n\theight: 76rpx;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tmargin-top: 388rpx;\n\tmargin-bottom: 38rpx;\n}\n.topBar{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tposition: absolute;\n\ttop: 74rpx;\n\tcolor: #fff;\n\twidth: 750rpx;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n}\n.topBar uni-image{\n\twidth: 50rpx;\n\theight: 60rpx;\n\tposition: absolute;\n\ttop: 0;\n\tleft: 30rpx;\n}\n.topBar uni-view{\n\t font-family: PingFangSC-Regular, PingFang SC;\n\t font-size: 36rpx;\n\t line-height: 50rpx;\n\t margin: 0 auto;\n}\n", ""]);
+exports.push([module.i, "\n.banner uni-image{\n\twidth: 750rpx;\n}\n.explain{\n\twidth: 710rpx;\n\tbackground: #FFFFFF;\n\t-webkit-box-shadow: 0rpx 0rpx 19rpx 0rpx rgba(0, 0, 0, 0.11);\n\t        box-shadow: 0rpx 0rpx 19rpx 0rpx rgba(0, 0, 0, 0.11);\n\tborder-radius: 16rpx;\n\tmargin: auto;\n\tpadding: 23rpx;\n\tmargin-top: 20rpx;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n}\n.title{\n\tcolor: #40A9FF;\n\tfont-size: 24rpx;\n\ttext-align: center;\n\tfont-family: PingFangSC-Medium, PingFang SC;\n\tfont-weight: 500;\n\tline-height: 33rpx;\n}\n.content{\n\tcolor: #6A6A6A;\n\tfont-size: 22rpx;\n\tfont-family: PingFangSC-Regular, PingFang SC;\n\tfont-weight: 400;\n\tline-height: 30rpx;\n\tmargin-top: 29rpx;\n}\n.list{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 16rpx;\n}\n.list uni-view:nth-child(1){\n\tcolor: #6A6A6A;\n\tfont-size: 22rpx;\n\tfont-family: PingFangSC-Semibold, PingFang SC;\n\tfont-weight: 600;\n\tline-height: 30rpx;\n}\n.list uni-view:nth-child(2){\n\tcolor: #6A6A6A;\n\tfont-size: 22rpx;\n\tfont-family: PingFangSC-Semibold, PingFang SC;\n\tfont-weight: 400;\n\tline-height: 30rpx;\n\tmargin-left: 8rpx;\n}\n.first{\n\tpadding-top: 13rpx;\n}\n.explain uni-image{\n\twidth: 494rpx;\n\theight: 97rpx;\n\tmargin: 51rpx auto;\n\tdisplay: block;\n}\n.yuyue .button1{\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tposition: absolute;\n\tbottom: 38rpx;\n\tleft: 40rpx;\n}\n.yuyue .button2{\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #999999;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tposition: absolute;\n\tbottom: 38rpx;\n\tleft: 40rpx;\n}\n.topBar{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tposition: absolute;\n\ttop: 74rpx;\n\tcolor: #fff;\n\twidth: 750rpx;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n}\n.topBar uni-image{\n\twidth: 50rpx;\n\theight: 60rpx;\n\tposition: absolute;\n\ttop: 0;\n\tleft: 30rpx;\n}\n.topBar uni-view{\n\t font-family: PingFangSC-Regular, PingFang SC;\n\t font-size: 36rpx;\n\t line-height: 50rpx;\n\t margin: 0 auto;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
