@@ -31,7 +31,7 @@
 		@closeDialog="closeDialog"
 		></my-dialog>
 		<view class="buy">
-			<button>立即购买</button>
+			<button @click="pay(video.id,video.price,video.chapter)">立即购买</button>
 		</view>
 	</view>
 	</view>
@@ -62,7 +62,8 @@
 					brief: "位提级放关增手响边价本问争史 院书称九省导上政同权取合技家新制容准证红最流算节深米证干院流四维年无实再入南证社联进他。手反难高此义当商社进头商调完时以今过家车克公必他青采资为斗长就期来集入思当打满你各气认任节飞广家却直长。空以细领那话教般属理消风北化步习叫际了题事好选会正同满次火场期化会南见等类理方结电米知是在便作本步易料更名白内力查广合海见人周好命内十发论原她。",
 					cen: 99,
 					time: '00:00:59',
-					date: '2020-03-27'
+					date: '2020-03-27',
+					price:19.88
 				}
 			}
 		},
@@ -258,6 +259,11 @@
 				this.showDialogWifi = false
 				uni.createVideoContext('myVideo').play()
 			},
+			pay(id,price,chapter){
+				uni.navigateTo({
+					url: '/pages/train/pay?id='+id+'&price='+price+'&chapter='+chapter,
+				})
+			}
 		}
 	}
 </script>

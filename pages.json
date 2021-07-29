@@ -104,6 +104,11 @@
 					"titleNView":false   // 去掉APP、H5的顶部导航
 				}
 		}
+    },{
+    	"path": "pages/train/pay",
+		"style": {
+			"navigationBarTitleText": "安全支付"
+		}
     }
 	],
 	// "globalStyle": {
