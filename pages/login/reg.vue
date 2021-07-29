@@ -92,43 +92,24 @@
           return;
         }
         this.second = 60;
-        //请求业务
-        js = setInterval(function() {
-          _this.second--;
-          if (_this.second == 0) {
-            _this.clear()
-          }
-        }, 1000)
-        // uni.request({
-        //   url: 'http://***/getcode.html', //仅为示例，并非真实接口地址。
-        //   data: {
-        //     phone: this.phone,
-        //     type: 'reg'
-        //   },
-        //   method: 'POST',
-        //   dataType: 'json',
-        //   success: (res) => {
-        //     if (res.data.code != 200) {
-        //       uni.showToast({
-        //         title: res.data.msg,
-        //         icon: 'none'
-        //       });
-        //     } else {
-        //       uni.showToast({
-        //         title: res.data.msg
-        //       });
-        //       js = setInterval(function() {
-        //         _this.second--;
-        //         if (_this.second == 0) {
-        //           _this.clear()
-        //         }
-        //       }, 1000)
-        //     }
-        //   },
-        //   fail() {
-        //     this.second == 0
-        //   }
-        // });
+				this.http.ajax({
+					url: 'user/getVerifyCode',
+					method: 'GET',
+					data: {
+						mobile: this.phone,
+					},
+					success: function(res) {
+						console.log(res) 
+						js = setInterval(function() {
+							_this.second--;
+							if (_this.second == 0) {
+								_this.clear()
+							}
+						}, 1000)
+					}
+				});
+        
+				
       },
       bindLogin() {
         // if (this.agreement == false) {
@@ -159,33 +140,29 @@
           });
           return;
         }
-        uni.request({
-          url: 'http://***/reg.html',
-          data: {
-            phone: this.phone,
-            password: this.password,
-            code: this.code,
-            invitation: this.invitation
-          },
-          method: 'POST',
-          dataType: 'json',
-          success: (res) => {
-            if (res.data.code != 200) {
-              uni.showToast({
-                title: res.data.msg,
-                icon: 'none'
-              });
-            } else {
-              uni.showToast({
-                title: res.data.msg
-              });
-              setTimeout(function() {
-                uni.navigateBack();
-              }, 1500)
-            }
-          }
+        this.http.ajax({
+        	url: 'user/register',
+        	method: 'GET',
+        	data: {
+        		mobile: this.phone,
+        		password: this.password,
+        		code: this.code
+        	},
+        	success: function(res) {
+        		console.log(res)
+						wx.showToast({
+							title: res.data.message,
+							icon: 'none'
+						})
+						if (res.data.code > 0) {
+							setTimeout(() => {
+								wx.redirectTo({
+									url: 'login'
+								}, 1000)
+							})
+						}
+        	}
         });
-
       }
     }
   }
@@ -312,16 +289,14 @@
     height: 40rpx;
   }
   .agreenment {
-  	  width: 680rpx;
     display: flex;
     flex-direction: row;
     justify-content: end;
     align-items: center;
+		justify-content: flex-end;
     font-size: 22rpx;
     padding-top: 18rpx;
+		padding-right: 36rpx;
     color: #666;
-    text-align: end;
-  	margin: auto;
-	display: block;
   }
 </style>
