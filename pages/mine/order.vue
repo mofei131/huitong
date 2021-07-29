@@ -47,6 +47,9 @@
 </script>
 
 <style>
+	body{
+		background: #fff!important;
+	}
 	.uniList{
 		width: 720rpx;
 		height: 170rpx;
