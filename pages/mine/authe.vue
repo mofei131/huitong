@@ -3,23 +3,23 @@
 		<view class="authe">
 			<view>
 			<text>姓名:</text>
-			<input type="text" v-model="name" :value="name" placeholder="请输入姓名" />
+			<input type="text" v-model="name" placeholder="请输入姓名" />
 			</view>
 			<view>
 			<text>手机号:</text>
-			<input type="text" v-model="phone" :value="phone" placeholder="请输入手机号" />
+			<input type="text" v-model="phone" placeholder="请输入手机号" />
 			</view>
 			<view>
 			<text>公司名称:</text>
-			<input type="text" v-model="company" :value="company" placeholder="请输入公司名称" />
+			<input type="text" v-model="company"  placeholder="请输入公司名称" />
 			</view>
 			<view>
 			<text>职务:</text>
-			<input type="text" v-model="post" :value="post" placeholder="请输入职务" />
+			<input type="text" v-model="post"  placeholder="请输入职务" />
 			</view>
 			<view>
 			<text>公司地址:</text>
-			<input type="text" v-model="address" :value="address" placeholder="请输入公司地址" />
+			<input type="text" v-model="address"  placeholder="请输入公司地址" />
 			</view>
 		</view>
 		<view class="keep">
@@ -50,6 +50,9 @@
 </script>
 
 <style>
+	body{
+		background: #fff!important;
+	}
 	.authe{
 		width: 720rpx;
 		height: 484rpx;
@@ -62,6 +65,7 @@
 	.authe view{
 		display: flex;
 		margin: 50rpx 0 50rpx 0;
+		box-sizing: border-box;
 	}
 	.authe view text{
 		width: 170rpx;

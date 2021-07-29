@@ -110,16 +110,20 @@
 			}
 		},
 		onLoad() {
-
+			// if (!uni.getStorageSync('userInfo')) {
+			// 	uni.redirectTo({
+			// 		url: '/pages/login/login'
+			// 	})
+			// }
 		},
 		methods: {
 			dzclick(id){
 				this.active = id
 			},
 			examinationType(e) {
-			    this.examinationTypeIndex = e.target.value;
-			    this.examinationTypeArrayType=this.examinationTypeArray[this.examinationTypeIndex]
-				},
+				this.examinationTypeIndex = e.target.value;
+				this.examinationTypeArrayType=this.examinationTypeArray[this.examinationTypeIndex]
+			},
 			toUrl(id,title){
 				uni.navigateTo({
 				    url: '/pages/index/itemList?id='+id+'&title='+title,

@@ -3141,12 +3141,7 @@ var render = function() {
             [
               _c("v-uni-text", { attrs: { _i: 3 } }, [_vm._v("姓名:")]),
               _c("v-uni-input", {
-                attrs: {
-                  type: "text",
-                  value: _vm._$g(4, "a-value"),
-                  placeholder: "请输入姓名",
-                  _i: 4
-                },
+                attrs: { type: "text", placeholder: "请输入姓名", _i: 4 },
                 model: {
                   value: _vm._$g(4, "v-model"),
                   callback: function($$v) {
@@ -3164,12 +3159,7 @@ var render = function() {
             [
               _c("v-uni-text", { attrs: { _i: 6 } }, [_vm._v("手机号:")]),
               _c("v-uni-input", {
-                attrs: {
-                  type: "text",
-                  value: _vm._$g(7, "a-value"),
-                  placeholder: "请输入手机号",
-                  _i: 7
-                },
+                attrs: { type: "text", placeholder: "请输入手机号", _i: 7 },
                 model: {
                   value: _vm._$g(7, "v-model"),
                   callback: function($$v) {
@@ -3187,12 +3177,7 @@ var render = function() {
             [
               _c("v-uni-text", { attrs: { _i: 9 } }, [_vm._v("公司名称:")]),
               _c("v-uni-input", {
-                attrs: {
-                  type: "text",
-                  value: _vm._$g(10, "a-value"),
-                  placeholder: "请输入公司名称",
-                  _i: 10
-                },
+                attrs: { type: "text", placeholder: "请输入公司名称", _i: 10 },
                 model: {
                   value: _vm._$g(10, "v-model"),
                   callback: function($$v) {
@@ -3210,12 +3195,7 @@ var render = function() {
             [
               _c("v-uni-text", { attrs: { _i: 12 } }, [_vm._v("职务:")]),
               _c("v-uni-input", {
-                attrs: {
-                  type: "text",
-                  value: _vm._$g(13, "a-value"),
-                  placeholder: "请输入职务",
-                  _i: 13
-                },
+                attrs: { type: "text", placeholder: "请输入职务", _i: 13 },
                 model: {
                   value: _vm._$g(13, "v-model"),
                   callback: function($$v) {
@@ -3233,12 +3213,7 @@ var render = function() {
             [
               _c("v-uni-text", { attrs: { _i: 15 } }, [_vm._v("公司地址:")]),
               _c("v-uni-input", {
-                attrs: {
-                  type: "text",
-                  value: _vm._$g(16, "a-value"),
-                  placeholder: "请输入公司地址",
-                  _i: 16
-                },
+                attrs: { type: "text", placeholder: "请输入公司地址", _i: 16 },
                 model: {
                   value: _vm._$g(16, "v-model"),
                   callback: function($$v) {
@@ -3364,7 +3339,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.authe{\n\twidth: 720rpx;\n\theight: 484rpx;\n\tbackground: #FFFFFF;\n\tborder-radius: 14rpx;\n\tmargin: auto;\n\tfont-size: 28rpx;\n\tpadding-left: 20rpx;\n}\n.authe uni-view{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin: 50rpx 0 50rpx 0;\n}\n.authe uni-view uni-text{\n\twidth: 170rpx;\n\ttext-align: start;\n}\n.authe uni-view uni-input{\n\twidth: 550rpx;\n}\n.keep uni-button{\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
+exports.push([module.i, "\nbody{\n\tbackground: #fff!important;\n}\n.authe{\n\twidth: 720rpx;\n\theight: 484rpx;\n\tbackground: #FFFFFF;\n\tborder-radius: 14rpx;\n\tmargin: auto;\n\tfont-size: 28rpx;\n\tpadding-left: 20rpx;\n}\n.authe uni-view{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin: 50rpx 0 50rpx 0;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n}\n.authe uni-view uni-text{\n\twidth: 170rpx;\n\ttext-align: start;\n}\n.authe uni-view uni-input{\n\twidth: 550rpx;\n}\n.keep uni-button{\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -3928,6 +3903,17 @@ var render = function() {
       _c("my-dialog", {
         attrs: { _i: 12 },
         on: {
+          clickCancel: function($event) {
+            return _vm.$handleViewEvent($event)
+          },
+          clickConfirm: function($event) {
+            return _vm.$handleViewEvent($event)
+          }
+        }
+      }),
+      _c("my-dialog", {
+        attrs: { _i: 13 },
+        on: {
           closeDialog: function($event) {
             return _vm.$handleViewEvent($event)
           }
@@ -3935,8 +3921,8 @@ var render = function() {
       }),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-        [_c("v-uni-button", { attrs: { _i: 14 } }, [_vm._v("立即购买")])],
+        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+        [_c("v-uni-button", { attrs: { _i: 15 } }, [_vm._v("立即购买")])],
         1
       )
     ],
@@ -4817,7 +4803,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.content {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.header {\n    width: 161rpx;\n    height: 161rpx;\n    background: rgba(63, 205, 235, 1);\n    -webkit-box-shadow: 0rpx 12rpx 13rpx 0rpx rgba(63, 205, 235, 0.47);\n            box-shadow: 0rpx 12rpx 13rpx 0rpx rgba(63, 205, 235, 0.47);\n    border-radius: 50%;\n    margin-top: 30rpx;\n    margin-left: auto;\n    margin-right: auto;\n}\n.header uni-image {\n    width: 161rpx;\n    height: 161rpx;\n    border-radius: 50%;\n}\n.list {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    padding-top: 50rpx;\n    padding-left: 70rpx;\n    padding-right: 70rpx;\n}\n\n  /* .list-call {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100rpx;\n    color: #333333;\n    border-bottom: 0.5px solid #e2e2e2;\n  } */\n.list-call {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 100rpx;\n    color: #666;\n  \tbackground: #F4F4F4;\n  \tborder-radius: 39rpx;\n  \tfont-size: 26rpx;\n\tmargin-top: 20rpx;\n}\n.list-call .img {\n    width: 40rpx;\n    height: 40rpx;\n\tmargin-right: 20rpx;\n}\n.list-call .sl-input {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    text-align: left;\n    font-size: 32rpx;\n    margin-left: 16rpx;\n}\n\n  /* .yzm {\n    color: #FF7D13;\n    font-size: 24rpx;\n    line-height: 64rpx;\n    padding-left: 10rpx;\n    padding-right: 10rpx;\n    width: auto;\n    height: 64rpx;\n    border: 1rpx solid #FFA800;\n    border-radius: 50rpx;\n  } */\n.yzm {\n    color: #1890FF;\n    font-size: 26rpx;\n    line-height: 64rpx;\n    padding-left: 10rpx;\n    padding-right: 10rpx;\n    width: auto;\n    height: 64rpx;\n    /* border: 1rpx solid #FFA800; */\n    border-radius: 50rpx;\n}\n.yzms {\n    color: #1890FF !important;\n    /* border: 1rpx solid #999999; */\n}\n.button-login {\n  \twidth: 680rpx;\n  \theight: 76rpx;\n  \tbackground: #1890FF;\n  \tborder-radius: 39rpx;\n  \t/* opacity: 0.4; */\n  \ttext-align: center;\n  \tcolor: #fff;\n  \tline-height: 70rpx;\n  \tmargin: auto;\n  \tmargin-top: 100rpx;\n}\n.agreement{\n  \t  display: -webkit-box;\n  \t  display: -webkit-flex;\n  \t  display: flex;\n  \t  margin-left: 75rpx;\n  \t  color: #666666;\n  \t  font-size: 22rpx;\n  \t  line-height: 30rpx;\n  \t  margin-top: 18rpx;\n  \t  -webkit-box-sizing: border-box;\n  \t          box-sizing: border-box;\n}\n.agreement uni-image {\n    width: 40rpx;\n    height: 40rpx;\n}\n.agreenment {\n  \t  width: 680rpx;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: end;\n    -webkit-justify-content: end;\n            justify-content: end;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    font-size: 22rpx;\n    padding-top: 18rpx;\n    color: #666;\n    text-align: end;\n  \tmargin: auto;\n\tdisplay: block;\n}\n", ""]);
+exports.push([module.i, "\n.content {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n}\n.header {\n    width: 161rpx;\n    height: 161rpx;\n    background: rgba(63, 205, 235, 1);\n    -webkit-box-shadow: 0rpx 12rpx 13rpx 0rpx rgba(63, 205, 235, 0.47);\n            box-shadow: 0rpx 12rpx 13rpx 0rpx rgba(63, 205, 235, 0.47);\n    border-radius: 50%;\n    margin-top: 30rpx;\n    margin-left: auto;\n    margin-right: auto;\n}\n.header uni-image {\n    width: 161rpx;\n    height: 161rpx;\n    border-radius: 50%;\n}\n.list {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    padding-top: 50rpx;\n    padding-left: 70rpx;\n    padding-right: 70rpx;\n}\n\n  /* .list-call {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100rpx;\n    color: #333333;\n    border-bottom: 0.5px solid #e2e2e2;\n  } */\n.list-call {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n            justify-content: space-between;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 100rpx;\n    color: #666;\n  \tbackground: #F4F4F4;\n  \tborder-radius: 39rpx;\n  \tfont-size: 26rpx;\n\tmargin-top: 20rpx;\n}\n.list-call .img {\n    width: 40rpx;\n    height: 40rpx;\n\tmargin-right: 20rpx;\n}\n.list-call .sl-input {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    text-align: left;\n    font-size: 32rpx;\n    margin-left: 16rpx;\n}\n\n  /* .yzm {\n    color: #FF7D13;\n    font-size: 24rpx;\n    line-height: 64rpx;\n    padding-left: 10rpx;\n    padding-right: 10rpx;\n    width: auto;\n    height: 64rpx;\n    border: 1rpx solid #FFA800;\n    border-radius: 50rpx;\n  } */\n.yzm {\n    color: #1890FF;\n    font-size: 26rpx;\n    line-height: 64rpx;\n    padding-left: 10rpx;\n    padding-right: 10rpx;\n    width: auto;\n    height: 64rpx;\n    /* border: 1rpx solid #FFA800; */\n    border-radius: 50rpx;\n}\n.yzms {\n    color: #1890FF !important;\n    /* border: 1rpx solid #999999; */\n}\n.button-login {\n  \twidth: 680rpx;\n  \theight: 76rpx;\n  \tbackground: #1890FF;\n  \tborder-radius: 39rpx;\n  \t/* opacity: 0.4; */\n  \ttext-align: center;\n  \tcolor: #fff;\n  \tline-height: 70rpx;\n  \tmargin: auto;\n  \tmargin-top: 100rpx;\n}\n.agreement{\n  \t  display: -webkit-box;\n  \t  display: -webkit-flex;\n  \t  display: flex;\n  \t  margin-left: 75rpx;\n  \t  color: #666666;\n  \t  font-size: 22rpx;\n  \t  line-height: 30rpx;\n  \t  margin-top: 18rpx;\n  \t  -webkit-box-sizing: border-box;\n  \t          box-sizing: border-box;\n}\n.agreement uni-image {\n    width: 40rpx;\n    height: 40rpx;\n}\n.agreenment {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: row;\n            flex-direction: row;\n    -webkit-box-pack: end;\n    -webkit-justify-content: end;\n            justify-content: end;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n\t\t-webkit-justify-content: flex-end;\n\t\t        justify-content: flex-end;\n    font-size: 22rpx;\n    padding-top: 18rpx;\n\t\tpadding-right: 36rpx;\n    color: #666;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

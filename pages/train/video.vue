@@ -20,6 +20,12 @@
 		@clickCancel="clickCancel"
 		@clickConfirm="clickConfirm"
 		></my-dialog>
+		<my-dialog :showDialog="showDialogWifi"
+		:content="contentWifi"
+		:bts="btsWifi"
+		@clickCancel="clickCancelWifi"
+		@clickConfirm="clickConfirmWifi"
+		></my-dialog>
 		<my-dialog :showDialog="showDialogOut"
 		:content="contentOut"
 		@closeDialog="closeDialog"
@@ -38,6 +44,7 @@
 				videoContext: {},
 				showDialog: false,
 				showDialogOut: false,
+				showDialogWifi: false,
 				time: 0,
 				content: [],
 				contentOut: [
@@ -45,7 +52,9 @@
 						title: '恭喜您！已完成本年度学习任务请等待证书发放'
 					}
 				],
+				contentWifi: [],
 				bts: [],
+				btsWifi: [],
 				video: {
 					cover:"https://img2.baidu.com/it/u=4267680702,373970169&fm=26&fmt=auto&gp=0.jpg",
 					url: "https://video.pearvideo.com/mp4/adshort/20210727/cont-1736568-15730255_adpkg-ad_hd.mp4",
@@ -150,6 +159,11 @@
 			
 			ended() {
 				this.showDialogOut = true
+				this.contentOut = [
+					{
+						title: '恭喜您！已完成本年度学习任务请等待证书发放'
+					}
+				]
 			},
 			
 			closeDialog() {
@@ -158,12 +172,90 @@
 			
 			clickCancel() {
 				this.showDialog = false
-				uni.createVideoContext('myVideo').play()
+				uni.getNetworkType({
+					complete: e => {
+						console.log(e)
+						switch (e.networkType) {
+							case '2g':
+							case '3g':
+							case '4g':
+							case '5g':
+								this.showDialogWifi = true,
+								this.contentWifi = [
+									{
+										title: '您正在使用移动网络,继续观看会耗费通讯流量'
+									}
+								]
+								this.btsWifi = [
+									{
+										title: '取消',
+										background: '#fff',
+										borderColor: '#1890FF',
+										color: '#1890FF'
+									},
+									{
+										title: '继续观看',
+										background: '#1890FF',
+										borderColor: '#1890FF',
+										color: '#fff'
+									},
+								]
+								break;
+							default: 
+								uni.createVideoContext('myVideo').play()
+								break;
+						}
+					}
+				})
 			},
 			
 			clickConfirm() {
 				this.showDialog = false
-				uni.createVideoContext('myVideo').seek(this.time)
+				uni.getNetworkType({
+					complete: e => {
+						console.log(e)
+						switch (e.networkType) {
+							case '2g':
+							case '3g':
+							case '4g':
+							case '5g':
+								this.showDialogWifi = true,
+								this.contentWifi = [
+									{
+										title: '您正在使用移动网络,继续观看会耗费通讯流量'
+									}
+								]
+								this.btsWifi = [
+									{
+										title: '取消',
+										background: '#fff',
+										borderColor: '#1890FF',
+										color: '#1890FF'
+									},
+									{
+										title: '继续观看',
+										background: '#1890FF',
+										borderColor: '#1890FF',
+										color: '#fff'
+									},
+								]
+								uni.createVideoContext('myVideo').seek(this.time)
+								break;
+							default: 
+								uni.createVideoContext('myVideo').seek(this.time)
+								uni.createVideoContext('myVideo').play()
+								break;
+						}
+					}
+				})
+			},
+			
+			clickCancelWifi() {
+				this.showDialogWifi = false
+			},
+			
+			clickConfirmWifi() {
+				this.showDialogWifi = false
 				uni.createVideoContext('myVideo').play()
 			},
 		}
