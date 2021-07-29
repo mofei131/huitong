@@ -365,7 +365,7 @@
 		color: #9EA3A7 !important;
 	}
 
-	.buy button {
+	.button1 {
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -373,6 +373,19 @@
 		width: 680rpx;
 		height: 76rpx;
 		background: #1890FF;
+		border-radius: 39rpx;
+		color: #fff;
+		font-size: 28rpx;
+		bottom: 72rpx;
+	}
+	.button2 {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		width: 680rpx;
+		height: 76rpx;
+		background: #999;
 		border-radius: 39rpx;
 		color: #fff;
 		font-size: 28rpx;
