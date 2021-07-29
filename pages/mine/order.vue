@@ -60,6 +60,8 @@
 	}
 	.orderLeft{
 		width: 490rpx;
+		padding-left: 20rpx;
+		box-sizing: border-box;
 	}
 	.orderLeft view:nth-child(1){
 		color: #51565D;
