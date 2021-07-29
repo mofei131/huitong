@@ -124,6 +124,11 @@
 		"style": {
 			"navigationBarTitleText": "绑定信息"
 		}
+    },{
+    	"path": "pages/index/newDetails",
+		"style": {
+			"navigationBarTitleText": "详情页面"
+		}
     }
 	],
 	// "globalStyle": {

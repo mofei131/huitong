@@ -53,18 +53,22 @@
 				active: 0,
 				data: ["企业信息发布", "政府政策", "法律条文"],
 				info: [{
+					id:0,
 					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
 					date: "2020年03月18日 06:36",
 					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
 				}, {
+					id:1,
 					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
 					date: "2020年03月18日 06:36",
 					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
 				}, {
+					id:2,
 					title: "山东两批返鲁援湖北医疗队员战“疫”纪实山东两批返鲁援湖北医疗队员战“疫”纪实",
 					date: "2020年03月18日 06:36",
 					imageUrl: null
 				}, {
+					id:3,
 					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
 					date: "2020年03月18日 06:36",
 					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
