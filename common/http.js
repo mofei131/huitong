@@ -20,7 +20,7 @@ function getHeader() { //header头部
 const ajax = function(opt) {
 	opt = opt || {};
 	opt.method = (opt.method && opt.method.toUpperCase()) || 'POST';
-	opt.url = baseUrl + '/' + opt.url || '';
+	opt.url = baseUrl + opt.url || '';
 	opt.async = opt.async || true;
 	opt.data = opt.data || null;
 	opt.success = opt.success || function() {};
@@ -33,7 +33,7 @@ const ajax = function(opt) {
 		data: opt.data,
 		header: getHeader(),
 		success: (res) => {
-			opt.success(res);
+			opt.success(res.data);
 		},
 		fail: (res) => {
 			opt.fail(res);

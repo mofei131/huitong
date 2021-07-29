@@ -110,7 +110,7 @@
 			}
 		},
 		onLoad() {
-			if (!uni.getStorageSync('userInfo')) {
+			if (!uni.getStorageSync('userInfo').id) {
 				uni.redirectTo({
 					url: '/pages/login/login'
 				})

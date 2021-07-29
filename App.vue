@@ -17,4 +17,8 @@
 	li{
 		list-style: none;
 	}
+	
+	view,button,text,image,video,cover-view,cover-image,picker {
+		box-sizing: border-box;
+	}
 </style>

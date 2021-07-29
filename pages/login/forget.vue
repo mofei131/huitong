@@ -76,42 +76,20 @@
           return;
         }
         _this.second = 60;
-        js = setInterval(function() {
-          _this.second--;
-          if (_this.second == 0) {
-            _this.clear()
-          }
-        }, 1000)
-        uni.request({
-          url: 'http://***/getcode.html', //仅为示例，并非真实接口地址。
-          data: {
-            phone: this.phone,
-            type: 'forget'
-          },
-          method: 'POST',
-          dataType: 'json',
-          success: (res) => {
-            if (res.data.code != 200) {
-              uni.showToast({
-                title: res.data.msg,
-                icon: 'none'
-              });
-              _this.second = 0;
-            } else {
-              uni.showToast({
-                title: res.data.msg
-              });
-              _this.second = 60;
-              js = setInterval(function() {
-                _this.second--;
-                if (_this.second == 0) {
-                  _this.clear()
-                }
-              }, 1000)
-            }
-          },fail() {
-            this.clear()
-          }
+        this.http.ajax({
+        	url: 'user/getVerifyCode',
+        	method: 'GET',
+        	data: {
+        		mobile: this.phone,
+        	},
+        	success: function(res) {
+        		js = setInterval(function() {
+        		  _this.second--;
+        		  if (_this.second == 0) {
+        		    _this.clear()
+        		  }
+        		}, 1000)
+        	}
         });
       },
       bindLogin() {
@@ -136,32 +114,28 @@
           });
           return;
         }
-        uni.request({
-          url: 'http://***/forget.html',
-          data: {
-            phone: this.phone,
-            password: this.password,
-            code: this.code
-          },
-          method: 'POST',
-          dataType: 'json',
-          success: (res) => {
-            if (res.data.code != 200) {
-              uni.showToast({
-                title: res.data.msg,
-                icon: 'none'
-              });
-            } else {
-              uni.showToast({
-                title: res.data.msg
-              });
-              setTimeout(function() {
-                uni.navigateBack();
-              }, 1500)
-            }
-          }
+        this.http.ajax({
+        	url: 'user/forget',
+        	method: 'GET',
+        	data: {
+        		mobile: this.phone,
+        		password: this.password,
+        		code: this.code
+        	},
+        	success: function(res) {
+        		wx.showToast({
+        			title: res.message,
+        			icon: 'none'
+        		})
+        		if (res.code == 200) {
+        			setTimeout(() => {
+        				wx.redirectTo({
+        					url: 'login'
+        				}, 1000)
+        			})
+        		}
+        	}
         });
-
       }
     }
   }
@@ -186,22 +160,22 @@
   .list {
     display: flex;
     flex-direction: column;
-    padding-top: 50rpx;
-    padding-left: 70rpx;
-    padding-right: 70rpx;
+		padding: 20rpx 35rpx 0;
   }
 
   .list-call {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 100rpx;
-    color: #666;
-  	background: #F4F4F4;
-  	border-radius: 39rpx;
-  	font-size: 26rpx;
-  	margin-top: 20rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 76rpx;
+		width: 680rpx;
+		color: #666;
+		background: #F4F4F4;
+		border-radius: 39rpx;
+		font-size: 26rpx;
+		margin-top: 20rpx;
+		padding: 0 31rpx;
   }
 
   .list-call .img {
@@ -213,8 +187,7 @@
   .list-call .sl-input {
     flex: 1;
     text-align: left;
-    font-size: 32rpx;
-    margin-left: 16rpx;
+    font-size: 26rpx;
   }
 
   .button-login {
@@ -227,7 +200,7 @@
   	color: #fff;
   	line-height: 70rpx;
   	margin: auto;
-  	margin-top: 100rpx;
+  	margin-top: 32rpx;
   }
 
   .yzm {
@@ -248,7 +221,7 @@
   }
   .agreement{
   	  display: flex;
-  	  margin-left: 75rpx;
+  	  margin-left: 35rpx;
   	  color: #666666;
   	  font-size: 22rpx;
   	  line-height: 30rpx;
