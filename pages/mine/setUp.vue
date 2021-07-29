@@ -7,7 +7,7 @@
 					<image src="@/static/images/rightico.png"></image>
 				</view>
 			</view>
-			<view class="listitem">
+			<view class="listitem" @tap="modifypassword()">
 				<view class="list">
 					<view>修改登录密码</view>
 					<image src="@/static/images/rightico.png"></image>
@@ -33,6 +33,11 @@
 			modifyphone(){
 				uni.navigateTo({
 					url:'/pages/mine/modifyphone'
+				})
+			},
+			modifypassword(){
+				uni.navigateTo({
+					url:'/pages/mine/modifypassword'
 				})
 			}
 		}

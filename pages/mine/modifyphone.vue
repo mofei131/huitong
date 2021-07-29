@@ -3,7 +3,7 @@
 		<view class="itemlist">
 			<view class="listitem">
 				<input type="number" class="phone" v-model="phone" placeholder="请输入手机号" placeholder-style="color: #5D5D61;"/>
-				<image src="@/static/images/close.png"></image>
+				<image src="@/static/images/close.png" @tap="close()"></image>
 			</view>
 			<view class="listitem">
 				<input type="number" class="code" v-model="code" placeholder="请输入验证码" placeholder-style="color: #5D5D61;"/>
@@ -80,8 +80,9 @@
 						}, 1000)
 					}
 				});
-			
-			
+			},
+			close(){
+				this.phone = ''
 			},
 		}
 	}
@@ -123,6 +124,8 @@
 		height: 76rpx;
 		border-radius: 39rpx;
 		background: #f4f4f4;
+		padding-left: 30rpx;
+		box-sizing: border-box;
 	}
 	.modify{
 		position: absolute;

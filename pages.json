@@ -114,6 +114,11 @@
 		"style": {
 			"navigationBarTitleText": "修改手机号"
 		}
+    },{
+    	"path": "pages/mine/modifypassword",
+		"style": {
+			"navigationBarTitleText": "修改密码"
+		}
     }
 	],
 	// "globalStyle": {
