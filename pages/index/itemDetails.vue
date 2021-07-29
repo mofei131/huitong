@@ -9,25 +9,19 @@
 		</view>
 		<view class="explain">
 			<view class="title">~产品介绍~</view>
-			<view class="content">{{details.content}}</view>
+			<view class="content" v-html="details.intro"></view>
 		</view>
 		<view class="explain">
 			<view class="title">~服务说明~</view>
-			<view class="list first">
-				<view>服务时间:</view>
-				<view>{{details.time1}}</view>
-			</view>
-			<view class="list">
-				<view>服务时间:</view>
-				<view>{{details.time2}}</view>
-			</view>
+			<view class="content" v-html="details.service"></view>
 		</view>
 		<view class="explain">
 			<view class="title">~服务流程~</view>
 			<image src="@/static/images/lcimg.png"></image>
 		</view>
 		<view class="yuyue">
-			<button @click="order()" :style="{background: mybackground}" :disabled="mybackground == '#333'">立即预约</button>
+			<button v-if="details.is_appoinment == 0" class="button1" @click="yuyue">立即预约</button>
+			<button v-if="details.is_appoinment == 1" class="button2">已预约</button>
 		</view>
 	</view>
 </template>
@@ -36,22 +30,19 @@
 	export default{
 		data(){
 			return{
-				mybackground:"#1890FF",
-				details:{
-					content:"压维铁响时些持口商名与教场动单和起手克叫火政律开际六音院出运么验证可完院群部级每意系保须族儿为想数属等题回展铁们路两种加或说记事音比次元业习列向效后因特龙。装六产状进没本日三教用算收百消走公委力日容应话引空眼传按了专议五理部机信不离花制形候重身专图入程路不维阶情程。为安极究说量或太经因不维其法则听多工出声际你车众由委此格出还向型不目派于本须号论连音论团积先南美准存部高拉军名们选主。",
-					time1:"不限制见面咨询时间，把问题分析咨询清楚",
-					time2:"预约后，专属客服马上联系您"
-				}
+				id: 0,
+				details:{}
 			}
 		},
 		onLoad(options){
-			console.log(options.id)
 			uni.setNavigationBarTitle({
 			    title: '检测详情',
 			});
 			uni.setNavigationBarColor({
 				backgroundColor: '#1890FF',
 			})
+			this.id = options.id
+			this.getDetail()
 		},
 		mounted(){
 			
@@ -60,12 +51,46 @@
 			back(){
 				uni.navigateBack()
 			},
-			order(){
-				uni.showToast({
-					title:"预约成功"
-				})
-				this.mybackground = '#333'
-			}
+			getDetail() {
+				let that = this
+				this.http.ajax({
+					url: 'service/detail',
+					method: 'GET',
+					data: {
+						id: this.id,
+						user_id: wx.getStorageSync('userInfo').id,
+					},
+					success: function(res) {
+						that.details = res.data
+					}
+				});
+			},
+			
+			yuyue() {
+				let that = this
+				this.http.ajax({
+					url: 'service/appoinment',
+					method: 'GET',
+					data: {
+						service_id: this.id,
+						user_id: wx.getStorageSync('userInfo').id,
+					},
+					success: function(res) {
+						if (res.code == 200) {
+							uni.showToast({
+								title: '预约成功',
+								icon: 'none'
+							})
+							that.getDetail()
+						} else {
+							uni.showToast({
+								title: res.message,
+								icon: 'none'
+							})
+						}
+					}
+				});	
+			},
 		}
 	}
 </script>
@@ -128,14 +153,27 @@
 		margin: 51rpx auto;
 		display: block;
 	}
-	.yuyue button{
+	.yuyue .button1{
 		width: 680rpx;
 		height: 76rpx;
+		background: #1890FF;
 		border-radius: 39rpx;
 		color: #fff;
 		font-size: 28rpx;
-		margin-top: 388rpx;
-		margin-bottom: 38rpx;
+		position: absolute;
+		bottom: 38rpx;
+		left: 40rpx;
+	}
+	.yuyue .button2{
+		width: 680rpx;
+		height: 76rpx;
+		background: #999999;
+		border-radius: 39rpx;
+		color: #fff;
+		font-size: 28rpx;
+		position: absolute;
+		bottom: 38rpx;
+		left: 40rpx;
 	}
 	.topBar{
 		display: flex;

@@ -1,40 +1,38 @@
 <template>
 	<view>
 		<view class="banner">
-		<image src="@/static/images/city.jpg"></image>
-		<view class="dropDown">
-		<view class="uni-form-item uni-column">
-		          <picker @change="examinationType" :range="examinationTypeArray">
-		              <label class="">{{ examinationTypeArrayType }}</label>
-		          </picker>
-		  </view>
-		</view>
-		<view class="rectangle">
-			<image src="@/static/images/Rectangle.png" mode=""></image>
-		</view>
+			<swiper style="width: 100%;height: 437rpx;" autoplay circular>
+				<swiper-item v-for="(item, index) in bannerList">
+					<image :src="item.image" @click="toPage(item.url)"></image>
+				</swiper-item>
+			</swiper>
+			<view class="dropDown">
+				<view class="uni-form-item uni-column">
+					<picker @change="examinationType" range-key="name" :value="examinationTypeIndex" :range="examinationTypeArray">
+						<label class="">{{ examinationTypeArrayType }}</label>
+					</picker>
+				</view>
+			</view>
+			<view class="rectangle">
+				<image src="@/static/images/Rectangle.png" mode=""></image>
+			</view>
 		</view>
 		<view class="iconlist">
 			<view class="iconul">
-				<view v-for="(item,index) in iconList" @click="toUrl(item.id,item.title)">
-					<image :src="item.imgUrl"></image>
-					<text>{{item.title}}</text>
+				<view v-for="(item,index) in iconList" @click="toUrl(item.id,item.name)">
+					<image :src="item.image"></image>
+					<text>{{item.name}}</text>
 				</view>
 			</view>
 		</view>
 		<view class="new">
 			<view class="ullist">
-				<view v-for="(item,index) in data" :key = index @click="dzclick(index)" :class="{active:active == index}">
+				<view v-for="(item,index) in data" :key=index @click="dzclick(index)" :class="{active:active == index}">
 					{{item}}
 				</view>
 			</view>
-			<view class="child" v-if="this.active == 0">
-				<child :child = "info"></child>
-			</view>
-			<view class="child" v-if="this.active == 1">
-				<child :child = "info"></child>
-			</view>
-			<view class="child" v-if="this.active == 2">
-				<child :child = "info"></child>
+			<view class="child">
+				<child :child="info"></child>
 			</view>
 		</view>
 	</view>
@@ -43,70 +41,35 @@
 <script>
 	import child from './new.vue'
 	export default {
-		components:{
-		child
+		components: {
+			child
 		},
 		data() {
 			return {
-				examinationTypeArray:['奎文区','高新区','潍城区','寒亭区','坊子区'],
-				examinationTypeIndex:0,
-				examinationTypeArrayType:'奎文区',
+				examinationTypeArray: [],
+				examinationTypeIndex: 0,
+				examinationTypeArrayType: '',
+				bannerList: [],
 				active: 0,
-				data:["企业信息发布","政府政策","法律条文"],
-				info:[
-					{
-						title:"山东两批返鲁援湖北医疗队员战“疫”纪实",
-						date:"2020年03月18日 06:36",
-						imageUrl:"https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
-					},{
-						title:"山东两批返鲁援湖北医疗队员战“疫”纪实",
-						date:"2020年03月18日 06:36",
-						imageUrl:"https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
-					},{
-						title:"山东两批返鲁援湖北医疗队员战“疫”纪实山东两批返鲁援湖北医疗队员战“疫”纪实",
-						date:"2020年03月18日 06:36",
-						imageUrl:null
-					},{
-						title:"山东两批返鲁援湖北医疗队员战“疫”纪实",
-						date:"2020年03月18日 06:36",
-						imageUrl:"https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
-					}
-				],
-				iconList:[
-					{
-						id:'0',
-						title:'环境保护',
-						imgUrl:'../../static/images/inicon1.png'
-					},{
-						id:'1',
-						title:'安全生产',
-						imgUrl:'../../static/images/inicon2.png'
-					},{
-						id:'2',
-						title:'职业卫生',
-						imgUrl:'../../static/images/inicon3.png'
-					},{
-						id:'3',
-						title:'消防安全',
-						imgUrl:'../../static/images/inicon4.png'
-					},{
-						id:'4',
-						title:'食品安全',
-						imgUrl:'../../static/images/inicon5.png'
-					},{
-						id:'5',
-						title:'医疗机构',
-						imgUrl:'../../static/images/inicon6.png'
-					},{
-						id:'6',
-						title:'其他行业',
-						imgUrl:'../../static/images/inicon7.png'
-					},{
-						id:'7',
-						title:'手续速办',
-						imgUrl:'../../static/images/inicon8.png'
-					}
-				]
+				data: ["企业信息发布", "政府政策", "法律条文"],
+				info: [{
+					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
+					date: "2020年03月18日 06:36",
+					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
+				}, {
+					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
+					date: "2020年03月18日 06:36",
+					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
+				}, {
+					title: "山东两批返鲁援湖北医疗队员战“疫”纪实山东两批返鲁援湖北医疗队员战“疫”纪实",
+					date: "2020年03月18日 06:36",
+					imageUrl: null
+				}, {
+					title: "山东两批返鲁援湖北医疗队员战“疫”纪实",
+					date: "2020年03月18日 06:36",
+					imageUrl: "https://img1.baidu.com/it/u=3131250586,3873053650&fm=26&fmt=auto&gp=0.jpg"
+				}],
+				iconList: []
 			}
 		},
 		onLoad() {
@@ -115,18 +78,89 @@
 					url: '/pages/login/login'
 				})
 			}
+			this._load()
 		},
 		methods: {
-			dzclick(id){
+			_load() {
+				this.getBanner();
+				this.getIcon();
+				this.getCity();
+				this.getList();
+			},
+			getBanner() {
+				let that = this
+				this.http.ajax({
+					url: 'index/banner',
+					method: 'GET',
+					success: function(res) {
+						that.bannerList = res.data
+					}
+				});
+			},
+			getIcon() {
+				let that = this
+				this.http.ajax({
+					url: 'index/navigate',
+					method: 'GET',
+					success: function(res) {
+						that.iconList = res.data
+					}
+				});
+			},
+			getCity() {
+				let that = this
+				this.http.ajax({
+					url: 'news/city',
+					method: 'GET',
+					success: function(res) {
+						that.examinationTypeArray = res.data
+						if (wx.getStorageInfoSync('city')) {
+							let has = false
+							for (let i in res.data) {
+								if (res.data[i].name == wx.getStorageSync('city')) {
+									that.examinationTypeIndex = i
+									that.examinationTypeArrayType = res.data[i].name
+									has = true
+									break;
+								}
+							}
+							if (!has) {
+								that.examinationTypeArrayType = res.data[0].name
+								that.examinationTypeIndex = 0
+								uni.setStorageSync('city', res.data[0].name)
+							}
+							that.getList()
+						} else {
+							that.examinationTypeArrayType = res.data[0].name
+							that.examinationTypeIndex = 0
+							uni.setStorageSync('city', res.data[0].name)
+						}
+					}
+				});
+			},
+			getList() {
+				
+			},
+			dzclick(id) {
 				this.active = id
+				this.getList()
 			},
 			examinationType(e) {
 				this.examinationTypeIndex = e.target.value;
-				this.examinationTypeArrayType=this.examinationTypeArray[this.examinationTypeIndex]
+				this.examinationTypeArrayType = this.examinationTypeArray[this.examinationTypeIndex].name
+				uni.setStorageSync('city', this.examinationTypeArrayType)
 			},
-			toUrl(id,title){
+			examinationTypeChange(e) {
+				console.log(e)
+			},
+			toUrl(id, title) {
 				uni.navigateTo({
-				    url: '/pages/index/itemList?id='+id+'&title='+title,
+					url: '/pages/index/itemList?id=' + id + '&title=' + title,
+				});
+			},
+			toPage(url) {
+				uni.navigateTo({
+					url: url,
 				});
 			}
 		}
@@ -134,11 +168,12 @@
 </script>
 
 <style>
-	.banner image{
+	.banner image {
 		width: 750rpx;
 		position: relative;
 	}
-	.iconlist{
+
+	.iconlist {
 		width: 720rpx;
 		height: 340rpx;
 		background: #FFFFFF;
@@ -146,69 +181,84 @@
 		border-radius: 14px;
 		margin: 23rpx auto;
 	}
-	.iconul{
+
+	.iconul {
 		width: 720rpx;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
-	.iconul view{
+
+	.iconul view {
 		width: 180rpx;
 		padding-top: 25rpx;
 	}
-	.iconul view text{
+
+	.iconul view text {
 		display: block;
 		color: #666666;
 		padding-top: 10rpx;
 		text-align: center;
 	}
-	.iconul view image{
+
+	.iconul view image {
 		width: 84rpx;
 		height: 84rpx;
 		margin: auto;
 		display: block;
 	}
-	.ullist{
+
+	.ullist {
 		display: flex;
 		float: left;
 		font-size: 30rpx;
 		justify-content: start;
 	}
-	.ullist view{
+
+	.ullist view {
 		margin-right: 30rpx;
 	}
-	.new{
+
+	.new {
 		width: 720rpx;
 		background: #FFFFFF;
 		border-radius: 14px;
 		margin: auto;
 	}
-	.ullist .active{
+
+	.ullist .active {
 		border-bottom: 3px solid #1890FF;
 	}
-	.child{
+
+	.child {
 		float: left;
 		padding: 40rpx 0 60rpx 0;
 	}
-	.dropDown uni-view,.lauwen-select-input{
+
+	.dropDown uni-view,
+	.lauwen-select-input {
 		border: 0rpx;
 		width: 160rpx;
 	}
-	.dropDown{
+
+	.dropDown {
 		position: absolute;
 		top: 60rpx;
 		left: 10rpx;
 		color: #fff;
 	}
-	.lauwen-option{
+
+	.lauwen-option {
 		background: #1890FF;
 	}
-	.rectangle{
+
+	.rectangle {
 		position: absolute;
 		top: 60rpx;
 		right: 10rpx;
 	}
-	.rectangle image{
+
+	.rectangle image {
 		width: 66rpx;
 		height: 66rpx;
 	}
