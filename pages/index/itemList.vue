@@ -2,8 +2,8 @@
 	<view class="itemList">
 	<view class="listItem" v-for="(item,index) in itemList">
 		<view class="listLeft">
-			<view>{{item.title}}</view>
-			<view>{{item.content}}</view>
+			<view>{{item.name}}</view>
+			<view>{{item.sub_name}}</view>
 		</view>
 		<view class="listRight">
 			<view @click="toUrl(item.id)">查看详情</view>
@@ -16,35 +16,45 @@
 	export default{
 		data() {
 			return{
-				itemList:[
-					{
-						id:'0',
-						title:'环保检测',
-						content:'不要以“为别人考虑”做理由，其实丢弃了“舍我其谁”的使命',
-					},{
-						id:'1',
-						title:'环保检测2',
-						content:'不要以“为别人考虑”做理由，其实丢弃了“舍我其谁”的使命',
-					},{
-						id:'2',
-						title:'环保检测3',
-						content:'不要以“为别人考虑”做理由，其实丢弃了“舍我其谁”的使命',
-					}
-				]
+				id: 0,
+				page: 1,
+				limit: 10,
+				itemList:[]
 			}
+		},
+		onLoad(options){
+			uni.setNavigationBarTitle({
+			    title: options.title,
+			});
+			this.id = options.id
+			this.getList()
+		},
+		onReachBottom() {
+			this.page++
+			this.getList()
 		},
 		methods:{
 			toUrl(id){
 				uni.navigateTo({
 				    url: '/pages/index/itemDetails?id='+id,
 				});
-			}
-		},
-		onLoad(options){
-			console.log(options.id)
-			uni.setNavigationBarTitle({
-			    title: options.title,
-			});
+			},
+			
+			getList () {
+				let that = this
+				this.http.ajax({
+					url: 'service/list',
+					method: 'GET',
+					data: {
+						nav_id: this.id,
+						page: this.page,
+						limit: this.limit,
+					},
+					success: function(res) {
+						that.itemList = that.itemList.concat(res.data)
+					}
+				});
+			},
 		},
 	}
 </script>
