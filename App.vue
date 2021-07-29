@@ -13,6 +13,9 @@
 </script>
 
 <style>
+	body{
+		background: #F8F8F8;
+	}
 	/*每个页面公共css */
 	li{
 		list-style: none;

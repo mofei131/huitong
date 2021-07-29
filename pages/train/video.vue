@@ -17,7 +17,6 @@
 		<my-dialog :showDialog="showDialog"
 		:content="content"
 		:bts="bts"
-		@closeDialog="closeDialog"
 		@clickCancel="clickCancel"
 		@clickConfirm="clickConfirm"
 		></my-dialog>
