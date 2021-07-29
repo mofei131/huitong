@@ -31,7 +31,9 @@
 		@closeDialog="closeDialog"
 		></my-dialog>
 		<view class="buy">
-			<button @click="pay(video.id,video.price,video.chapter)">立即购买</button>
+			<!-- <button >立即购买</button> -->
+			<button v-if="video.buy == 0" class="button1" @click="pay(video.id,video.price,video.chapter)">立即预约</button>
+			<button v-if="video.buy == 1" class="button2" disabled>已购买</button>
 		</view>
 	</view>
 	</view>
@@ -56,6 +58,7 @@
 				bts: [],
 				btsWifi: [],
 				video: {
+					buy:1,
 					cover:"https://img2.baidu.com/it/u=4267680702,373970169&fm=26&fmt=auto&gp=0.jpg",
 					url: "https://video.pearvideo.com/mp4/adshort/20210727/cont-1736568-15730255_adpkg-ad_hd.mp4",
 					chapter: "第一章：基础护理知识和技能",
@@ -311,7 +314,7 @@
 		color: #9EA3A7 !important;
 	}
 
-	.buy button {
+	.button1 {
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -319,6 +322,19 @@
 		width: 680rpx;
 		height: 76rpx;
 		background: #1890FF;
+		border-radius: 39rpx;
+		color: #fff;
+		font-size: 28rpx;
+		bottom: 72rpx;
+	}
+	.button2 {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		width: 680rpx;
+		height: 76rpx;
+		background: #999;
 		border-radius: 39rpx;
 		color: #fff;
 		font-size: 28rpx;

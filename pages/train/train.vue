@@ -5,9 +5,9 @@
 		<input type="text"
 		    placeholder="请输入关键字" 
 		    placeholder-style="font-size:30rpx;color:#B5B9BF"
-			@input="aaaa"/>
-			<image src="@/static/images/close.png" ></image>
-			<text >取消</text>
+			@input="aaaa" v-model="value"/>
+			<image @tap="close()" src="@/static/images/close.png" ></image>
+			<text @tap="close()">取消</text>
 	</view>
 	<view class="videList">
 		<view class="viewItem" v-for="(item,index) in videoList" @click="openinfo(item.id,item.time)">
@@ -28,6 +28,7 @@
 	export default{
 		data(){
 			return{
+				value:'',
 				videoList:[
 					{
 						id:0,
@@ -63,6 +64,9 @@
 					
 					aaaa(e) {
 						console.log(e)
+					},
+					close(){
+						this.value = ""
 					}
 		}
 	}
