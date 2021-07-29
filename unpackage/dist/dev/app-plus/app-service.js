@@ -4780,7 +4780,11 @@ var render = function() {
                 }
               ],
               staticClass: _vm._$s(3, "sc", "old"),
-              attrs: { _i: 3 },
+              attrs: {
+                type: _vm._$s(3, "a-type", _vm.inputType),
+                password: _vm._$s(3, "a-password", !_vm.showPassword),
+                _i: 3
+              },
               domProps: { value: _vm._$s(3, "v-model", _vm.password1) },
               on: {
                 input: function($event) {
@@ -4792,6 +4796,7 @@ var render = function() {
               }
             }),
             _c("image", {
+              staticClass: _vm._$s(4, "sc", "close"),
               attrs: { _i: 4 },
               on: {
                 click: function($event) {
@@ -4815,7 +4820,11 @@ var render = function() {
                 }
               ],
               staticClass: _vm._$s(6, "sc", "password"),
-              attrs: { _i: 6 },
+              attrs: {
+                type: _vm._$s(6, "a-type", _vm.inputType),
+                password: _vm._$s(6, "a-password", !_vm.showPassword),
+                _i: 6
+              },
               domProps: { value: _vm._$s(6, "v-model", _vm.password2) },
               on: {
                 input: function($event) {
@@ -4827,6 +4836,7 @@ var render = function() {
               }
             }),
             _c("image", {
+              staticClass: _vm._$s(7, "sc", "close"),
               attrs: { _i: 7 },
               on: {
                 click: function($event) {
@@ -4864,7 +4874,11 @@ var render = function() {
                 }
               ],
               staticClass: _vm._$s(10, "sc", "password"),
-              attrs: { _i: 10 },
+              attrs: {
+                type: _vm._$s(10, "a-type", _vm.inputType),
+                password: _vm._$s(10, "a-password", !_vm.showPassword),
+                _i: 10
+              },
               domProps: { value: _vm._$s(10, "v-model", _vm.password3) },
               on: {
                 input: function($event) {
@@ -4876,6 +4890,7 @@ var render = function() {
               }
             }),
             _c("image", {
+              staticClass: _vm._$s(11, "sc", "close"),
               attrs: { _i: 11 },
               on: {
                 click: function($event) {
@@ -4898,12 +4913,17 @@ var render = function() {
               on: { click: _vm.display }
             })
           ]
+        ),
+        _c(
+          "view",
+          { staticClass: _vm._$s(13, "sc", "ming"), attrs: { _i: 13 } },
+          [_c("view")]
         )
       ]
     ),
     _c(
       "view",
-      { staticClass: _vm._$s(13, "sc", "modify"), attrs: { _i: 13 } },
+      { staticClass: _vm._$s(15, "sc", "modify"), attrs: { _i: 15 } },
       [_c("view")]
     )
   ])
@@ -4934,7 +4954,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _HBu
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      password1: '',\n      password2: '',\n      password3: '' };\n\n  },\n  methods: {\n    close1: function close1() {\n      this.password1 = \"\";\n    },\n    close2: function close2() {\n      this.password2 = \"\";\n    },\n    close3: function close3() {\n      this.password3 = \"\";\n    } } };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbWluZS9tb2RpZnlwYXNzd29yZC52dWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQXlCQTtBQUNBLE1BREEsa0JBQ0E7QUFDQTtBQUNBLG1CQURBO0FBRUEsbUJBRkE7QUFHQSxtQkFIQTs7QUFLQSxHQVBBO0FBUUE7QUFDQSxVQURBLG9CQUNBO0FBQ0E7QUFDQSxLQUhBO0FBSUEsVUFKQSxvQkFJQTtBQUNBO0FBQ0EsS0FOQTtBQU9BLFVBUEEsb0JBT0E7QUFDQTtBQUNBLEtBVEEsRUFSQSxFIiwiZmlsZSI6IjEyMy5qcyIsInNvdXJjZXNDb250ZW50IjpbIjx0ZW1wbGF0ZT5cclxuXHQ8dmlldz5cclxuXHRcdDx2aWV3IGNsYXNzPVwiaXRlbWxpc3RcIj5cclxuXHRcdFx0PHZpZXcgY2xhc3M9XCJsaXN0aXRlbVwiPlxyXG5cdFx0XHRcdDxpbnB1dCB0eXBlPVwibnVtYmVyXCIgY2xhc3M9XCJvbGRcIiB2LW1vZGVsPVwicGFzc3dvcmQxXCIgcGxhY2Vob2xkZXI9XCLml6flr4bnoIFcIiBwbGFjZWhvbGRlci1zdHlsZT1cImNvbG9yOiAjNUQ1RDYxO1wiLz5cclxuXHRcdFx0XHQ8aW1hZ2Ugc3JjPVwiQC9zdGF0aWMvaW1hZ2VzL2Nsb3NlLnBuZ1wiIEB0YXA9XCJjbG9zZTEoKVwiPjwvaW1hZ2U+XHJcblx0XHRcdDwvdmlldz5cclxuXHRcdFx0PHZpZXcgY2xhc3M9XCJsaXN0aXRlbVwiPlxyXG5cdFx0XHRcdDxpbnB1dCB0eXBlPVwibnVtYmVyXCIgY2xhc3M9XCJwYXNzd29yZFwiIHYtbW9kZWw9XCJwYXNzd29yZDJcIiBwbGFjZWhvbGRlcj1cIuaWsOWvhueggVwiIHBsYWNlaG9sZGVyLXN0eWxlPVwiY29sb3I6ICM1RDVENjE7XCIvPlxyXG5cdFx0XHRcdDxpbWFnZSBzcmM9XCJAL3N0YXRpYy9pbWFnZXMvY2xvc2UucG5nXCIgQHRhcD1cImNsb3NlMigpXCI+PC9pbWFnZT5cclxuXHRcdFx0XHQ8aW1hZ2UgY2xhc3M9XCJpbWdcIiA6c3JjPVwic2hvd1Bhc3N3b3JkPycvc3RhdGljL3NoaWx1LWxvZ2luL29wLnBuZyc6Jy9zdGF0aWMvc2hpbHUtbG9naW4vY2wucG5nJ1wiIEB0YXA9XCJkaXNwbGF5XCI+PC9pbWFnZT5cclxuXHRcdFx0PC92aWV3PlxyXG5cdFx0XHQ8dmlldyBjbGFzcz1cImxpc3RpdGVtXCI+XHJcblx0XHRcdFx0PGlucHV0IHR5cGU9XCJudW1iZXJcIiBjbGFzcz1cInBhc3N3b3JkXCIgdi1tb2RlbD1cInBhc3N3b3JkM1wiIHBsYWNlaG9sZGVyPVwi56Gu6K6k5paw5a+G56CBXCIgcGxhY2Vob2xkZXItc3R5bGU9XCJjb2xvcjogIzVENUQ2MTtcIi8+XHJcblx0XHRcdFx0PGltYWdlIHNyYz1cIkAvc3RhdGljL2ltYWdlcy9jbG9zZS5wbmdcIiBAdGFwPVwiY2xvc2UzKClcIj48L2ltYWdlPlxyXG5cdFx0XHRcdDxpbWFnZSBjbGFzcz1cImltZ1wiIDpzcmM9XCJzaG93UGFzc3dvcmQ/Jy9zdGF0aWMvc2hpbHUtbG9naW4vb3AucG5nJzonL3N0YXRpYy9zaGlsdS1sb2dpbi9jbC5wbmcnXCIgQHRhcD1cImRpc3BsYXlcIj48L2ltYWdlPlxyXG5cdFx0XHQ8L3ZpZXc+XHJcblx0XHQ8L3ZpZXc+XHJcblx0XHQ8dmlldyBjbGFzcz1cIm1vZGlmeVwiPlxyXG5cdFx0XHQ8dmlldz7kv53lrZg8L3ZpZXc+XHJcblx0XHQ8L3ZpZXc+XHJcblx0PC92aWV3PlxuPC90ZW1wbGF0ZT5cblxuPHNjcmlwdD5cclxuXHRleHBvcnQgZGVmYXVsdHtcclxuXHRcdGRhdGEoKXtcclxuXHRcdFx0cmV0dXJue1xyXG5cdFx0XHRcdHBhc3N3b3JkMTonJyxcclxuXHRcdFx0XHRwYXNzd29yZDI6JycsXHJcblx0XHRcdFx0cGFzc3dvcmQzOicnLFxyXG5cdFx0XHR9XHJcblx0XHR9LFxyXG5cdFx0bWV0aG9kczp7XHJcblx0XHRcdGNsb3NlMSgpe1xyXG5cdFx0XHRcdHRoaXMucGFzc3dvcmQxID0gXCJcIlxyXG5cdFx0XHR9LFxyXG5cdFx0XHRjbG9zZTIoKXtcclxuXHRcdFx0XHR0aGlzLnBhc3N3b3JkMiA9IFwiXCJcclxuXHRcdFx0fSxcclxuXHRcdFx0Y2xvc2UzKCl7XHJcblx0XHRcdFx0dGhpcy5wYXNzd29yZDMgPSBcIlwiXHJcblx0XHRcdH1cclxuXHRcdH1cclxuXHR9XG48L3NjcmlwdD5cblxuPHN0eWxlPlxuPC9zdHlsZT5cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///123\n");
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      password1: '',\n      password2: '',\n      password3: '',\n      showPassword: false,\n      inputType: \"text\" };\n\n  },\n  methods: {\n    close1: function close1() {\n      this.password1 = \"\";\n    },\n    close2: function close2() {\n      this.password2 = \"\";\n    },\n    close3: function close3() {\n      this.password3 = \"\";\n    },\n    display: function display() {\n      this.showPassword = !this.showPassword;\n    } } };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbWluZS9tb2RpZnlwYXNzd29yZC52dWUiXSwibmFtZXMiOlsiZGF0YSIsInBhc3N3b3JkMSIsInBhc3N3b3JkMiIsInBhc3N3b3JkMyIsInNob3dQYXNzd29yZCIsImlucHV0VHlwZSIsIm1ldGhvZHMiLCJjbG9zZTEiLCJjbG9zZTIiLCJjbG9zZTMiLCJkaXNwbGF5Il0sIm1hcHBpbmdzIjoid0ZBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVjO0FBQ2JBLE1BRGEsa0JBQ1A7QUFDTCxXQUFNO0FBQ0xDLGVBQVMsRUFBQyxFQURMO0FBRUxDLGVBQVMsRUFBQyxFQUZMO0FBR0xDLGVBQVMsRUFBQyxFQUhMO0FBSUxDLGtCQUFZLEVBQUUsS0FKVDtBQUtMQyxlQUFTLEVBQUUsTUFMTixFQUFOOztBQU9BLEdBVFk7QUFVYkMsU0FBTyxFQUFDO0FBQ1BDLFVBRE8sb0JBQ0M7QUFDUCxXQUFLTixTQUFMLEdBQWlCLEVBQWpCO0FBQ0EsS0FITTtBQUlQTyxVQUpPLG9CQUlDO0FBQ1AsV0FBS04sU0FBTCxHQUFpQixFQUFqQjtBQUNBLEtBTk07QUFPUE8sVUFQTyxvQkFPQztBQUNQLFdBQUtOLFNBQUwsR0FBaUIsRUFBakI7QUFDQSxLQVRNO0FBVVBPLFdBVk8scUJBVUc7QUFDVCxXQUFLTixZQUFMLEdBQW9CLENBQUMsS0FBS0EsWUFBMUI7QUFDQSxLQVpNLEVBVkssRSIsImZpbGUiOiIxMjMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG5cbmV4cG9ydCBkZWZhdWx0e1xuXHRkYXRhKCl7XG5cdFx0cmV0dXJue1xuXHRcdFx0cGFzc3dvcmQxOicnLFxuXHRcdFx0cGFzc3dvcmQyOicnLFxuXHRcdFx0cGFzc3dvcmQzOicnLFxuXHRcdFx0c2hvd1Bhc3N3b3JkOiBmYWxzZSxcblx0XHRcdGlucHV0VHlwZTogXCJ0ZXh0XCIsXG5cdFx0fVxuXHR9LFxuXHRtZXRob2RzOntcblx0XHRjbG9zZTEoKXtcblx0XHRcdHRoaXMucGFzc3dvcmQxID0gXCJcIlxuXHRcdH0sXG5cdFx0Y2xvc2UyKCl7XG5cdFx0XHR0aGlzLnBhc3N3b3JkMiA9IFwiXCJcblx0XHR9LFxuXHRcdGNsb3NlMygpe1xuXHRcdFx0dGhpcy5wYXNzd29yZDMgPSBcIlwiXG5cdFx0fSxcblx0XHRkaXNwbGF5KCkge1xuXHRcdFx0dGhpcy5zaG93UGFzc3dvcmQgPSAhdGhpcy5zaG93UGFzc3dvcmRcblx0XHR9XG5cdH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///123\n");
 
 /***/ }),
 /* 124 */
