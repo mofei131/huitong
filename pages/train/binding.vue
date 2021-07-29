@@ -117,7 +117,7 @@
 		width: 66rpx;
 		height: 66rpx;
 		position: absolute;
-		right: 30rpx;
+		right: 0rpx;
 		top:0;
 	}
 </style>
