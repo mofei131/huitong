@@ -634,7 +634,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  props: ["child"],
+  props: ["child", "type"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -7197,9 +7197,11 @@ var render = function() {
             1
           )
         : _vm._e(),
-      _c("v-uni-view", { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } }, [
-        _vm._v(_vm._$g(5, "t0-0"))
-      ])
+      _c("v-uni-view", {
+        staticClass: _vm._$g(5, "sc"),
+        attrs: { _i: 5 },
+        domProps: { innerHTML: _vm._s(_vm._$g(5, "v-html")) }
+      })
     ],
     1
   )

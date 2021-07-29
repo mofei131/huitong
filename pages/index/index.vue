@@ -32,7 +32,7 @@
 				</view>
 			</view>
 			<view class="child">
-				<child :child="info"></child>
+				<child :child="info" :type="active"></child>
 			</view>
 		</view>
 	</view>

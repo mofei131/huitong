@@ -8,12 +8,12 @@
 						v-for="(item, index) in content">{{item.title}}</text>
 				</view>
 				<view class="dialog-bts" v-if="bts.length == 2">
-					<view class="dialog-bt1"
-					@click="clickCancel"
-					:style="{'color': bts[0].color, 'background': bts[0].background, 'border': '1rpx solid ' + bts[0].borderColor}">{{bts[0].title}}</view>
-					<view class="dialog-bt2"
-					@click="clickConfirm"
-					:style="{'color': bts[1].color, 'background': bts[1].background, 'border': '1rpx solid ' + bts[1].borderColor}">{{bts[1].title}}</view>
+					<view class="dialog-bt1" @click="clickCancel"
+						:style="{'color': bts[0].color, 'background': bts[0].background, 'border': '1rpx solid ' + bts[0].borderColor}">
+						{{bts[0].title}}</view>
+					<view class="dialog-bt2" @click="clickConfirm"
+						:style="{'color': bts[1].color, 'background': bts[1].background, 'border': '1rpx solid ' + bts[1].borderColor}">
+						{{bts[1].title}}</view>
 				</view>
 				<view class="dialog-bt3"
 					:style="{'color': bts[0].color, 'background': bts[0].background, 'border': '1rpx solid ' + bts[0].borderColor}"
@@ -67,32 +67,33 @@
 			bts: {
 				type: Array,
 				default: () => [{
-						title: '确定',
-						background: '#1890FF',
-						borderColor: '#1890FF',
-						color: '#fff'}],
-				},
+					title: '确定',
+					background: '#1890FF',
+					borderColor: '#1890FF',
+					color: '#fff'
+				}],
 			},
+		},
 
-			created() {
-				console.log(this.showDialog)
+		created() {
+			console.log(this.showDialog)
+		},
+
+		methods: {
+			// 关闭弹窗事件
+			closeDialog() {
+				this.$emit('closeDialog');
 			},
-
-			methods: {
-				// 关闭弹窗事件
-				closeDialog() {
-					this.$emit('closeDialog');
-				},
-				// 取消事件
-				clickCancel() {
-					this.$emit('clickCancel');
-				},
-				// 确认事件
-				clickConfirm() {
-					this.$emit('clickConfirm');
-				},
-			}
+			// 取消事件
+			clickCancel() {
+				this.$emit('clickCancel');
+			},
+			// 确认事件
+			clickConfirm() {
+				this.$emit('clickConfirm');
+			},
 		}
+	}
 </script>
 
 <style>

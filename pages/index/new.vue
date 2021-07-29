@@ -2,7 +2,7 @@
 	<view class="info">
 		<view>
 			<view>
-				<view class="listItem" v-for="(item,index) in child" @tap="toUrl(item.id)">
+				<view class="listItem" v-for="(item,index) in child" @click="toDetail(item.id)">
 					<view class="listleft">
 					<view>
 						{{item.title}}
@@ -24,14 +24,14 @@
 
 <script>
 	export default{
-		props:["child"],
-		methods:{
-			toUrl(id){
+		props:["child", "type"],
+		methods: {
+			toDetail(id) {
 				uni.navigateTo({
-				    url: '/pages/index/newDetails?id='+id,
-				});
-			}
-		}
+					url: '/pages/index/newDetails?id=' + id + '&type=' + this.type
+				})
+			},
+		},
 	}
 </script>
 
