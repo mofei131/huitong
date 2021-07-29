@@ -119,6 +119,11 @@
 		"style": {
 			"navigationBarTitleText": "修改密码"
 		}
+    },{
+    	"path": "pages/train/binding",
+		"style": {
+			"navigationBarTitleText": "绑定信息"
+		}
     }
 	],
 	// "globalStyle": {
