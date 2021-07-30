@@ -5,18 +5,22 @@
 			<text>姓名:</text>
 			<input type="text" v-model="name" placeholder="请输入姓名" placeholder-style="color: #C1C2C3;"/>
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>手机号:</text>
 			<input maxlength="11" type="text" v-model="phone" placeholder="请输入手机号" placeholder-style="color: #C1C2C3;"/>
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>公司名称:</text>
 			<input type="text" v-model="company"  placeholder="请输入公司名称" placeholder-style="color: #C1C2C3;"/>
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>职务:</text>
 			<input type="text" v-model="post"  placeholder="请输入职务" placeholder-style="color: #C1C2C3;"/>
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>公司地址:</text>
 			<input type="text" v-model="address"  placeholder="请输入公司地址" placeholder-style="color: #C1C2C3;"/>
@@ -154,21 +158,24 @@
 
 <style>
 	body{
-		background: #fff!important;
+		background: #999!important;
 	}
 	.authe{
 		width: 720rpx;
-		height: 484rpx;
+		/* height: 484rpx; */
 		background: #FFFFFF;
 		border-radius: 14rpx;
 		margin: auto;
 		font-size: 28rpx;
 		padding-left: 20rpx;
+		margin-top: 20rpx;
+		box-sizing: border-box;
 	}
 	.authe view{
 		display: flex;
-		margin: 50rpx 0 50rpx 0;
 		box-sizing: border-box;
+		height: 104rpx;
+		padding-top: 30rpx;
 	}
 	.authe view text{
 		width: 170rpx;
@@ -194,6 +201,11 @@
 	.dropDown {
 		width: 720rpx;
 		margin: 24rpx auto;
+		height: 96rpx;
+		background: #FFFFFF;
+		border-radius: 14rpx;
+		box-sizing: border-box;
+		padding-top: 24rpx;
 	}
 	.droplist{
 		width: 720rpx;
@@ -210,5 +222,12 @@
 		position: absolute;
 		right: 0rpx;
 		top:0;
+	}
+	.border{
+		height: 1rpx;
+		width: 680rpx;
+		background: #e8e8e8;
+		margin: auto;
+		display: block;
 	}
 </style>
