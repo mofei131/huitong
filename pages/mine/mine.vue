@@ -33,7 +33,7 @@ export default{
 	data(){
 		return{
 			headPort:"https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/f11f3a292df5e0fef6409b715e6034a85edf7261.jpg",
-			user:{}
+			user:{},
 		}
 	},
 	onShow() {
@@ -55,6 +55,9 @@ export default{
 </script>
 
 <style>
+	body{
+		background: #fff!important;
+	}
 	.topMian{
 		width: 750rpx;
 		height: 409rpx;
@@ -96,5 +99,11 @@ export default{
 	}
 	uni-list-item{
 		line-height: 40rpx;
+		border: 0;
+		margin-bottom: 20rpx;
+	}
+	.uni-list--border-top,.uni-list--border-bottom{
+		border: 0!important;
+		height: 0!important;
 	}
 </style>
