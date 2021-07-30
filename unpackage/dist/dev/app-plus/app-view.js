@@ -2663,7 +2663,7 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 
 {
-  name: "UniListItem", props: ["direction", "title", "note", "ellipsis", "disabled", "clickable", "showArrow", "link", "to", "showBadge", "showSwitch", "switchChecked", "badgeText", "badgeType", "rightText", "thumb", "thumbSize", "showExtraIcon", "extraIcon"],
+  name: "UniListItem", props: ["direction", "title", "note", "ellipsis", "disabled", "clickable", "showArrow", "link", "to", "showBadge", "showSwitch", "switchChecked", "badgeText", "badgeType", "rightText", "thumb", "thumbSize", "showExtraIcon", "extraIcon", "border"],
   data: function data() {
     return {
       wxsProps: {} };
@@ -3742,92 +3742,64 @@ var render = function() {
         "v-uni-view",
         { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
         [
-          _vm._$g(2, "i")
-            ? _c("v-uni-cover-view", {
-                staticClass: _vm._$g(2, "sc"),
-                attrs: { _i: 2 },
-                on: {
-                  click: function($event) {
-                    return _vm.$handleViewEvent($event, { stop: true })
-                  }
-                }
-              })
-            : _vm._e(),
-          _c(
-            "v-uni-video",
-            {
-              ref: "myVideo",
-              attrs: {
-                "x5-video-player-type": "h5-page",
-                src: _vm._$g(3, "a-src"),
-                poster: _vm._$g(3, "a-poster"),
-                "show-center-play-btn": false,
-                "enable-progress-gesture": false,
-                id: "myVideo",
-                _i: 3
-              },
-              on: {
-                play: function($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-                pause: function($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-                fullscreenchange: function($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-                ended: function($event) {
-                  return _vm.$handleViewEvent($event)
-                },
-                timeupdate: function($event) {
-                  return _vm.$handleViewEvent($event)
-                }
-              }
+          _c("v-uni-video", {
+            ref: "myVideo",
+            attrs: {
+              "x5-video-player-type": "h5-page",
+              src: _vm._$g(2, "a-src"),
+              poster: _vm._$g(2, "a-poster"),
+              "show-center-play-btn": false,
+              "enable-progress-gesture": false,
+              id: "myVideo",
+              _i: 2
             },
-            [
-              _vm._$g(4, "i")
-                ? _c("v-uni-cover-view", {
-                    staticClass: _vm._$g(4, "sc"),
-                    attrs: { _i: 4 },
-                    on: {
-                      click: function($event) {
-                        return _vm.$handleViewEvent($event, { stop: true })
-                      }
-                    }
-                  })
-                : _vm._e()
-            ],
-            1
-          )
+            on: {
+              play: function($event) {
+                return _vm.$handleViewEvent($event)
+              },
+              pause: function($event) {
+                return _vm.$handleViewEvent($event)
+              },
+              fullscreenchange: function($event) {
+                return _vm.$handleViewEvent($event)
+              },
+              ended: function($event) {
+                return _vm.$handleViewEvent($event)
+              },
+              timeupdate: function($event) {
+                return _vm.$handleViewEvent($event)
+              }
+            }
+          })
         ],
         1
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+        { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
             [_vm._v("课程简介")]
           ),
-          _c("v-uni-view", { attrs: { _i: 7 } }, [_vm._v(_vm._$g(7, "t0-0"))]),
+          _c("v-uni-view", { attrs: { _i: 5 } }, [_vm._v(_vm._$g(5, "t0-0"))]),
           _c("v-uni-view", {
-            attrs: { _i: 8 },
-            domProps: { innerHTML: _vm._s(_vm._$g(8, "v-html")) }
+            attrs: { _i: 6 },
+            domProps: { innerHTML: _vm._s(_vm._$g(6, "v-html")) }
           }),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
             [
+              _c("v-uni-view", { attrs: { _i: 8 } }, [
+                _vm._v(_vm._$g(8, "t0-0") + "人已学")
+              ]),
+              _c("v-uni-view", { attrs: { _i: 9 } }, [
+                _vm._v("时长:" + _vm._$g(9, "t0-0"))
+              ]),
               _c("v-uni-view", { attrs: { _i: 10 } }, [
-                _vm._v(_vm._$g(10, "t0-0") + "人已学")
-              ]),
-              _c("v-uni-view", { attrs: { _i: 11 } }, [
-                _vm._v("时长:" + _vm._$g(11, "t0-0"))
-              ]),
-              _c("v-uni-view", { attrs: { _i: 12 } }, [
-                _vm._v(_vm._$g(12, "t0-0"))
+                _vm._v(_vm._$g(10, "t0-0"))
               ])
             ],
             1
@@ -3836,29 +3808,29 @@ var render = function() {
         1
       ),
       _c("my-dialog", {
+        attrs: { _i: 11 },
+        on: {
+          clickCancel: function($event) {
+            return _vm.$handleViewEvent($event)
+          },
+          clickConfirm: function($event) {
+            return _vm.$handleViewEvent($event)
+          }
+        }
+      }),
+      _c("my-dialog", {
+        attrs: { _i: 12 },
+        on: {
+          clickCancel: function($event) {
+            return _vm.$handleViewEvent($event)
+          },
+          clickConfirm: function($event) {
+            return _vm.$handleViewEvent($event)
+          }
+        }
+      }),
+      _c("my-dialog", {
         attrs: { _i: 13 },
-        on: {
-          clickCancel: function($event) {
-            return _vm.$handleViewEvent($event)
-          },
-          clickConfirm: function($event) {
-            return _vm.$handleViewEvent($event)
-          }
-        }
-      }),
-      _c("my-dialog", {
-        attrs: { _i: 14 },
-        on: {
-          clickCancel: function($event) {
-            return _vm.$handleViewEvent($event)
-          },
-          clickConfirm: function($event) {
-            return _vm.$handleViewEvent($event)
-          }
-        }
-      }),
-      _c("my-dialog", {
-        attrs: { _i: 15 },
         on: {
           closeDialog: function($event) {
             return _vm.$handleViewEvent($event)
@@ -3957,7 +3929,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.video {\n\tposition: relative;\n}\n.video uni-video {\n\twidth: 750rpx;\n\tmargin-top: 8rpx;\n\tz-index: 10;\n}\n.noquanback {\n\tposition: absolute;\n\tbottom: 5rpx;\n\theight: 80rpx;\n\twidth: 610rpx;\n\tleft: 70rpx;\n\tz-index: 99999999;\n}\n.quanback {\n\tposition: absolute;\n\tbottom: 5rpx;\n\theight: 80rpx;\n\twidth: 610rpx;\n\tleft: 70rpx;\n\tz-index: 99999999;\n}\n.content {\n\twidth: 680rpx;\n\tmargin: auto;\n}\n.chapter {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tborder-left: 6rpx solid #1890FF;\n\twidth: 142rpx;\n\ttext-align: center;\n\tmargin: 54rpx 0 20rpx 0;\n}\n.content uni-view:nth-child(2) {\n\tcolor: #51565D;\n\tfont-size: 30rpx;\n\tmargin-bottom: 20rpx;\n}\n.content uni-view:nth-child(3) {\n\tcolor: #51565D;\n\tfont-size: 26rpx;\n\tline-height: 37rpx;\n}\n.cen {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tmargin-top: 20rpx;\n}\n.cen uni-view {\n\tfont-size: 24rpx !important;\n\tcolor: #9EA3A7 !important;\n}\n.button1 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n.button2 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #999;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
+exports.push([module.i, "\n.video {\n\tposition: relative;\n}\n.video uni-video {\n\twidth: 750rpx;\n\tmargin-top: 8rpx;\n\tz-index: 10;\n}\n.videoback {\n\tposition: absolute;\n\tbottom: 0rpx;\n\theight: 90rpx;\n\twidth: 540rpx;\n\tleft: 90rpx;\n\tz-index: 99999;\n\t/* background-color: #007AFF; */\n}\n.content {\n\twidth: 680rpx;\n\tmargin: auto;\n}\n.chapter {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tborder-left: 6rpx solid #1890FF;\n\twidth: 142rpx;\n\ttext-align: center;\n\tmargin: 54rpx 0 20rpx 0;\n}\n.content uni-view:nth-child(2) {\n\tcolor: #51565D;\n\tfont-size: 30rpx;\n\tmargin-bottom: 20rpx;\n}\n.content uni-view:nth-child(3) {\n\tcolor: #51565D;\n\tfont-size: 26rpx;\n\tline-height: 37rpx;\n}\n.cen {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n\tmargin-top: 20rpx;\n}\n.cen uni-view {\n\tfont-size: 24rpx !important;\n\tcolor: #9EA3A7 !important;\n}\n.button1 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n.button2 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #999;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -4132,6 +4104,32 @@ var render = function() {
                     },
                     [_vm._v("APP更新")]
                   )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            {
+              staticClass: _vm._$g(14, "sc"),
+              attrs: { _i: 14 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
+            [
+              _c(
+                "v-uni-view",
+                { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                [
+                  _c("v-uni-view", { attrs: { _i: 16 } }, [_vm._v("退出登录")]),
+                  _c("v-uni-image", {
+                    attrs: { src: "/static/images/rightico.png", _i: 17 }
+                  })
                 ],
                 1
               )
@@ -6962,6 +6960,7 @@ var render = function() {
               _c("v-uni-text", { attrs: { _i: 7 } }, [_vm._v("手机号:")]),
               _c("v-uni-input", {
                 attrs: {
+                  maxlength: "11",
                   type: "text",
                   placeholder: "请输入手机号",
                   "placeholder-style": "color: #C1C2C3;",
@@ -7090,7 +7089,11 @@ var render = function() {
                 "v-uni-picker",
                 {
                   staticClass: _vm._$g(25, "sc"),
-                  attrs: { range: _vm._$g(25, "a-range"), _i: 25 },
+                  attrs: {
+                    "range-key": "name",
+                    range: _vm._$g(25, "a-range"),
+                    _i: 25
+                  },
                   on: {
                     change: function($event) {
                       return _vm.$handleViewEvent($event)
