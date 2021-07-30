@@ -1,17 +1,13 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+page{
+	background: #F8F8F8;
+}
 /*每个页面公共css */
+._li{
+	list-style: none;
+}
+view,button,text,image,video,cover-view,cover-image,picker {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
 

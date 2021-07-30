@@ -140,7 +140,7 @@
 						city_id: this.examinationTypeArray[this.examinationTypeIndex].id
 					},
 					success: function(res) {
-						that.info = res.data
+						that.info = that.info.concat(res.data)
 					}
 				});
 			},

@@ -1,6 +1,7 @@
 <template>
 	<view class="about">
-		<view v-html="content"></view>
+		<!-- <view v-html="content"></view> -->
+		<rich-text  :nodes = 'content'></rich-text>
 	</view>
 </template>
 

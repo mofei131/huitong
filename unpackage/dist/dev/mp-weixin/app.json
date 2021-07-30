@@ -2,11 +2,30 @@
   "pages": [
     "pages/index/index",
     "pages/train/train",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/mine/order",
+    "pages/mine/authe",
+    "pages/mine/about",
+    "pages/mine/contract",
+    "pages/train/video",
+    "pages/mine/setUp",
+    "pages/login/login",
+    "pages/login/reg",
+    "pages/login/forget",
+    "pages/login/agreement",
+    "pages/login/privacyPolicy",
+    "pages/index/itemList",
+    "pages/index/itemDetails",
+    "pages/train/pay",
+    "pages/mine/modifyphone",
+    "pages/mine/modifypassword",
+    "pages/train/binding",
+    "pages/index/newDetails"
   ],
   "subPackages": [],
   "window": {
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#1890FF"
   },
   "tabBar": {
     "list": [
@@ -30,6 +49,8 @@
       }
     ]
   },
-  "usingComponents": {},
+  "usingComponents": {
+    "my-dialog": "/pages/components/dialog/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

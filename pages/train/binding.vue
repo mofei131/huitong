@@ -112,6 +112,9 @@
 		display: flex;
 		justify-content: space-between;	
 		position: relative;
+		color: #51565D;
+		font-size: 30rpx;
+		padding-left: 20rpx;
 	}
 	.droplist image{
 		width: 66rpx;

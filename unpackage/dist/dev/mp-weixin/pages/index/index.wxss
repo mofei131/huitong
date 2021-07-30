@@ -1,49 +1,45 @@
 
-._li{
-	list-style: none;
-}
-.banner image{
+.banner image {
 	width: 750rpx;
 	position: relative;
 }
-.iconlist{
+.iconlist {
 	width: 720rpx;
-	height: 322rpx;
+	height: 340rpx;
 	background: #FFFFFF;
 	-webkit-box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);
 	        box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);
 	border-radius: 14px;
 	margin: 23rpx auto;
 }
-.iconlist ._ul{
+.iconul {
+	width: 720rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 	-webkit-flex-wrap: wrap;
 	        flex-wrap: wrap;
-	margin: auto;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
 }
-.iconlist ._ul ._li{
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	        flex: 1;
-	width: 100rpx;
-	height: 100rpx;
-	margin-right: 50rpx;
+.iconul view {
+	width: 180rpx;
 	padding-top: 25rpx;
 }
-.iconlist ._ul ._li text{
+.iconul view text {
 	display: block;
 	color: #666666;
 	padding-top: 10rpx;
+	text-align: center;
 }
-.iconlist ._ul ._li image{
+.iconul view image {
 	width: 84rpx;
 	height: 84rpx;
 	margin: auto;
 	display: block;
 }
-.ullist{
+.ullist {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -53,41 +49,42 @@
 	-webkit-justify-content: start;
 	        justify-content: start;
 }
-.ullist view{
+.ullist view {
 	margin-right: 30rpx;
 }
-.new{
+.new {
 	width: 720rpx;
 	background: #FFFFFF;
 	border-radius: 14px;
 	margin: auto;
 }
-.ullist .active{
+.ullist .active {
 	border-bottom: 3px solid #1890FF;
 }
-.child{
+.child {
 	float: left;
 	padding: 40rpx 0 60rpx 0;
 }
-.dropDown uni-view,.lauwen-select-input{
+.dropDown uni-view,
+.lauwen-select-input {
 	border: 0rpx;
 	width: 160rpx;
 }
-.dropDown{
+.dropDown {
 	position: absolute;
-	top: 20rpx;
-	left: 4rpx;
+	top: 60rpx;
+	left: 10rpx;
 	color: #fff;
 }
-.lauwen-option{
+.lauwen-option {
 	background: #1890FF;
 }
-.rectangle{
+.rectangle {
 	position: absolute;
-	top: 20rpx;
-	right: 2rpx;
+	top: 60rpx;
+	right: 10rpx;
 }
-.rectangle image{
+.rectangle image {
 	width: 66rpx;
 	height: 66rpx;
 }
