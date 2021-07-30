@@ -1,29 +1,29 @@
 <template>
 	<view>
-		<view class="authe">
+		<view :class="disabled ? 'autheDis' : ''" class="authe">
 			<view>
 			<text>姓名:</text>
-			<input type="text" v-model="name" placeholder="请输入姓名" />
+			<input type="text" :disabled="disabled" v-model="name" placeholder="请输入姓名" />
 			</view>
 			<view>
 			<text>手机号:</text>
-			<input maxlength="11" type="text" v-model="phone" placeholder="请输入手机号" />
+			<input maxlength="11" :disabled="disabled" type="text" v-model="phone" placeholder="请输入手机号" />
 			</view>
 			<view>
 			<text>公司名称:</text>
-			<input type="text" v-model="company"  placeholder="请输入公司名称" />
+			<input type="text" :disabled="disabled" v-model="company"  placeholder="请输入公司名称" />
 			</view>
 			<view>
 			<text>职务:</text>
-			<input type="text" v-model="post"  placeholder="请输入职务" />
+			<input type="text" :disabled="disabled" v-model="post"  placeholder="请输入职务" />
 			</view>
 			<view>
 			<text>公司地址:</text>
-			<input type="text" v-model="address"  placeholder="请输入公司地址" />
+			<input type="text" :disabled="disabled" v-model="address"  placeholder="请输入公司地址" />
 			</view>
 		</view>
 		<view class="keep">
-			<button @click="searchClick">保存</button>
+			<button @click="searchClick" v-if="!disabled">保存</button>
 		</view>
 	</view>
 </template>
@@ -37,6 +37,7 @@
 				company:'',
 				post:'',
 				address:'',
+				disabled: false,
 			}
 		},
 		onLoad() {
@@ -46,6 +47,10 @@
 			this.company = userInfo.renzheng_company ? userInfo.renzheng_company : ''
 			this.post = userInfo.renzheng_position ? userInfo.renzheng_position : ''
 			this.address = userInfo.renzheng_address ? userInfo.renzheng_address : ''
+			if (userInfo.renzheng_name) this.disabled = true
+		},
+		onNavigationBarButtonTap(e) {
+			this.disabled = false
 		},
 		methods:{
 			searchClick() {
@@ -133,6 +138,10 @@
 		font-size: 28rpx;
 		padding-left: 20rpx;
 	}
+	
+	.autheDis {
+		
+	}
 	.authe view{
 		display: flex;
 		margin: 50rpx 0 50rpx 0;
@@ -144,6 +153,9 @@
 	}
 	.authe view input{
 		width: 550rpx;
+	}
+	.autheDis view input{
+		color: #999;
 	}
 	.keep button{
 		position: absolute;

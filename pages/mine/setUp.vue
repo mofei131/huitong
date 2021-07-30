@@ -15,7 +15,8 @@
 			</view>
 			<view class="listitem">
 				<view class="updata">
-					<view>APP更新</view>
+					<view class="reddian" v-if="hasNew"></view>
+					<view @click="doUpData()">APP更新</view>
 				</view>
 			</view>
 		</view>
@@ -23,45 +24,142 @@
 </template>
 
 <script>
-	export default{
-		data(){
-			return{
-				
+	export default {
+		data() {
+			return {
+				hasNew: false
 			}
 		},
-		methods:{
-			modifyphone(){
+		onShow() {
+			this.getVersion()
+		},
+		methods: {
+			modifyphone() {
 				uni.navigateTo({
-					url:'/pages/mine/modifyphone'
+					url: '/pages/mine/modifyphone'
 				})
 			},
-			modifypassword(){
+			modifypassword() {
 				uni.navigateTo({
-					url:'/pages/mine/modifypassword'
+					url: '/pages/mine/modifypassword'
 				})
+			},
+
+			getVersion() {
+				let that = this
+				this.http.ajax({
+					url: 'index/version',
+					method: 'GET',
+					success: function(request) {
+						if (request.code == 200) {
+							plus.runtime.getProperty(plus.runtime.appid, function(inf) {
+								if (inf.version != request.data.version) {
+									that.hasNew = true
+									let platform=uni.getSystemInfoSync().platform
+									if(platform=='ios'){
+										that.link = request.data.link
+										console.log('我是iOS')
+									}else if(platform=='android'){
+										that.link = request.data.link
+										console.log('我是安卓')
+									}
+								}
+							});
+						}
+					}
+				});
+			},
+			doUpData() {
+				let link = this.link
+				console.log(link)
+				if(this.hasNew) {
+					uni.showModal({
+						title: "发现新版本",
+						content: "确认下载更新",
+						success: (res) => {
+							if (res.confirm == true) { //当用户确定更新，执行更新
+								uni.showLoading({
+									title: '更新中……'
+								})
+								uni.downloadFile({ //执行下载
+									url: link, //下载地址
+									success: downloadResult => { //下载成功
+										uni.hideLoading();
+										console.log(downloadResult)
+										if (downloadResult.statusCode == 200) {
+											uni.showModal({
+												title: '',
+												content: '更新成功，确定现在重启吗？',
+												confirmText: '重启',
+												confirmColor: '#EE8F57',
+												success: function(res) {
+													if (res.confirm) {
+														plus.runtime.install( //安装
+															downloadResult.tempFilePath, {
+																force: true
+															},
+															function(res) {
+																console.log(res, 3333)
+																utils.showToast('更新成功，重启中');
+																plus.runtime.restart();
+															}
+														);
+													}
+												}
+											});
+										}
+									}
+								});
+							}
+						}
+					})
+				} else {
+					uni.showToast({
+						title: '已经是最新版本啦！',
+						icon: 'none'
+					})
+				}
 			}
 		}
 	}
 </script>
 
 <style>
-	.itemlist{
+	.itemlist {
 		width: 720rpx;
 		margin: auto;
 	}
-	.list{
+
+	.list {
 		display: flex;
 		justify-content: space-between;
 	}
-	.list image{
+
+	.list image {
 		width: 66rpx;
 		height: 66rpx;
 	}
-	.list view{
+
+	.list view {
 		padding-top: 12rpx;
 		box-sizing: border-box;
 	}
-	.listitem{
+
+	.listitem {
 		margin-top: 50rpx;
+	}
+	
+	.updata {
+		position: relative;
+	}
+	
+	.reddian {
+		position: absolute;
+		width: 16rpx;
+		height: 16rpx;
+		background: #FF4F47;
+		left: 130rpx;
+		top: 0;
+		border-radius: 50%;
 	}
 </style>

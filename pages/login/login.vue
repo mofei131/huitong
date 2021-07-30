@@ -54,7 +54,7 @@
 					});
 					return;
 				}
-				if (this.password.length < 6) {
+				if (!this.password) {
 					uni.showToast({
 						icon: 'none',
 						title: '密码不正确'

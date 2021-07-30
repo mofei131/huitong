@@ -20,7 +20,7 @@
 			</view>
 		</view>
 		<view class="modify">
-			<view>保存</view>
+			<view @click="save()">保存</view>
 		</view>
 	</view>
 </template>
@@ -48,7 +48,58 @@
 			},
 			display() {
 				this.showPassword = !this.showPassword
-			}
+			},
+			
+			save() {
+				if (!this.password1) {
+					uni.showToast({
+						icon: 'none',
+						title: '请输入旧密码'
+					});
+					return;
+				}
+				if (!this.password2) {
+					uni.showToast({
+						icon: 'none',
+						title: '请输入新密码'
+					});
+					return;
+				}
+				if (this.password2 != this.password3) {
+					uni.showToast({
+						icon: 'none',
+						title: '两次密码不一致'
+					});
+					return;
+				}
+				let that = this
+				this.http.ajax({
+					url: 'user/resetPassword',
+					method: 'GET',
+					data: {
+						user_id: uni.getStorageSync('userInfo').id,
+						password: this.password1,
+						newpass: this.password2
+					},
+					success: function(res) {
+						if (res.code == 200) {
+							uni.showToast({
+								title: '修改成功！'
+							})
+							setTimeout(function() {
+								uni.navigateBack({
+									delta: 1
+								})
+							}, 1000);
+						} else {
+							uni.showToast({
+								title: res.message,
+								icon: 'none'
+							})
+						}
+					}
+				});
+			},
 		}
 	}
 </script>

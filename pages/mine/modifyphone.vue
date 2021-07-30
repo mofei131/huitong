@@ -2,36 +2,38 @@
 	<view>
 		<view class="itemlist">
 			<view class="listitem">
-				<input type="number" class="phone" v-model="phone" placeholder="请输入手机号" placeholder-style="color: #5D5D61;"/>
+				<input type="number" class="phone" v-model="phone" placeholder="请输入手机号"
+					placeholder-style="color: #5D5D61;" />
 				<image src="@/static/images/close.png" @tap="close()"></image>
 			</view>
 			<view class="listitem">
-				<input type="number" class="code" v-model="code" placeholder="请输入验证码" placeholder-style="color: #5D5D61;"/>
+				<input type="number" class="code" v-model="code" placeholder="请输入验证码"
+					placeholder-style="color: #5D5D61;" />
 				<view class="yzm" :class="{ yzms: second>0 }" @tap="getcode">{{yanzhengma}}</view>
 			</view>
 		</view>
 		<view class="modify">
-			<view>保存</view>
+			<view @click="save()">保存</view>
 		</view>
 	</view>
 </template>
 
 <script>
 	var _this, js;
-	export default{	
+	export default {
 		onLoad() {
 			_this = this;
-		
+
 		},
 		onUnload() {
 			clearInterval(js)
 			this.second = 0;
 		},
-		data(){
-			return{
+		data() {
+			return {
 				second: 0,
 				phone: '',
-				code:''
+				code: ''
 			}
 		},
 		computed: {
@@ -47,7 +49,7 @@
 				}
 			}
 		},
-		methods:{
+		methods: {
 			clear() {
 				clearInterval(js)
 				js = null
@@ -81,18 +83,65 @@
 					}
 				});
 			},
-			close(){
+			close() {
 				this.phone = ''
+			},
+			save() {
+				if (this.phone.length != 11) {
+					uni.showToast({
+						icon: 'none',
+						title: '手机号不正确'
+					});
+					return;
+				}
+				if (!this.code) {
+					uni.showToast({
+						icon: 'none',
+						title: '验证码不正确'
+					});
+					return;
+				}
+				let that = this
+				this.http.ajax({
+					url: 'user/resetMobile',
+					method: 'GET',
+					data: {
+						user_id: uni.getStorageSync('userInfo').id,
+						newmobile: this.phone,
+						code: this.code
+					},
+					success: function(res) {
+						if (res.code == 200) {
+							uni.showToast({
+								title: '修改成功！'
+							})
+							let userInfo = uni.getStorageSync('userInfo')
+							userInfo.mobile = that.phone
+							uni.setStorageSync('userInfo', userInfo)
+							setTimeout(function() {
+								uni.navigateBack({
+									delta: 1
+								})
+							}, 1000);
+						} else {
+							uni.showToast({
+								title: res.message,
+								icon: 'none'
+							})
+						}
+					}
+				});
 			},
 		}
 	}
 </script>
 
 <style>
-	.listitem image{
+	.listitem image {
 		width: 66rpx;
 		height: 66rpx;
 	}
+
 	.yzm {
 		width: 178rpx;
 		height: 76rpx;
@@ -104,30 +153,36 @@
 		color: #fff;
 		text-align: center;
 	}
-	.itemlist{
+
+	.itemlist {
 		width: 680rpx;
 		margin: auto;
 		padding-top: 25rpx;
 	}
-	.phone{
+
+	.phone {
 		width: 610rpx;
 	}
-	.code{
+
+	.code {
 		width: 477rpx;
 	}
-	.listitem{
+
+	.listitem {
 		display: flex;
 		justify-content: space-between;
 		margin-top: 20rpx;
 	}
-	.listitem input{
+
+	.listitem input {
 		height: 76rpx;
 		border-radius: 39rpx;
 		background: #f4f4f4;
 		padding-left: 30rpx;
 		box-sizing: border-box;
 	}
-	.modify{
+
+	.modify {
 		position: absolute;
 		left: 0;
 		right: 0;
