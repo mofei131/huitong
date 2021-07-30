@@ -13,9 +13,9 @@
 					</picker>
 				</view>
 			</view>
-			<view class="rectangle">
+			<!-- <view class="rectangle">
 				<image src="@/static/images/Rectangle.png" mode=""></image>
-			</view>
+			</view> -->
 		</view>
 		<view class="iconlist">
 			<view class="iconul">
