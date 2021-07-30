@@ -1,0 +1,51 @@
+
+page{
+	background: #fff!important;
+}
+.uniList{
+	width: 720rpx;
+	height: 170rpx;
+	background: #FFFFFF;
+	border-radius: 14rpx;
+	margin: auto;
+}
+.order{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	margin-top: 70rpx;
+}
+.orderLeft{
+	width: 490rpx;
+	padding-left: 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.orderLeft view:nth-child(1){
+	color: #51565D;
+	font-size: 28rpx;
+	padding-bottom: 14rpx;
+}
+.orderLeft view:nth-child(2){
+	color: #51565D;
+	font-size: 24rpx;
+}
+.orderRight{
+	width: 210rpx;
+}
+.orderRight view{
+	width: 158rpx;
+	height: 50rpx;
+	background: #777;
+	border-radius: 25rpx;
+	color: #fff;
+	text-align: center;
+	line-height: 50rpx;
+	margin: auto;
+	display: block;
+	margin-top: 40rpx;
+}
+.active{
+	background: #FFB932!important;
+}
+

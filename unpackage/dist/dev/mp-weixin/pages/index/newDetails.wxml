@@ -1,0 +1,1 @@
+<view class="newdetails"><view class="title">{{newdetails.title}}</view><view class="time">{{newdetails.create_time}}</view><block wx:if="{{newdetails.image!==''}}"><view class="detimg"><image src="{{newdetails.image}}"></image></view></block><view class="content"><rich-text nodes="{{newdetails.content}}"></rich-text></view></view>

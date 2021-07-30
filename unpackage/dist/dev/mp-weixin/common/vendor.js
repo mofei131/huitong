@@ -2059,6 +2059,140 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ 11:
+/*!********************************************!*\
+  !*** D:/mofei/Item/huitong/common/http.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var baseUrl = 'http://huitong.boyaokj.cn/api/';
+var imgUrl = 'http://store.boyaokj.cn/';
+/* 封装ajax函数
+                                          * @param {string}opt.type http连接的方式，包括POST和GET两种方式
+                                          * @param {string}opt.url 发送请求的url
+                                          * @param {boolean}opt.async 是否为异步请求，true为异步的，false为同步的
+                                          * @param {object}opt.data 发送的参数，格式为对象类型
+                                          * @param {function}opt.success ajax发送并接收成功调用的回调函数
+                                          */
+
+function getHeader() {//header头部
+  return {
+    "Accept": "application/json",
+    'Content-Type': 'application/json; charset=utf-8' // app header头
+    // 　　　　'Content-Type': 'application/x-www-form-urlencoded', // h5 header头
+    // 　　　　'ACCESS_TOKEN': `${token}`,
+  };
+}
+
+var ajax = function ajax(opt) {
+  opt = opt || {};
+  opt.method = opt.method && opt.method.toUpperCase() || 'POST';
+  opt.url = baseUrl + opt.url || '';
+  opt.async = opt.async || true;
+  opt.data = opt.data || null;
+  opt.success = opt.success || function () {};
+  opt.fail = opt.fail || function () {};
+  opt.complete = opt.complete || function () {};
+  uni.request({
+    method: opt.method,
+    dataType: 'json',
+    url: opt.url,
+    data: opt.data,
+    header: getHeader(),
+    success: function success(res) {
+      opt.success(res.data);
+    },
+    fail: function fail(res) {
+      opt.fail(res);
+    },
+    complete: function complete(res) {
+      opt.complete(res);
+    } });
+
+  // var xmlHttp = null;
+  // if (XMLHttpRequest) {
+  // 	xmlHttp = new XMLHttpRequest();
+  // } else {
+  // 	xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+  // }
+  // var params = [];
+  // if (opt.data && !opt.data.i) {
+  // 	opt.url = opt.url + '&' + 'i=2'
+  // }
+
+  // for (var key in opt.data) {
+  // 	opt.url = opt.url + '&' + key + '=' + opt.data[key]
+  // 	// params.push(key + '=' + opt.data[key]);
+  // }
+  // var postData = params.join('&');
+  // if (opt.method.toUpperCase() === 'POST') {
+  // 	xmlHttp.open(opt.method, opt.url, opt.async);
+  // 	xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+  // 	xmlHttp.send(postData);
+  // } else if (opt.method.toUpperCase() === 'GET') {
+  // 	xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
+  // 	xmlHttp.send(null);
+  // }
+  // xmlHttp.onreadystatechange = function() {
+  // 	if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+  // 		opt.success(xmlHttp.responseText);
+  // 	}
+  // };
+};
+
+var checkLogin = function checkLogin() {
+  if (uni.getStorageSync('members')) {
+    var userInfo = uni.getStorageSync('members');
+    if (!userInfo.token) {
+      uni.showToast({
+        title: '登录已过期，请重新登录',
+        icon: 'none' });
+
+      uni.clearStorageSync();
+      setTimeout(function () {
+        uni.redirectTo({
+          url: '/pages/login/register' });
+
+      }, 1000);
+    } else {
+      ajax({
+        url: 'app',
+        data: {
+          op: 'checkLogin',
+          user_id: userInfo.id,
+          token: userInfo.token },
+
+        method: 'GET',
+        success: function success(res) {
+          if (res.data.errno != 0) {
+            uni.showToast({
+              title: '您的账号已在其他终端登录',
+              icon: 'none' });
+
+            uni.clearStorageSync();
+            setTimeout(function () {
+              uni.redirectTo({
+                url: '/pages/login/register' });
+
+            }, 1000);
+          }
+        } });
+
+    }
+  }
+};var _default =
+
+{
+  baseUrl: baseUrl,
+  imgUrl: imgUrl,
+  ajax: ajax,
+  checkLogin: checkLogin };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
 /***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
@@ -8108,49 +8242,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 3:
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
-/***/ 4:
-/*!****************************************!*\
-  !*** D:/mofei/Item/huitong/pages.json ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 59:
+/***/ 205:
 /*!*********************************************************************************!*\
   !*** D:/mofei/Item/huitong/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \*********************************************************************************/
@@ -8289,6 +8381,48 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   "cloud-download-filled": "\uE8E9",
   "headphones": "\uE8BF",
   "shop": "\uE609" };exports.default = _default;
+
+/***/ }),
+
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 4:
+/*!****************************************!*\
+  !*** D:/mofei/Item/huitong/pages.json ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ })
 

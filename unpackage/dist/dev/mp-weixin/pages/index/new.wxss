@@ -2,11 +2,14 @@
 .info{
 	display: block;
 }
-uni-list-item{
+.listItem{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 	padding-bottom: 30rpx;
+}
+.listleft {
+	width: 470rpx;
 }
 .listleft view{
 	padding-bottom: 9rpx;
