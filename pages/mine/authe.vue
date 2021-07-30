@@ -5,18 +5,22 @@
 			<text>姓名:</text>
 			<input type="text" :disabled="disabled" v-model="name" placeholder="请输入姓名" />
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>手机号:</text>
 			<input maxlength="11" :disabled="disabled" type="text" v-model="phone" placeholder="请输入手机号" />
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>公司名称:</text>
 			<input type="text" :disabled="disabled" v-model="company"  placeholder="请输入公司名称" />
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>职务:</text>
 			<input type="text" :disabled="disabled" v-model="post"  placeholder="请输入职务" />
 			</view>
+			<text class="border"></text>
 			<view>
 			<text>公司地址:</text>
 			<input type="text" :disabled="disabled" v-model="address"  placeholder="请输入公司地址" />
@@ -131,21 +135,20 @@
 	}
 	.authe{
 		width: 720rpx;
-		height: 484rpx;
+		/* height: 484rpx; */
 		background: #FFFFFF;
 		border-radius: 14rpx;
 		margin: auto;
 		font-size: 28rpx;
 		padding-left: 20rpx;
-	}
-	
-	.autheDis {
-		
+		margin-top: 20rpx;
+		box-sizing: border-box;
 	}
 	.authe view{
 		display: flex;
-		margin: 50rpx 0 50rpx 0;
 		box-sizing: border-box;
+		height: 104rpx;
+		padding-top: 30rpx;
 	}
 	.authe view text{
 		width: 170rpx;
@@ -153,6 +156,7 @@
 	}
 	.authe view input{
 		width: 550rpx;
+		font-size: 28rpx;
 	}
 	.autheDis view input{
 		color: #999;
