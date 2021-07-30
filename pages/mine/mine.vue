@@ -17,7 +17,7 @@
 			    <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="已认证"  link to="./authe"   ></uni-list-item>
 				</view>
 				<view v-if="!user.renzheng_company">
-				 <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证"  link to="./authe"   ></uni-list-item>
+				 <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证"   link to="./authe"   ></uni-list-item>
 				 </view>
 				<uni-list-item thumb="../../static/images/meico3.png" title="联系客服" rightText="400-820-2550" link @click="cell()"   ></uni-list-item>
 				<uni-list-item thumb="../../static/images/meico4.png" title="服务协议" link to="./contract"   ></uni-list-item>
