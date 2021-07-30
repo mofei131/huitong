@@ -7,7 +7,7 @@
 			</view>
 			<view>
 			<text>手机号:</text>
-			<input type="text" v-model="phone" placeholder="请输入手机号" placeholder-style="color: #C1C2C3;"/>
+			<input maxlength="11" type="text" v-model="phone" placeholder="请输入手机号" placeholder-style="color: #C1C2C3;"/>
 			</view>
 			<view>
 			<text>公司名称:</text>
@@ -27,7 +27,7 @@
 		</view>
 		<view class="dropDown">
 		<view class="uni-form-item uni-column">
-		          <picker class="droplist" @change="examinationType" :range="examinationTypeArray">
+		          <picker class="droplist" range-key="name" @change="examinationType" :range="examinationTypeArray">
 		              <label class="label">{{ examinationTypeArrayType }}</label>
 						<image src="../../static/images/rightico.png"></image>
 		          </picker>
@@ -40,9 +40,10 @@
 	export default{
 		data(){
 			return{
+				id: 0,
 				examinationTypeArray: ['安全卫生','职业卫生','环境保护'],
 				examinationTypeIndex: 0,
-				examinationTypeArrayType: '安全卫生',
+				examinationTypeArrayType: '',
 				name:'',
 				phone:'',
 				company:'',
@@ -51,14 +52,101 @@
 				arr:[]
 			}
 		},
+		onLoad(options) {
+			this.id = options.id
+			this.getTypeList()
+		},
 		methods:{
+			getTypeList() {
+				let that = this
+				this.http.ajax({
+					url: 'video/video_class',
+					method: 'GET',
+					success: function(res) {
+						that.examinationTypeArray = res.data
+						that.examinationTypeArrayType = res.data[0].name
+					}
+				});
+			},
 			searchClick() {
-				this.arr = [this.name,this.phone,this.company,this.post,this.address]
-				console.log(this.arr);
+				if (!this.name) {
+					uni.showToast({
+						title: '请输入您的姓名',
+						icon: 'none'
+					})
+					return
+				}
+				if (this.phone.length != 11) {
+					uni.showToast({
+						title: '手机号码不正确',
+						icon: 'none'
+					})
+					return
+				}
+				if (!this.company) {
+					uni.showToast({
+						title: '请输入您的公司名称',
+						icon: 'none'
+					})
+					return
+				}
+				if (!this.post) {
+					uni.showToast({
+						title: '请输入您的职务',
+						icon: 'none'
+					})
+					return
+				}
+				if (!this.address) {
+					uni.showToast({
+						title: '请输入您的公司地址',
+						icon: 'none'
+					})
+					return
+				}
+				let that = this
+				this.http.ajax({
+					url: 'user/bindInfo',
+					method: 'GET',
+					data: {
+						user_id: uni.getStorageSync('userInfo').id,
+						bind_name: this.name,
+						bind_mobile: this.phone,
+						bind_company: this.company,
+						bind_position: this.post,
+						bind_address: this.address,
+						bind_peixun: this.examinationTypeArray[this.examinationTypeIndex].id,
+					},
+					success: function(res) {
+						if (res.code == 200) {
+							uni.showToast({
+								title: '绑定成功！'
+							})
+							let userInfo = uni.getStorageSync('userInfo')
+							userInfo.bind_name = that.name
+							userInfo.bind_mobile = that.phone
+							userInfo.bind_company = that.company
+							userInfo.bind_position = that.post
+							userInfo.bind_address = that.address
+							userInfo.bind_peixun = that.examinationTypeArray[that.examinationTypeIndex].id
+							uni.setStorageSync('userInfo', userInfo)
+							setTimeout(function() {
+								uni.redirectTo({
+									url: '/pages/train/video?id=' + that.id,
+								});
+							}, 1000);
+						} else {
+							uni.showToast({
+								title: res.message,
+								icon: 'none'
+							})
+						}
+					}
+				});
 			},
 			examinationType(e) {
 			    this.examinationTypeIndex = e.target.value;
-			    this.examinationTypeArrayType=this.examinationTypeArray[this.examinationTypeIndex]
+			    this.examinationTypeArrayType=this.examinationTypeArray[this.examinationTypeIndex].name
 		}
 	},
 	}

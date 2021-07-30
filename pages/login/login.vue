@@ -69,7 +69,6 @@
 						password: this.password,
 					},
 					success: function(res) {
-						console.log(res)
 						if (res.code == 200) {
 							uni.setStorageSync('userInfo', res.data)
 							uni.switchTab({

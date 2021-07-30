@@ -19,6 +19,12 @@
 					<view @click="doUpData()">APP更新</view>
 				</view>
 			</view>
+			<view class="listitem" @tap="tologin()">
+				<view class="list">
+					<view>退出登录</view>
+					<image src="@/static/images/rightico.png"></image>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -53,15 +59,16 @@
 					success: function(request) {
 						if (request.code == 200) {
 							plus.runtime.getProperty(plus.runtime.appid, function(inf) {
-								if (inf.version != request.data.version) {
-									that.hasNew = true
-									let platform=uni.getSystemInfoSync().platform
-									if(platform=='ios'){
-										that.link = request.data.link
-										console.log('我是iOS')
-									}else if(platform=='android'){
-										that.link = request.data.link
-										console.log('我是安卓')
+								let platform = uni.getSystemInfoSync().platform
+								if (platform == 'ios') {
+									if (inf.version != request.data.IOS_VERSION) {
+										that.hasNew = true
+										that.link = request.data.ISO_link
+									}
+								} else if (platform == 'android') {
+									if (inf.version != request.data.ANDROID_VERSION) {
+										that.hasNew = true
+										that.link = request.data.ANDROID_link
 									}
 								}
 							});
@@ -71,8 +78,7 @@
 			},
 			doUpData() {
 				let link = this.link
-				console.log(link)
-				if(this.hasNew) {
+				if (this.hasNew) {
 					uni.showModal({
 						title: "发现新版本",
 						content: "确认下载更新",
@@ -85,7 +91,6 @@
 									url: link, //下载地址
 									success: downloadResult => { //下载成功
 										uni.hideLoading();
-										console.log(downloadResult)
 										if (downloadResult.statusCode == 200) {
 											uni.showModal({
 												title: '',
@@ -95,13 +100,15 @@
 												success: function(res) {
 													if (res.confirm) {
 														plus.runtime.install( //安装
-															downloadResult.tempFilePath, {
+															downloadResult
+															.tempFilePath, {
 																force: true
 															},
 															function(res) {
-																console.log(res, 3333)
-																utils.showToast('更新成功，重启中');
-																plus.runtime.restart();
+																utils.showToast(
+																	'更新成功，重启中');
+																plus.runtime
+																	.restart();
 															}
 														);
 													}
@@ -119,7 +126,22 @@
 						icon: 'none'
 					})
 				}
-			}
+			},
+
+			tologin() {
+				uni.showModal({
+					title: '提示',
+					content: '您确定要退出登录吗?',
+					success: (res) => {
+						if (res.confirm) {
+							uni.clearStorageSync()
+							uni.reLaunch({
+								url: '/pages/login/login'
+							})
+						}
+					}
+				})
+			},
 		}
 	}
 </script>
@@ -148,11 +170,11 @@
 	.listitem {
 		margin-top: 50rpx;
 	}
-	
+
 	.updata {
 		position: relative;
 	}
-	
+
 	.reddian {
 		position: absolute;
 		width: 16rpx;

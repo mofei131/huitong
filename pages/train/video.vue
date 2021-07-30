@@ -1,15 +1,11 @@
 <template>
 	<view>
 		<view class="video">
-			<cover-view@click.stop="test" v-if="!isQuan" class="noquanback">
-				</cover-view>
-				<video x5-video-player-type='h5-page' :src="video.video" @play="playVideo" @pause="pauseVideo"
-					@fullscreenchange="fullscreenchange" :poster="video.cover"
-					:show-center-play-btn="false" :enable-progress-gesture="false" ref="myVideo" id="myVideo"
-					@ended="ended" @timeupdate="timeupdate">
-
-					<cover-view @click.stop="test" v-if="isQuan" class="quanback"></cover-view>
-				</video>
+			<video x5-video-player-type='h5-page' :src="video.video" @play="playVideo" @pause="pauseVideo"
+				@fullscreenchange="fullscreenchange" :poster="video.image" :show-center-play-btn="false"
+				:enable-progress-gesture="false" ref="myVideo" id="myVideo" @ended="ended" @timeupdate="timeupdate">
+				<!-- <cover-view @click.stop="test" class="videoback"></cover-view> -->
+			</video>
 		</view>
 		<view class="content">
 			<view class="chapter">课程简介</view>
@@ -17,7 +13,7 @@
 			<view v-html="video.content"></view>
 			<view class="cen">
 				<view>{{video.study}}人已学</view>
-				<view>时长:{{video.long}}</view>
+				<view>时长:{{video.longText}}</view>
 				<view>{{video.create_time}}</view>
 			</view>
 		</view>
@@ -53,6 +49,7 @@
 				btsWifi: [],
 				videoTime: '',
 				videoTimeNum: 0,
+				xzTime: 0,
 				video: {}
 			}
 		},
@@ -67,32 +64,6 @@
 			this.videoContext = uni.createVideoContext('myVideo');
 		},
 		methods: {
-			videoTimeUpdateEvent(e) { // 播放进度改变
-				// e.detail.currentTime为每次触发时,视频的当前播放时间
-				let currentTime = Number(e.detail.currentTime);
-				console.log('播放进度条改变', currentTime)
-				if (currentTime == e.detail.duration) {
-					uni.showModal({
-						title: '提示',
-						content: '恭喜您！已完成本年度学习任务请等待证书发放',
-						success: function(res) {
-							if (res.confirm) {
-								console.log('用户点击确定');
-							} else if (res.cancel) {
-								console.log('用户点击取消');
-							}
-						}
-					});
-				}
-				// 试看结束 this.class_info.freed_time为试看时间
-				// if (currentTime >= this.class_info.freed_time) {
-				// 	// 试看结束,在这做一些想做的操作,例如停止视频播放
-				// 	this.videoContext.exitFullScreen();
-				// 	this.videoContext.pause();
-				// 	this.videoContext.seek(0);
-				// }
-			},
-
 			getTime() {
 				let that = this
 				this.http.ajax({
@@ -104,9 +75,18 @@
 					},
 					success: function(res) {
 						that.video = res.data
+						res.data.longText = that.getTimeText(parseInt(res.data.long))
 						let time = res.data.now
 						that.videoTimeNum = res.data.now
+						that.xzTime = res.data.now
 						let text = that.getTimeText(time)
+						if (res.data.now == res.data.long) {
+							that.showDialogOut = true
+							that.contentOut = [{
+								title: '恭喜您！已完成本年度学习任务请等待证书发放'
+							}]
+							return
+						}
 						if (time > 0) {
 							that.content = [{
 									title: '您上次观看到'
@@ -162,8 +142,8 @@
 					data: {
 						video_id: this.id,
 						user_id: uni.getStorageSync('userInfo').id,
-						now: 69,
-						long: 69,
+						now: this.video.long,
+						long: this.video.long,
 					},
 					success: function(res) {
 						console.log(res)
@@ -173,13 +153,17 @@
 
 			closeDialog() {
 				this.showDialogOut = false
+				uni.navigateBack({
+					delta: 1
+				})
 			},
 
 			clickCancel() {
 				this.showDialog = false
+				this.videoTimeNum = 0
+				this.xzTime = 0
 				uni.getNetworkType({
 					complete: e => {
-						console.log(e)
 						switch (e.networkType) {
 							case '2g':
 							case '3g':
@@ -215,7 +199,6 @@
 				this.showDialog = false
 				uni.getNetworkType({
 					complete: e => {
-						console.log(e)
 						switch (e.networkType) {
 							case '2g':
 							case '3g':
@@ -264,7 +247,6 @@
 			},
 
 			fullscreenchange(e) {
-				console.log(e)
 				this.isQuan = e.detail.fullScreen
 			},
 
@@ -275,8 +257,22 @@
 			pauseVideo(e) {
 				// console.log(e)
 			},
-			
+
 			timeupdate(e) {
+				if (e.detail.currentTime - this.xzTime > 1 || e.detail.currentTime - this.xzTime < -1) {
+					let myVideo = uni.createVideoContext('myVideo')
+					myVideo.pause()
+					myVideo.seek(parseInt(this.xzTime))
+					uni.showModal({
+						title: '提示',
+						content: '您不能调整时间！',
+						success: () => {
+							myVideo.play()
+						}
+					})
+					return
+				}
+				this.xzTime = e.detail.currentTime
 				if (parseInt(this.videoTimeNum) + 5 == parseInt(e.detail.currentTime)) {
 					this.videoTimeNum = parseInt(e.detail.currentTime)
 					let that = this
@@ -287,7 +283,7 @@
 							video_id: this.id,
 							user_id: uni.getStorageSync('userInfo').id,
 							now: parseInt(e.detail.currentTime),
-							long: 69,
+							long: this.video.long,
 						},
 						success: function(res) {
 							console.log(res)
@@ -310,22 +306,14 @@
 		z-index: 10;
 	}
 
-	.noquanback {
+	.videoback {
 		position: absolute;
-		bottom: 5rpx;
-		height: 80rpx;
-		width: 610rpx;
-		left: 70rpx;
-		z-index: 99999999;
-	}
-
-	.quanback {
-		position: absolute;
-		bottom: 5rpx;
-		height: 80rpx;
-		width: 610rpx;
-		left: 70rpx;
-		z-index: 99999999;
+		bottom: 0rpx;
+		height: 90rpx;
+		width: 540rpx;
+		left: 90rpx;
+		z-index: 99999;
+		/* background-color: #007AFF; */
 	}
 
 	.content {
@@ -378,6 +366,7 @@
 		font-size: 28rpx;
 		bottom: 72rpx;
 	}
+
 	.button2 {
 		position: absolute;
 		left: 0;

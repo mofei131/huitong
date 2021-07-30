@@ -40,9 +40,23 @@
 		},
 		methods: {
 			openinfo(id, time) {
-				uni.navigateTo({
-					url: '/pages/train/video?id=' + id,
-				});
+				if (uni.getStorageSync('userInfo').bind_mobile) {
+					uni.navigateTo({
+						url: '/pages/train/video?id=' + id,
+					});
+				} else {
+					uni.showModal({
+						title: '提示',
+						content: '您还未绑定信息，是否前往绑定',
+						success: (res) => {
+							if (res.confirm) {
+								uni.navigateTo({
+									url: '/pages/train/binding?id=' + id,
+								});
+							}
+						}
+					})
+				}
 			},
 
 			searchVideo(e) {

@@ -1,1 +1,0 @@
-<view class="itemList"><block wx:for="{{itemList}}" wx:for-item="item" wx:for-index="index"><view class="listItem"><view class="listLeft"><view>{{item.name}}</view><view>{{item.sub_name}}</view></view><view class="listRight"><view data-event-opts="{{[['tap',[['toUrl',['$0'],[[['itemList','',index,'id']]]]]]]}}" bindtap="__e">查看详情</view></view></view></block></view>
