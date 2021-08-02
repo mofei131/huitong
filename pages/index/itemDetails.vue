@@ -82,6 +82,18 @@
 								icon: 'none'
 							})
 							that.getDetail()
+						} else if (res.code == -2){
+							uni.showModal({
+								title: '提示',
+								content: '请先前往认证',
+								success:(res) => {
+									if (res.confirm) {
+										uni.navigateTo({
+											url: '/pages/mine/authe'
+										})
+									}
+								}
+							})
 						} else {
 							uni.showToast({
 								title: res.message,

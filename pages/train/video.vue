@@ -17,8 +17,7 @@
 				<view>{{video.create_time}}</view>
 			</view>
 		</view>
-		<my-dialog :showDialog="showDialog" :content="content" :bts="bts" @clickCancel="clickCancel"
-			@clickConfirm="clickConfirm"></my-dialog>
+		<my-dialog :showDialog="showDialog" :content="content" @closeDialog="jixu"></my-dialog>
 		<my-dialog :showDialog="showDialogWifi" :content="contentWifi" :bts="btsWifi" @clickCancel="clickCancelWifi"
 			@clickConfirm="clickConfirmWifi"></my-dialog>
 		<my-dialog :showDialog="showDialogOut" :content="contentOut" @closeDialog="closeDialog"></my-dialog>
@@ -50,6 +49,7 @@
 				videoTime: '',
 				videoTimeNum: 0,
 				xzTime: 0,
+				bianhua: false,
 				video: {}
 			}
 		},
@@ -66,6 +66,7 @@
 		methods: {
 			getTime() {
 				let that = this
+				let myVideo = uni.createVideoContext('myVideo')
 				this.http.ajax({
 					url: 'video/detail',
 					method: 'GET',
@@ -99,24 +100,48 @@
 									title: '是否继续观看'
 								}
 							]
-							that.bts = [{
-									title: '取消',
-									background: '#fff',
-									borderColor: '#1890FF',
-									color: '#1890FF'
-								},
-								{
-									title: '继续观看',
-									background: '#1890FF',
-									borderColor: '#1890FF',
-									color: '#fff'
-								},
-							]
+							myVideo.seek(parseInt(time))
 							that.time = time
 							that.showDialog = true
 						}
 					}
 				});
+			},
+			
+			jixu() {
+				this.showDialog = false
+				uni.getNetworkType({
+					complete: e => {
+						switch (e.networkType) {
+							case '2g':
+							case '3g':
+							case '4g':
+							case '5g':
+								this.showDialogWifi = true,
+									this.contentWifi = [{
+										title: '您正在使用移动网络,继续观看会耗费通讯流量'
+									}]
+								this.btsWifi = [{
+										title: '取消',
+										background: '#fff',
+										borderColor: '#1890FF',
+										color: '#1890FF'
+									},
+									{
+										title: '继续观看',
+										background: '#1890FF',
+										borderColor: '#1890FF',
+										color: '#fff'
+									},
+								]
+								break;
+							default:
+								this.bianhua = true
+								uni.createVideoContext('myVideo').play()
+								break;
+						}
+					}
+				})
 			},
 
 			getTimeText(time) {
@@ -158,80 +183,6 @@
 				})
 			},
 
-			clickCancel() {
-				this.showDialog = false
-				this.videoTimeNum = 0
-				this.xzTime = 0
-				uni.getNetworkType({
-					complete: e => {
-						switch (e.networkType) {
-							case '2g':
-							case '3g':
-							case '4g':
-							case '5g':
-								this.showDialogWifi = true,
-									this.contentWifi = [{
-										title: '您正在使用移动网络,继续观看会耗费通讯流量'
-									}]
-								this.btsWifi = [{
-										title: '取消',
-										background: '#fff',
-										borderColor: '#1890FF',
-										color: '#1890FF'
-									},
-									{
-										title: '继续观看',
-										background: '#1890FF',
-										borderColor: '#1890FF',
-										color: '#fff'
-									},
-								]
-								break;
-							default:
-								uni.createVideoContext('myVideo').play()
-								break;
-						}
-					}
-				})
-			},
-
-			clickConfirm() {
-				this.showDialog = false
-				uni.getNetworkType({
-					complete: e => {
-						switch (e.networkType) {
-							case '2g':
-							case '3g':
-							case '4g':
-							case '5g':
-								this.showDialogWifi = true,
-									this.contentWifi = [{
-										title: '您正在使用移动网络,继续观看会耗费通讯流量'
-									}]
-								this.btsWifi = [{
-										title: '取消',
-										background: '#fff',
-										borderColor: '#1890FF',
-										color: '#1890FF'
-									},
-									{
-										title: '继续观看',
-										background: '#1890FF',
-										borderColor: '#1890FF',
-										color: '#fff'
-									},
-								]
-								uni.createVideoContext('myVideo').seek(this.time)
-								break;
-							default:
-								uni.createVideoContext('myVideo').seek(this.time)
-								uni.createVideoContext('myVideo').play()
-								break;
-						}
-					}
-				})
-			},
-
 			clickCancelWifi() {
 				this.showDialogWifi = false
 			},
@@ -251,7 +202,7 @@
 			},
 
 			playVideo(e) {
-				// console.log(e)
+				this.bianhua = true
 			},
 
 			pauseVideo(e) {
@@ -259,7 +210,8 @@
 			},
 
 			timeupdate(e) {
-				if (e.detail.currentTime - this.xzTime > 1 || e.detail.currentTime - this.xzTime < -1) {
+				console.log(e.detail.currentTime, this.xzTime)
+				if ((e.detail.currentTime - this.xzTime > 1 || e.detail.currentTime - this.xzTime < -1) && this.bianhua) {
 					let myVideo = uni.createVideoContext('myVideo')
 					myVideo.pause()
 					myVideo.seek(parseInt(this.xzTime))
