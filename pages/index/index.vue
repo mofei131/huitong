@@ -139,10 +139,12 @@
 						page: this.page,
 						limit: this.limit,
 						type: this.active,
+						// type: 'policyNews',
 						city_id: this.examinationTypeArray[this.examinationTypeIndex].id
 					},
 					success: function(res) {
 						that.info = that.info.concat(res.data)
+						console.log(that.info)
 					}
 				});
 			},
