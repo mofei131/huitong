@@ -29,6 +29,10 @@
 			}
 		},
 		onLoad() {
+		},
+		onShow() {
+			this.page = 1
+			this.limit = 1
 			this.getList()
 		},
 		onReachBottom() {
@@ -47,7 +51,26 @@
 						limit: this.limit,
 					},
 					success: function(res) {
-						that.order = that.order.concat(res.data)
+						if(res.code == 200){
+							that.order = that.order.concat(res.data)
+						}else if(res.code == -2){
+							uni.showModal({
+								title:'提示',
+								content:'您在未进行企业认证，请前往认证',
+								success:function(res){
+									if(res.confirm){
+										uni.navigateTo({
+											url:'/pages/mine/authe'
+										})
+									}else{
+										uni.navigateBack({
+											delta:1
+										})
+									}
+								}
+							})
+						}
+						
 					}
 				});
 			},
@@ -62,18 +85,30 @@
 
 <style>
 	body{
-		background: #fff!important;
+		background: #F4F7F7!important;
 	}
 	.uniList{
-		width: 720rpx;
+		/* width: 720rpx;
 		height: 170rpx;
 		background: #FFFFFF;
 		border-radius: 14rpx;
+		margin: auto; */
+		width: 720rpx;
+		background: #F4F7F7!important;
 		margin: auto;
+		box-sizing: border-box;
+	}
+	.uniListItem{
+		display: flex;
+		margin-top: 20rpx;
+		box-sizing: border-box;
+		border-radius: 14rpx;
+		background: #fff;
 	}
 	.order{
 		display: flex;
-		margin-top: 70rpx;
+		/* margin-top: 70rpx; */
+		margin: 30rpx 0 20rpx 0;
 	}
 	.orderLeft{
 		width: 490rpx;
@@ -91,6 +126,8 @@
 	}
 	.orderRight{
 		width: 210rpx;
+		/* margin-left: 32rpx; */
+		margin: auto;
 	}
 	.orderRight view{
 		width: 158rpx;
@@ -102,7 +139,7 @@
 		line-height: 50rpx;
 		margin: auto;
 		display: block;
-		margin-top: 40rpx;
+		/* margin-top: 40rpx; */
 	}
 	.active{
 		background: #FFB932!important;

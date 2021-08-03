@@ -6,7 +6,7 @@
 			<image src="@/static/images/close.png"></image>
 			<text>取消</text>
 		</view>
-		<view class="videList">
+		<!-- <view class="videList">
 			<view class="viewItem" v-for="(item,index) in videoList" @click="openinfo(item.id,item.time)">
 				<view class="itemLeft">
 					<image :src="item.image"></image>
@@ -17,6 +17,9 @@
 					<view>共:{{item.long}}</view>
 				</view>
 			</view>
+		</view> -->
+		<view class="nofind">
+			<image src="@/static/images/nofind.png"></image>
 		</view>
 	</view>
 </template>
@@ -140,5 +143,9 @@
 		color: #51565D;
 		font-size: 28rpx;
 		line-height: 36rpx;
+	}
+	.nofind image{
+		width: 750rpx;
+		margin: 100rpx auto;
 	}
 </style>

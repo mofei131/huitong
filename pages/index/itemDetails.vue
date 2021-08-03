@@ -72,8 +72,8 @@
 					url: 'service/appoinment',
 					method: 'GET',
 					data: {
-						service_id: this.id,
 						user_id: wx.getStorageSync('userInfo').id,
+						service_id: this.id,
 					},
 					success: function(res) {
 						if (res.code == 200) {
@@ -82,7 +82,7 @@
 								icon: 'none'
 							})
 							that.getDetail()
-						} else if (res.code == -2){
+						} else if (res.code == -1){
 							uni.showModal({
 								title: '提示',
 								content: '请先前往认证',

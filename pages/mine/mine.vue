@@ -20,7 +20,7 @@
 				<view v-if="!user.renzheng_company">
 				 <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证"   link to="./authe"   ></uni-list-item>
 				 </view>
-				<uni-list-item thumb="../../static/images/meico3.png" title="联系客服" rightText="400-820-2550" link @click="cell()"   ></uni-list-item>
+				<uni-list-item thumb="../../static/images/meico3.png" title="联系客服" :rightText=this.phone link @click="cell()"   ></uni-list-item>
 				<uni-list-item thumb="../../static/images/meico4.png" title="服务协议" link to="./contract"   ></uni-list-item>
 				<uni-list-item thumb="../../static/images/meico5.png" title="关于我们" link to="./about"   ></uni-list-item>
 				<uni-list-item thumb="../../static/images/meico6.png" title="设置" link to="./setUp"   ></uni-list-item>
@@ -33,16 +33,32 @@
 	export default {
 		data() {
 			return {
-				user: {}
+				user: {},
+				kfphone:0,
+				phone:''
 			}
 		},
 		onShow() {
 			this.user = wx.getStorageSync('userInfo')
+			console.log(this.user)
+		},
+		onLoad(){
+			let that = this
+			this.http.ajax({
+				url: 'index/xieyi',
+				method: 'GET',
+				data: {
+					name: 'kefu',
+				},
+				success: function(res) {
+					that.phone = res.data.value
+				}
+			});
 		},
 		methods: {
 			cell() {
 				uni.makePhoneCall({
-					phoneNumber: '400-820-2550',
+					phoneNumber: this.phone
 				});
 			},
 			uploadImage() {
