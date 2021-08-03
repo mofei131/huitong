@@ -12,17 +12,20 @@
 		</view>
 		<view class="list">
 			<uni-list>
-			    <uni-list-item thumb="../../static/images/meico1.png" title="我的预约" link to="./order"   ></uni-list-item>
+				<uni-list-item thumb="../../static/images/meico1.png" title="我的预约" link to="./order"></uni-list-item>
 				<view v-if="user.renzheng_company">
-			    <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="已认证"  link to="./authe"   ></uni-list-item>
+					<uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="已认证" link
+						to="./authe"></uni-list-item>
 				</view>
 				<view v-if="!user.renzheng_company">
-				 <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证"   link to="./authe"   ></uni-list-item>
-				 </view>
-				<uni-list-item thumb="../../static/images/meico3.png" title="联系客服" :rightText=this.phone link @click="cell()"   ></uni-list-item>
-				<uni-list-item thumb="../../static/images/meico4.png" title="服务协议" link to="./contract"   ></uni-list-item>
-				<uni-list-item thumb="../../static/images/meico5.png" title="关于我们" link to="./about"   ></uni-list-item>
-				<uni-list-item thumb="../../static/images/meico6.png" title="设置" link to="./setUp"   ></uni-list-item>
+					<uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证" link
+						to="./authe"></uni-list-item>
+				</view>
+				<uni-list-item thumb="../../static/images/meico3.png" title="联系客服" :rightText=this.phone link
+					@click="cell()"></uni-list-item>
+				<uni-list-item thumb="../../static/images/meico4.png" title="服务协议" link to="./contract"></uni-list-item>
+				<uni-list-item thumb="../../static/images/meico5.png" title="关于我们" link to="./about"></uni-list-item>
+				<uni-list-item thumb="../../static/images/meico6.png" title="设置" link to="./setUp"></uni-list-item>
 			</uni-list>
 		</view>
 	</view>
@@ -33,15 +36,15 @@
 		data() {
 			return {
 				user: {},
-				kfphone:0,
-				phone:''
+				kfphone: 0,
+				phone: ''
 			}
 		},
 		onShow() {
 			this.user = wx.getStorageSync('userInfo')
 			console.log(this.user)
 		},
-		onLoad(){
+		onLoad() {
 			let that = this
 			this.http.ajax({
 				url: 'index/xieyi',
@@ -78,14 +81,14 @@
 			},
 		}
 	}
-}
 </script>
 
 <style>
-	body{
-		background: #fff!important;
+	body {
+		background: #fff !important;
 	}
-	.topMian{
+
+	.topMian {
 		width: 750rpx;
 		height: 409rpx;
 		background: #1890FF;
@@ -94,17 +97,20 @@
 		padding-top: 170rpx;
 		box-sizing: border-box;
 	}
-	.tmLeft{
+
+	.tmLeft {
 		position: relative;
 		margin: 0 50rpx 0 63rpx;
 	}
-	.tmLeft image:nth-child(1){
+
+	.tmLeft image:nth-child(1) {
 		width: 140rpx;
 		height: 140rpx;
 		background: #F4F9FF;
 		border-radius: 75rpx;
 	}
-	.tmLeft image:nth-child(2){
+
+	.tmLeft image:nth-child(2) {
 		width: 40rpx;
 		height: 40rpx;
 		border-radius: 25rpx;
@@ -112,25 +118,31 @@
 		right: 5rpx;
 		top: 100rpx;
 	}
-	.tmRight view:nth-child(1){
+
+	.tmRight view:nth-child(1) {
 		font-size: 42rpx;
 		color: #fff;
 		padding-top: 20rpx;
 	}
-	.tmRight view:nth-child(2){
+
+	.tmRight view:nth-child(2) {
 		font-size: 30rpx;
 		color: #fff;
 	}
-	.list{
+
+	.list {
 		padding-top: 20rpx;
 	}
-	uni-list-item{
+
+	uni-list-item {
 		line-height: 40rpx;
 		border: 0;
 		margin-bottom: 20rpx;
 	}
-	.uni-list--border-top,.uni-list--border-bottom{
-		border: 0!important;
-		height: 0!important;
+
+	.uni-list--border-top,
+	.uni-list--border-bottom {
+		border: 0 !important;
+		height: 0 !important;
 	}
 </style>
