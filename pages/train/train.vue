@@ -31,7 +31,7 @@
 				page: 1,
 				limit: 10,
 				videoList: [],
-				searchBox: ''
+				searchBox: '',
 			}
 		},
 		onReachBottom() {
@@ -103,6 +103,8 @@
 		line-height: 40rpx;
 		width: 470rpx;
 		height: 64rpx;
+		background: #f4f4f4;
+		border-radius: 0 32rpx 32rpx 0;
 	}
 
 	.search text {

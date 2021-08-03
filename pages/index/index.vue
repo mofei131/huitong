@@ -65,6 +65,8 @@
 				})
 			}
 			this._load()
+			// setInterval(, 5000 )
+			console.log(uni.base64ToArrayBuffer('test'))
 		},
 		onReachBottom() {
 			this.page++
@@ -205,6 +207,7 @@
 		color: #666666;
 		padding-top: 10rpx;
 		text-align: center;
+		font-size: 25rpx;
 	}
 
 	.iconul view image {
@@ -230,6 +233,7 @@
 		background: #FFFFFF;
 		border-radius: 14px;
 		margin: auto;
+		margin-top: 43rpx;
 	}
 
 	.ullist .active {

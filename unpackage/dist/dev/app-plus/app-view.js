@@ -1264,7 +1264,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX.2.6.1.20200226.full/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.banner uni-image {\n\twidth: 750rpx;\n\tposition: relative;\n}\n.iconlist {\n\twidth: 720rpx;\n\theight: 340rpx;\n\tbackground: #FFFFFF;\n\t-webkit-box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\t        box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\tborder-radius: 14px;\n\tmargin: 23rpx auto;\n}\n.iconul {\n\twidth: 720rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.iconul uni-view {\n\twidth: 180rpx;\n\tpadding-top: 25rpx;\n}\n.iconul uni-view uni-text {\n\tdisplay: block;\n\tcolor: #666666;\n\tpadding-top: 10rpx;\n\ttext-align: center;\n}\n.iconul uni-view uni-image {\n\twidth: 84rpx;\n\theight: 84rpx;\n\tmargin: auto;\n\tdisplay: block;\n}\n.ullist {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tfloat: left;\n\tfont-size: 30rpx;\n\t-webkit-box-pack: start;\n\t-webkit-justify-content: start;\n\t        justify-content: start;\n}\n.ullist uni-view {\n\tmargin-right: 30rpx;\n}\n.new {\n\twidth: 720rpx;\n\tbackground: #FFFFFF;\n\tborder-radius: 14px;\n\tmargin: auto;\n}\n.ullist .active {\n\tborder-bottom: 3px solid #1890FF;\n}\n.child {\n\tfloat: left;\n\tpadding: 40rpx 0 60rpx 0;\n}\n.dropDown uni-view,\n.lauwen-select-input {\n\tborder: 0rpx;\n\twidth: 160rpx;\n}\n.dropDown {\n\tposition: absolute;\n\ttop: 60rpx;\n\tleft: 10rpx;\n\tcolor: #fff;\n}\n.lauwen-option {\n\tbackground: #1890FF;\n}\n.rectangle {\n\tposition: absolute;\n\ttop: 60rpx;\n\tright: 10rpx;\n}\n.rectangle uni-image {\n\twidth: 66rpx;\n\theight: 66rpx;\n}\n", ""]);
+exports.push([module.i, "\n.banner uni-image {\n\twidth: 750rpx;\n\tposition: relative;\n}\n.iconlist {\n\twidth: 720rpx;\n\theight: 340rpx;\n\tbackground: #FFFFFF;\n\t-webkit-box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\t        box-shadow: 0px 2px 4px 0px rgba(147, 147, 147, 0.5);\n\tborder-radius: 14px;\n\tmargin: 23rpx auto;\n}\n.iconul {\n\twidth: 720rpx;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t-webkit-box-pack: justify;\n\t-webkit-justify-content: space-between;\n\t        justify-content: space-between;\n}\n.iconul uni-view {\n\twidth: 180rpx;\n\tpadding-top: 25rpx;\n}\n.iconul uni-view uni-text {\n\tdisplay: block;\n\tcolor: #666666;\n\tpadding-top: 10rpx;\n\ttext-align: center;\n\tfont-size: 25rpx;\n}\n.iconul uni-view uni-image {\n\twidth: 84rpx;\n\theight: 84rpx;\n\tmargin: auto;\n\tdisplay: block;\n}\n.ullist {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tfloat: left;\n\tfont-size: 30rpx;\n\t-webkit-box-pack: start;\n\t-webkit-justify-content: start;\n\t        justify-content: start;\n}\n.ullist uni-view {\n\tmargin-right: 30rpx;\n}\n.new {\n\twidth: 720rpx;\n\tbackground: #FFFFFF;\n\tborder-radius: 14px;\n\tmargin: auto;\n\tmargin-top: 43rpx;\n}\n.ullist .active {\n\tborder-bottom: 3px solid #1890FF;\n}\n.child {\n\tfloat: left;\n\tpadding: 40rpx 0 60rpx 0;\n}\n.dropDown uni-view,\n.lauwen-select-input {\n\tborder: 0rpx;\n\twidth: 160rpx;\n}\n.dropDown {\n\tposition: absolute;\n\ttop: 60rpx;\n\tleft: 10rpx;\n\tcolor: #fff;\n}\n.lauwen-option {\n\tbackground: #1890FF;\n}\n.rectangle {\n\tposition: absolute;\n\ttop: 60rpx;\n\tright: 10rpx;\n}\n.rectangle uni-image {\n\twidth: 66rpx;\n\theight: 66rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -1482,7 +1482,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX.2.6.1.20200226.full/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.search {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n\tmargin-top: 32rpx;\n}\n.search uni-image {\n\twidth: 66rpx;\n\theight: 66rpx;\n}\n.search uni-input {\n\tline-height: 40rpx;\n\twidth: 470rpx;\n\theight: 64rpx;\n}\n.search uni-text {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tmargin-left: 23rpx;\n\tpadding-top: 15rpx;\n}\n.videList {\n\twidth: 680rpx;\n\tmargin: auto;\n}\n.itemLeft uni-image {\n\twidth: 260rpx;\n\theight: 146rpx;\n}\n.viewItem {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 35rpx;\n}\n.itemRight {\n\tcolor: #9EA3A7;\n\tfont-size: 24rpx;\n\tline-height: 33rpx;\n\twidth: 400rpx;\n\tmargin-left: 20rpx;\n}\n.itemRight uni-view {\n\tmargin-bottom: 5rpx;\n}\n.itemRight uni-view:nth-child(1) {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tline-height: 36rpx;\n}\n.nofind uni-image{\n\twidth: 750rpx;\n\tmargin: 100rpx auto;\n}\n", ""]);
+exports.push([module.i, "\n.search {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t-webkit-justify-content: center;\n\t        justify-content: center;\n\tmargin-top: 32rpx;\n}\n.search uni-image {\n\twidth: 66rpx;\n\theight: 66rpx;\n}\n.search uni-input {\n\tline-height: 40rpx;\n\twidth: 470rpx;\n\theight: 64rpx;\n\tbackground: #f4f4f4;\n\tborder-radius: 0 32rpx 32rpx 0;\n}\n.search uni-text {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tmargin-left: 23rpx;\n\tpadding-top: 15rpx;\n}\n.videList {\n\twidth: 680rpx;\n\tmargin: auto;\n}\n.itemLeft uni-image {\n\twidth: 260rpx;\n\theight: 146rpx;\n}\n.viewItem {\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tmargin-top: 35rpx;\n}\n.itemRight {\n\tcolor: #9EA3A7;\n\tfont-size: 24rpx;\n\tline-height: 33rpx;\n\twidth: 400rpx;\n\tmargin-left: 20rpx;\n}\n.itemRight uni-view {\n\tmargin-bottom: 5rpx;\n}\n.itemRight uni-view:nth-child(1) {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tline-height: 36rpx;\n}\n.nofind uni-image{\n\twidth: 750rpx;\n\tmargin: 100rpx auto;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -1597,23 +1597,24 @@ var render = function() {
     [
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
+        {
+          staticClass: _vm._$g(1, "sc"),
+          attrs: { _i: 1 },
+          on: {
+            click: function($event) {
+              return _vm.$handleViewEvent($event)
+            }
+          }
+        },
         [
           _c(
             "v-uni-view",
             { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
             [
-              _c("v-uni-image", {
-                attrs: { src: _vm._$g(3, "a-src"), _i: 3 },
-                on: {
-                  click: function($event) {
-                    return _vm.$handleViewEvent($event)
-                  }
-                }
-              }),
+              _c("v-uni-image", { attrs: { src: _vm._$g(3, "a-src"), _i: 3 } }),
               _vm._$g(4, "i")
                 ? _c("v-uni-image", {
-                    attrs: { src: "/static/images/yirenzheng.png", _i: 4 }
+                    attrs: { src: "/static/images/rzsucess.png", _i: 4 }
                   })
                 : _vm._e()
             ],
@@ -2691,19 +2692,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!C:/Users/博尧科技/Desktop/源码/huitong/pages/mine/mine.vue?vue&type=script&lang=js&mpType=page ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
-
-{
-
-  data: function data() {
-    return {
-      wxsProps: {} };
-
-  },
-  components: {} };exports.default = _default;
+throw new Error("Module build failed (from ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js):\nSyntaxError: Unexpected token (81:0)\n    at Object._raise (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:746:17)\n    at Object.raiseWithData (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:739:17)\n    at Object.raise (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:733:17)\n    at Object.unexpected (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:8807:16)\n    at Object.parseExprAtom (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10130:20)\n    at Object.parseExprSubscripts (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9656:23)\n    at Object.parseMaybeUnary (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9636:21)\n    at Object.parseMaybeUnary (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6877:20)\n    at Object.parseExprOps (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9506:23)\n    at Object.parseMaybeConditional (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9479:23)\n    at Object.parseMaybeAssign (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9434:21)\n    at Object.parseMaybeAssign (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6822:20)\n    at Object.parseExpression (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9386:23)\n    at Object.parseStatementContent (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:11285:23)\n    at Object.parseStatementContent (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6575:18)\n    at Object.parseStatement (C:\\Users\\博尧科技\\Desktop\\HBuilderX.2.6.1.20200226.full\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:11156:17)");
 
 /***/ }),
 /* 69 */
@@ -2752,7 +2743,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX.2.6.1.20200226.full/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.topMian {\n\twidth: 750rpx;\n\theight: 409rpx;\n\tbackground: #1890FF;\n\tborder-radius: 0px 0px 30px 30px;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tpadding-top: 170rpx;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n}\n.tmLeft {\n\tposition: relative;\n\tmargin: 0 50rpx 0 63rpx;\n}\n.tmLeft uni-image:nth-child(1) {\n\twidth: 140rpx;\n\theight: 140rpx;\n\tbackground: #F4F9FF;\n\tborder-radius: 75rpx;\n}\n.tmLeft uni-image:nth-child(2) {\n\twidth: 40rpx;\n\theight: 40rpx;\n\tborder-radius: 25rpx;\n\tposition: absolute;\n\tright: 5rpx;\n\ttop: 100rpx;\n}\n.tmRight uni-view:nth-child(1) {\n\tfont-size: 42rpx;\n\tcolor: #fff;\n\tpadding-top: 20rpx;\n}\n.tmRight uni-view:nth-child(2) {\n\tfont-size: 30rpx;\n\tcolor: #fff;\n}\n.list {\n\tpadding-top: 20rpx;\n}\nuni-list-item {\n\tline-height: 40rpx;\n}\n", ""]);
+exports.push([module.i, "\nbody{\n\tbackground: #fff!important;\n}\n.topMian{\n\twidth: 750rpx;\n\theight: 409rpx;\n\tbackground: #1890FF;\n\tborder-radius: 0px 0px 30px 30px;\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: flex;\n\tpadding-top: 170rpx;\n\t-webkit-box-sizing: border-box;\n\t        box-sizing: border-box;\n}\n.tmLeft{\n\tposition: relative;\n\tmargin: 0 50rpx 0 63rpx;\n}\n.tmLeft uni-image:nth-child(1){\n\twidth: 140rpx;\n\theight: 140rpx;\n\tbackground: #F4F9FF;\n\tborder-radius: 75rpx;\n}\n.tmLeft uni-image:nth-child(2){\n\twidth: 40rpx;\n\theight: 40rpx;\n\tborder-radius: 25rpx;\n\tposition: absolute;\n\tright: 5rpx;\n\ttop: 100rpx;\n}\n.tmRight uni-view:nth-child(1){\n\tfont-size: 42rpx;\n\tcolor: #fff;\n\tpadding-top: 20rpx;\n}\n.tmRight uni-view:nth-child(2){\n\tfont-size: 30rpx;\n\tcolor: #fff;\n}\n.list{\n\tpadding-top: 20rpx;\n}\nuni-list-item{\n\tline-height: 40rpx;\n\tborder: 0;\n\tmargin-bottom: 20rpx;\n}\n.uni-list--border-top,.uni-list--border-bottom{\n\tborder: 0!important;\n\theight: 0!important;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
