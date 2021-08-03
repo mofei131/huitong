@@ -2,7 +2,7 @@
 	<view>
 		<view class="topMian" @click="login()">
 			<view class="tmLeft">
-				<image :src="headPort"></image>
+				<image :src="user.image ? user.image : '/static/images/moren.png'"></image>
 				<image src="@/static/images/rzsucess.png" v-if="user.authe == 1"></image>
 			</view>
 			<view class="tmRight">
