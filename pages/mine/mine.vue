@@ -1,8 +1,8 @@
 <template>
 	<view>
-		<view class="topMian" @click="login()">
+		<view class="topMian">
 			<view class="tmLeft">
-				<image :src="user.image ? user.image : '/static/images/moren.png'"></image>
+				<image :src="user.image ? user.image : '/static/images/moren.png'" @click="uploadImage"></image>
 				<image src="@/static/images/rzsucess.png" v-if="user.authe == 1"></image>
 			</view>
 			<view class="tmRight">
@@ -37,12 +37,12 @@
 			return {
 				user: {},
 				kfphone: 0,
-				phone: ''
+				phone: '',
 			}
 		},
 		onShow() {
-			this.user = wx.getStorageSync('userInfo')
-			console.log(this.user)
+			this.user = uni.getStorageSync('userInfo')
+			// console.log(this.user)
 		},
 		onLoad() {
 			let that = this
@@ -68,12 +68,28 @@
 					count: 1,
 					success: (res) => {
 						const tempFilePaths = res.tempFilePaths;
+						let that = this
 						uni.uploadFile({
-							url: 'http://huitong.boyaokj.cn/api/upload', //post请求的地址
+							url: 'http://huitong.boyaokj.cn/api/file/upload', //post请求的地址
 							filePath: tempFilePaths[0],
 							name: 'file',
 							success: (uploadFileRes) => {
-								var obj = JSON.parse(uploadFileRes.data);
+								let obj = JSON.parse(uploadFileRes.data);
+								this.http.ajax({
+									url:'user/updateImage',
+									method: 'GET',
+									data: {
+										image:obj.data.url,
+										user_id:this.user.id,
+									},
+									success: function(res) {
+										let user = uni.getStorageSync('userInfo')
+										user.image = obj.data.url
+										uni.setStorageSync('userInfo',user)
+										console.log(obj.data.url)
+										that.user = user
+									}
+								})
 							}
 						})
 					},

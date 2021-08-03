@@ -4,7 +4,7 @@
 		<view class="topTitle">环保检测</view>
 	</view> -->
 	<view class="uniList">
-		<view class="uniListItem" v-for="(item,index) in order" @click="toDetail(item.service_id)">
+		<view class="uniListItem" v-for="(item,index) in order" @click="toDetail(item.service_id)" v-if="order.length != 0">
 			<view class="order">
 				<view class="orderLeft">
 					<view>{{item.htService.name}}</view>
@@ -14,6 +14,10 @@
 				<view class="active">已预约</view>
 				</view>
 			</view>
+		</view>
+		<view v-if="order.length == 0" class="notfound">
+			<image src="@/static/images/notfund.png" class="notfoundimage"></image>
+			<text class="notfoundtext">暂无内容</text>
 		</view>
 	</view>
 	</view>
@@ -143,5 +147,20 @@
 	}
 	.active{
 		background: #FFB932!important;
+	}
+	.notfound{
+		width: 100%;
+	}
+	.notfoundimage{
+		width: 100%;
+		margin-top: 100rpx;
+	}
+	.notfoundtext{
+		width: 100%;
+		font-size: 36rpx;
+		text-align: center;
+		color: #333;
+		font-weight: 500;
+		display: block;
 	}
 </style>
