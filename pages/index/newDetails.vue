@@ -3,7 +3,7 @@
 		<view class="title">{{newdetails.title}}</view>
 		<view class="time">{{newdetails.create_time}}</view>
 		<view class="detimg" v-if='newdetails.image !== ""'>
-			<image :src="newdetails.image"></image>
+			<image :src="newdetails.image" mode="widthFix"></image>
 		</view>
 		<view class="content" v-html="newdetails.content"></view>
 	</view>
@@ -98,8 +98,11 @@
 		line-height: 33rpx;
 	}
 	.detimg image{
-		width: 680rpx;
-		margin: 20rpx 0 20rpx 0;
+		max-width: 680rpx;
+		margin: auto;
+		margin-top: 20rpx;
+		margin-bottom: 20rpx;
+		display: block;
 	}
 	.content{
 		font-size: 30rpx;
@@ -109,4 +112,9 @@
 		line-height: 50rpx;
 		padding-bottom: 54rpx;
 	}
+	>>> img{
+		width: 100% !important;
+		height: auto !important;
+		margin: auto;
+		}
 </style>

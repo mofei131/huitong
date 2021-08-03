@@ -12,9 +12,7 @@
 					</view>
 					</view>
 					<view class="listright" v-if="item.image">
-					<view>
 						<image :src="item.image"></image>
-					</view>
 					</view>
 				</view>
 			</view>
@@ -63,4 +61,17 @@
 		height: 124rpx;
 		margin: 0 22rpx 0 22rpx;
 	}
+	/* .listright{
+		width: 220rpx;
+		height: 124rpx;
+		margin: 0 22rpx 0 22rpx;
+		overflow: hidden;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		listright image {
+			width: 100%;
+		 }
+	} */
 </style>

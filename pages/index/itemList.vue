@@ -1,12 +1,12 @@
 <template>
 	<view class="itemList">
-	<view class="listItem" v-for="(item,index) in itemList">
+	<view class="listItem" v-for="(item,index) in itemList" @click="toUrl(item.id)">
 		<view class="listLeft">
 			<view>{{item.name}}</view>
 			<view>{{item.sub_name}}</view>
 		</view>
 		<view class="listRight">
-			<view @click="toUrl(item.id)">查看详情</view>
+			<view>查看详情</view>
 		</view>
 	</view>
 	</view>
@@ -60,14 +60,21 @@
 </script>
 
 <style>
+	body{
+		background: #F4F7F7!important;
+	}
 	.itemList{
-		padding-top: 20rpx;
+		width: 720rpx;
+		background: #F4F7F7!important;
+		margin: auto;
+		box-sizing: border-box;
 	}
 	.listItem{
 		display: flex;
-		width: 720rpx;
-		margin: auto;
-		margin-bottom: 20rpx;
+		margin-top: 20rpx;
+		box-sizing: border-box;
+		border-radius: 14rpx;
+		background: #fff;
 	}
 	.listLeft{
 		width: 490rpx;
@@ -78,12 +85,17 @@
 		font-family: PingFangSC-Medium, PingFang SC;
 		line-height: 40px;
 		font-weight: 500;
+		padding: 20rpx;
+		padding-bottom: 0rpx;
 	}
 	.listLeft view:nth-child(2){
 		color: #51565D;
 		font-size: 24rpx;
 		font-family: PingFangSC-Regular, PingFang SC;
 		line-height: 33rpx;
+		word-wrap:break-word;
+		padding: 20rpx;
+		padding-top: 0rpx;
 	}
 	.listRight{
 		width: 158rpx;
@@ -101,6 +113,6 @@
 		line-height: 53rpx;
 		text-align: center;
 		display: block;
-		margin-top: 60rpx;
+		/* margin-top: 10rpx; */
 	}
 </style>

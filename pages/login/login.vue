@@ -152,7 +152,7 @@
 		height: 76rpx;
 		background: #1890FF;
 		border-radius: 39rpx;
-		opacity: 0.4;
+		/* opacity: 0.4; */
 		text-align: center;
 		color: #fff;
 		line-height: 70rpx;

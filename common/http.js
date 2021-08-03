@@ -1,4 +1,4 @@
-const baseUrl = 'http://huitong.boyaokj.cn/api/';
+const baseUrl = 'http://www.zaihangqifu.com/api/';
 const imgUrl = 'http://store.boyaokj.cn/';
 /* 封装ajax函数
  * @param {string}opt.type http连接的方式，包括POST和GET两种方式
