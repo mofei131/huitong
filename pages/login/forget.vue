@@ -6,12 +6,12 @@
         <input class="sl-input" type="number" v-model="phone" maxlength="11" placeholder="请输入手机号" />
 		 <view class="yzm" :class="{ yzms: second>0 }" @tap="getcode">{{yanzhengma}}</view>
       </view>
+			<view class="list-call">
+			  <input class="sl-input" type="number" v-model="code" maxlength="4" placeholder="验证码" />
+			</view>
       <view class="list-call">
         <input class="sl-input" type="text" v-model="password" maxlength="32" placeholder="请输入新密码" :password="!showPassword" />
         <image class="img" :src="showPassword?'/static/shilu-login/op.png':'/static/shilu-login/cl.png'" @tap="display"></image>
-      </view>
-      <view class="list-call">
-        <input class="sl-input" type="number" v-model="code" maxlength="4" placeholder="验证码" />
       </view>
     </view>
 	<view class="agreement">
@@ -100,7 +100,7 @@
           });
           return;
         }
-        if (this.password.length < 6) {
+        if (!this.password) {
           uni.showToast({
             icon: 'none',
             title: '密码不正确'
@@ -123,9 +123,10 @@
         		code: this.code
         	},
         	success: function(res) {
-        		wx.showToast({
+        		uni.showToast({
         			title: res.message,
-        			icon: 'none'
+        			icon: 'none',
+							duration:1000
         		})
         		if (res.code == 200) {
         			setTimeout(() => {

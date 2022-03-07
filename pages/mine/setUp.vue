@@ -15,8 +15,13 @@
 			</view>
 			<view class="listitem">
 				<view class="updata">
+					<view>
 					<view class="reddian" v-if="hasNew"></view>
 					<view @click="doUpData()">APP更新</view>
+					</view>
+					<view>
+						<view class="banben">{{banben}}</view>
+					</view>
 				</view>
 			</view>
 			<view class="listitem" @tap="tologin()">
@@ -33,7 +38,8 @@
 	export default {
 		data() {
 			return {
-				hasNew: false
+				hasNew: false,
+				banben:''
 			}
 		},
 		onShow() {
@@ -60,6 +66,7 @@
 						if (request.code == 200) {
 							plus.runtime.getProperty(plus.runtime.appid, function(inf) {
 								let platform = uni.getSystemInfoSync().platform
+								that.banben = inf.version 
 								if (platform == 'ios') {
 									if (inf.version != request.data.IOS_VERSION) {
 										that.hasNew = true
@@ -173,8 +180,13 @@
 
 	.updata {
 		position: relative;
+		display: flex;
+		justify-content: space-between;
 	}
-
+	.banben{
+		margin-right: 30rpx;
+		color: #333;
+	}
 	.reddian {
 		position: absolute;
 		width: 16rpx;
@@ -183,5 +195,6 @@
 		left: 130rpx;
 		top: 0;
 		border-radius: 50%;
+		
 	}
 </style>

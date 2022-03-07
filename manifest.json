@@ -1,9 +1,9 @@
 {
     "name" : "载航",
-    "appid" : "__UNI__F3AFA0F",
+    "appid" : "__UNI__16C514C",
     "description" : "",
-    "versionName" : "1.0.0",
-    "versionCode" : "100",
+    "versionName" : "1.0.8",
+    "versionCode" : 107,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -16,19 +16,34 @@
             "autoclose" : true,
             "delay" : 0
         },
+        //true表示忽略版本检查提示框，HBuilderX1.9.0及以上版本支持 
+        "compatible" : {
+            "ignoreVersion" : true
+        },
         /* 模块配置 */
         "modules" : {
-            "VideoPlayer" : {}
+            "VideoPlayer" : {},
+            "Payment" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
             /* android打包配置 */
             "android" : {
+                "permissionExternalStorage" : {
+                    "request" : "none",
+                    "prompt" : "应用保存运行状态等信息，需要获取读写手机存储（系统提示为访问设备上的照片、媒体内容和文件）权限，请允许。"
+                },
+                "permissionPhoneState" : {
+                    "request" : "none",
+                    "prompt" : "为保证您正常、安全地使用，需要获取设备识别码（部分手机提示为获取手机号码）使用权限，请允许。"
+                },
                 "permissions" : [
                     "<uses-feature android:name=\"android.hardware.camera\"/>",
                     "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>",
                     "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
                     "<uses-permission android:name=\"android.permission.CAMERA\"/>",
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
@@ -38,16 +53,43 @@
                     "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
                     "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
                     "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
                     "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
                     "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
-                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ]
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH\"/>",
+                    "<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\"/>"
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "capabilities" : {
+                    "entitlements" : {
+                        "com.apple.developer.associated-domains" : [ "applinks:uni.boyaokj.cn" ]
+                    }
+                },
+                "privacyDescription" : {
+                    "NSPhotoLibraryUsageDescription" : "在上传头像等功能使用相机",
+                    "NSLocationWhenInUseUsageDescription" : "用户在获取附近人和附近动态使用您的地理位置",
+                    "NSLocationAlwaysUsageDescription" : "用户在获取附近人和附近动态使用您的地理位置",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "用户在获取附近人和附近动态使用您的地理位置",
+                    "NSMicrophoneUsageDescription" : "拍摄视频时会使用麦克风功能",
+                    "NSPhotoLibraryAddUsageDescription" : "在保存图片时使用",
+                    "NSCameraUsageDescription" : "在上传头像等功能使用相机"
+                },
+                "idfa" : false
+            },
             /* SDK配置 */
             "sdkConfigs" : {
-                "ad" : {}
+                "ad" : {},
+                "payment" : {
+                    "weixin" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appid" : "wxe1186e2350e05f35",
+                        "UniversalLinks" : "https://uni.boyaokj.cn/uni-universallinks/__UNI__F3AFA0F/"
+                    }
+                }
             },
             "icons" : {
                 "android" : {
@@ -80,6 +122,9 @@
                         "spotlight@3x" : "unpackage/res/icons/120x120.png"
                     }
                 }
+            },
+            "splashscreen" : {
+                "useOriginalMsgbox" : true
             }
         },
         "nvueCompiler" : "uni-app"
@@ -105,5 +150,6 @@
     },
     "uniStatistics" : {
         "enable" : false
-    }
+    },
+    "_spaceID" : "668b7806-72d6-4398-b900-f82a5778e9e3"
 }

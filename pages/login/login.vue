@@ -40,12 +40,15 @@
 				password: ''
 			};
 		},
+		onLoad() {
+			// if (!uni.getStorageSync('userInfo').id) {
+			// }else{
+			// 	uni.redirectTo({
+			// 		url: '/pages/index/index'
+			// 	})
+			// }
+		},
 		methods: {
-			// blur(){
-			// 	if(this.phone !== "" && this.password !== ""){
-			// 		this.$refs.login.style.opacity = '1'
-			// 	}
-			// },
 			bindLogin() {
 				if (this.phone.length != 11) {
 					uni.showToast({

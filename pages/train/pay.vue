@@ -2,7 +2,7 @@
 	<view>
 		<view class="itemlist">
 			<view class="listitem">
-				<view>{{arr.chapter}}</view>
+				<view>{{arr.name}}</view>
 				<view>￥{{arr.price}}</view>
 			</view>
 			<view class="paylist">
@@ -25,7 +25,7 @@
 			return{
 				arr:{
 					id:'',
-					chapter:'',
+					name:'',
 					price:'',
 					},
 				agreement: true,
@@ -33,7 +33,7 @@
 		},
 		onLoad(options){
 			this.arr.id = options.id
-			this.arr.chapter = options.chapter
+			this.arr.name = options.name
 			this.arr.price = options.price
 		},
 		computed:{
@@ -51,8 +51,49 @@
 					})
 				}else{
 					console.log("支付")
+					let that  = this
+					this.http.ajax({
+						url: 'video/buyClass',
+						method: 'GET',
+						data: {
+							user_id:uni.getStorageSync('userInfo').id,
+							class_id:this.arr.id
+						},
+						success: function(res) {
+							console.log(res.data)
+							uni.requestPayment({
+								provider: 'wxpay',
+								orderInfo: {
+									appid: res.data.appid,
+									partnerid: res.data.partnerid,
+									prepayid: res.data.prepayid,
+									package: res.data.package,
+									timestamp: res.data.timestamp,
+									noncestr: res.data.noncestr,
+									sign: res.data.sign
+								},
+								success: function(res) {
+									uni.showToast({
+										title: '支付成功',
+										icon: 'none',
+										duration: 1000
+									});
+									setTimeout(function() {
+										uni.navigateBack({
+										    delta: 1
+										});
+									}, 1000);
+								},
+								fail: function(res) {
+									wx.showToast({
+										title: res.message,
+										icon: 'none'
+									});
+								}
+							});
+						}
+					});
 				}
-				
 			}
 		}
 	}

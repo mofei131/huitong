@@ -3,7 +3,8 @@
 		<view class="video">
 			<video x5-video-player-type='h5-page' :src="video.video" @play="playVideo" @pause="pauseVideo"
 				@fullscreenchange="fullscreenchange" :poster="video.image" :show-center-play-btn="false"
-				:enable-progress-gesture="false" ref="myVideo" id="myVideo" @ended="ended" @timeupdate="timeupdate">
+				:initial-time="videoInit"
+				:enable-progress-gesture="false" ref="myVideo" id="myVideo" @ended="ended" @timeupdate="timeupdate" :show-play-btn="show" auto-pause-if-navigate="true" show-loading="true">
 				<!-- <cover-view @click.stop="test" class="videoback"></cover-view> -->
 			</video>
 		</view>
@@ -20,7 +21,7 @@
 		<my-dialog :showDialog="showDialog" :content="content" @closeDialog="jixu"></my-dialog>
 		<my-dialog :showDialog="showDialogWifi" :content="contentWifi" :bts="btsWifi" @clickCancel="clickCancelWifi"
 			@clickConfirm="clickConfirmWifi"></my-dialog>
-		<my-dialog :showDialog="showDialogOut" :content="contentOut" @closeDialog="closeDialog"></my-dialog>
+		<!-- <my-dialog :showDialog="showDialogOut" :content="contentOut" @closeDialog="closeDialog"></my-dialog> -->
 		<!-- <view class="buy">
 			<button @click="pay(video.id,video.price,video.chapter)">立即购买</button>
 		</view> -->
@@ -41,7 +42,7 @@
 				time: 0,
 				content: [],
 				contentOut: [{
-					title: '恭喜您！已完成本年度学习任务请等待证书发放'
+					title: '播放完成'
 				}],
 				contentWifi: [],
 				bts: [],
@@ -50,14 +51,32 @@
 				videoTimeNum: 0,
 				xzTime: 0,
 				bianhua: false,
-				video: {}
+				video: {},
+				cy:false,
+				show:false,
+				text:'',
+				videoInit:0,
+				originTime:0,
+				tiao:false,
+				shichang:0
 			}
 		},
 		onLoad(options) {
 			this.id = options.id
 		},
+		// onShow() {
+		// 	this.getTime()
+		// },
+		
 		onReady() {
 			this.getTime()
+			uni.showLoading({
+				title:'加载中',
+			})
+			// setTimeout(()=>{
+			// 	let that = this
+				
+			// },2200)
 		},
 		created() {
 			// 创建视频实例指向视频控件
@@ -80,14 +99,20 @@
 						let time = res.data.now
 						that.videoTimeNum = res.data.now
 						that.xzTime = res.data.now
+						that.shichang = res.data.long
+						that.originTime = res.data.now;
 						let text = that.getTimeText(time)
-						if (res.data.now == res.data.long) {
-							that.showDialogOut = true
-							that.contentOut = [{
-								title: '恭喜您！已完成本年度学习任务请等待证书发放'
-							}]
-							return
-						}
+						that.text = that.getTimeText(time)
+						// if (res.data.now == res.data.long) {
+						// 	that.showDialogOut = true
+						// 	that.contentOut = [{
+						// 		title: '恭喜您！已完成本年度学习任务请等待证书发放'
+						// 	}]
+							
+						// 	return
+						// }
+						
+						
 						if (time > 0) {
 							that.content = [{
 									title: '您上次观看到'
@@ -100,16 +125,30 @@
 									title: '是否继续观看'
 								}
 							]
-							myVideo.seek(parseInt(time))
-							that.time = time
+							
+							// uni.createVideoContext('myVideo').seek(parseInt(time))
+							that.time = parseInt(time)
+							that.videoInit = parseInt(time);
 							that.showDialog = true
+							that.show = false;
+						}else {
+							that.show = true
+							
 						}
+						uni.hideLoading()
+						// setTimeout(() =>{
+							
+							
+						// 	uni.hideLoading()
+						// },2200)
+						
 					}
 				});
 			},
 			
 			jixu() {
 				this.showDialog = false
+				this.show = true;
 				uni.getNetworkType({
 					complete: e => {
 						switch (e.networkType) {
@@ -138,6 +177,7 @@
 							default:
 								this.bianhua = true
 								uni.createVideoContext('myVideo').play()
+								// uni.createVideoContext('myVideo').seek(parseInt(time))
 								break;
 						}
 					}
@@ -155,25 +195,29 @@
 			},
 
 			ended() {
-				this.showDialogOut = true
-				this.contentOut = [{
-					title: '恭喜您！已完成本年度学习任务请等待证书发放'
-				}]
-				let that = this
-				this.videoTimeNum = 0
-				this.http.ajax({
-					url: 'video/addTime',
-					method: 'GET',
-					data: {
-						video_id: this.id,
-						user_id: uni.getStorageSync('userInfo').id,
-						now: this.video.long,
-						long: this.video.long,
-					},
-					success: function(res) {
-						console.log(res)
-					}
-				});
+				if(this.tiao){
+					this.showDialogOut = true
+					// this.contentOut = [{
+					// 	title: '恭喜您！已完成本年度学习任务请等待证书发放'
+					// }]
+					let that = this
+					this.videoTimeNum = 0
+					this.http.ajax({
+						url: 'video/addTime',
+						method: 'GET',
+						data: {
+							video_id: this.id,
+							user_id: uni.getStorageSync('userInfo').id,
+							now: this.video.long,
+							long: this.video.long,
+						},
+						success: function(res) {
+							console.log(res)
+						}
+					});
+				}else{
+					return
+				}
 			},
 
 			closeDialog() {
@@ -203,30 +247,37 @@
 
 			playVideo(e) {
 				this.bianhua = true
+				this.tiao = false
 			},
 
 			pauseVideo(e) {
 				// console.log(e)
 			},
-
 			timeupdate(e) {
-				console.log(e.detail.currentTime, this.xzTime)
-				if ((e.detail.currentTime - this.xzTime > 1 || e.detail.currentTime - this.xzTime < -1) && this.bianhua) {
-					let myVideo = uni.createVideoContext('myVideo')
-					myVideo.pause()
-					myVideo.seek(parseInt(this.xzTime))
-					uni.showModal({
-						title: '提示',
-						content: '您不能调整时间！',
-						success: () => {
-							myVideo.play()
-						}
-					})
-					return
+				// console.log(e)
+				// console.log(e.detail.currentTime, this.xzTime)
+				let currentTime = e.detail.currentTime == 0 ? this.originTime : e.detail.currentTime; 
+				// console.log(currentTime);
+				if ((currentTime - parseInt(this.xzTime) > 2 || currentTime - parseInt(this.xzTime) < -2) && this.bianhua) {
+						let myVideo = uni.createVideoContext('myVideo')
+						myVideo.pause()
+						myVideo.seek(parseInt(this.xzTime))
+						uni.showModal({
+							title: '提示',
+							content: '您不能调整时间！',
+							success: () => {
+								myVideo.play()
+							}
+						})
+						return
+					}
+				this.xzTime = currentTime
+				if((currentTime - this.shichang) < 1 && currentTime > (this.shichang-5)){
+					this.tiao = true
 				}
-				this.xzTime = e.detail.currentTime
-				if (parseInt(this.videoTimeNum) + 5 == parseInt(e.detail.currentTime)) {
-					this.videoTimeNum = parseInt(e.detail.currentTime)
+					
+				if (parseInt(this.videoTimeNum) + 5 == parseInt(currentTime)) {
+					this.videoTimeNum = parseInt(currentTime)
 					let that = this
 					this.http.ajax({
 						url: 'video/addTime',
@@ -234,7 +285,7 @@
 						data: {
 							video_id: this.id,
 							user_id: uni.getStorageSync('userInfo').id,
-							now: parseInt(e.detail.currentTime),
+							now: parseInt(currentTime),
 							long: this.video.long,
 						},
 						success: function(res) {
@@ -243,11 +294,19 @@
 					});
 				}
 			},
+			
 		}
 	}
 </script>
 
 <style>
+	/* .uni-video-progress-container{
+		pointer-events: none!important;
+	}
+	.uni-video-progress{
+		pointer-events: none!important;
+		
+	} */
 	.video {
 		position: relative;
 	}

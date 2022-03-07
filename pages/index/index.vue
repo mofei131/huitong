@@ -55,7 +55,11 @@
 				limit: 10,
 				data: [{title: '企业信息发布', id: 'companyNews'}, {title: '政府政策', id: 'policyNews'}, {title: '法律条文', id: 'lawNews'}],
 				info: [],
-				iconList: []
+				iconList: [],
+				adcode:'',
+				ioscode:'',
+				adurl:'',
+				iosurl:''
 			}
 		},
 		onLoad() {
@@ -68,11 +72,118 @@
 			// setInterval(, 5000 )
 			console.log(uni.base64ToArrayBuffer('test'))
 		},
+		onBackPress(e) {
+			if (e.from == 'backbutton') {
+				return true; //阻止默认返回行为
+			}
+		},
+		onShow() {
+			this.jiazai()
+		},
 		onReachBottom() {
 			this.page++
 			this.getList()
 		},
 		methods: {
+			jiazai(){
+				let that = this;
+				this.http.ajax({
+					url: 'index/version',
+					method: 'GET',
+					data:{},
+					success(res) {
+						console.log(res)
+						that.adcode = res.data.ANDROID_VERSION
+						that.ioscode = res.data.IOS_VERSION
+						that.adurl = res.data.ANDROID_link
+						that.iosurl = res.data.ISO_link
+						uni.getSystemInfo({
+							success: (res) => {
+								//检测当前平台，如果是安卓则启动安卓更新  
+									if (res.platform == "android") {
+										if(plus.runtime.version != that.adcode){
+											uni.showModal({
+												title: "发现新版本",
+												content: "确认下载更新",
+												success: (res) => {
+													if (res.confirm) { //当用户确定更新，执行更新
+														uni.showLoading({
+															title: '更新中……'
+														})
+														console.log(that.adurl)
+														uni.downloadFile({ //执行下载
+															url: that.adurl, //下载地址
+															success: downloadResult => { //下载成功
+																uni.hideLoading();
+																if (downloadResult.statusCode == 200) {
+																	uni.showModal({
+																		title: '',
+																		content: '更新成功，确定现在重启吗？',
+																		confirmText: '重启',
+																		confirmColor: '#EE8F57',
+																		success: function(res) {
+																			if (res.confirm) {
+																				plus.runtime.install( //安装
+																					downloadResult
+																					.tempFilePath, {
+																						force: true
+																					},
+																					function(res) {
+																						utils.showToast(
+																							'更新成功，重启中');
+																						plus.runtime
+																							.restart();
+																					}
+																				);
+																			}
+																		}
+																	});
+																}
+															}
+														});
+													}else if (res.cancel) {
+															that.jiazai()
+													}
+												}
+											})
+										}
+								}else{
+									console.log('ios')
+									if(plus.runtime.version != that.ioscode){
+										uni.showModal({
+											title: "发现新版本",
+											content: "确认下载更新",
+											success: (res) => {
+												if (res.confirm) { //当用户确定更新，执行更新
+													console.log(that.iosurl)
+													let url = escape(that.iosurl)
+													console.log(url)
+													uni.downloadFile({ //执行下载
+														url: url, //下载地址
+														success: downloadResult => { //下载成功
+															let appleId= 1579844008
+															plus.runtime.launchApplication({
+																	action: `itms-apps://itunes.apple.com/cn/app/id${appleId}?mt=8`
+															}, function(e) {
+																	console.log('Open system default browser failed: ' + e.message);
+															});
+														},fail(d){
+															console.log(d)
+														}
+													});
+												}else if (res.cancel) {
+														that.jiazai()
+												}
+											}
+										})
+									}
+									
+								}
+							}
+						});
+					}
+				});
+			},
 			_load() {
 				this.getBanner();
 				this.getIcon();

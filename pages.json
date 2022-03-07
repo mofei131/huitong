@@ -27,7 +27,7 @@
 		},{
     "path":"pages/mine/order",
 	"style":{
-		"navigationBarTitleText": "环保检测"
+		"navigationBarTitleText": "我的预约"
 	}
 		},{
     "path":"pages/mine/authe",
@@ -135,7 +135,27 @@
 		"style": {
 			"navigationBarTitleText": "详情页面"
 		}
+    },{
+    	"path": "pages/train/fenlei",
+		"style": {
+			"navigationBarTitleText": "课程分类"
+		}
+    },{
+    	"path": "pages/exam/exam",
+		"style": {
+			"navigationBarTitleText": "考试"
+		}
+    },{
+    	"path": "pages/exam/result",
+		"style": {
+			"navigationBarTitleText": "考试结果"
     }
+		},{
+    	"path": "pages/exam/zhengshu",
+		"style": {
+			"navigationBarTitleText": "查看证书"
+    }
+		}
 	],
 	// "globalStyle": {
 	// 		"navigationStyle":"custom",
@@ -158,7 +178,7 @@
 	        "selectedIconPath": "static/images/index2.png",
 	        "text": "首页"
 	    }, {
-	        "pagePath": "pages/train/train",
+	        "pagePath": "pages/train/fenlei",
 	        "iconPath": "static/images/BAI.png",
 	        "selectedIconPath": "static/images/BAI2.png",
 	        "text": "培训"

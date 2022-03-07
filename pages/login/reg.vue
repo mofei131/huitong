@@ -8,12 +8,12 @@
 			<view class="list-call">
 				<input class="sl-input" v-model="phone" type="number" maxlength="11" placeholder-style="color:#C1C2C3;"
 					placeholder="请输入登录手机号码" />
-				<!-- <view class="yzm" :class="{ yzms: second>0 }" @tap="getcode">{{yanzhengma}}</view> -->
+				<view class="yzm" :class="{ yzms: second>0 }" @tap="getcode">{{yanzhengma}}</view>
 			</view>
-			<!-- <view class="list-call">
+			<view class="list-call">
 				<input class="sl-input" v-model="code" type="number" maxlength="4" placeholder-style="color:#C1C2C3;"
 					placeholder="短信验证码" />
-			</view> -->
+			</view>
 			<view class="list-call">
 				<input class="sl-input" v-model="password" type="text" maxlength="32" placeholder-style="color:#C1C2C3;"
 					placeholder="请输入登录密码" :password="!showPassword" />
@@ -113,8 +113,6 @@
 						}, 1000)
 					}
 				});
-
-
 			},
 			bindLogin() {
 				// if (this.agreement == false) {
@@ -131,32 +129,33 @@
 					});
 					return;
 				}
-				if (this.password.length < 6) {
+				if (!this.password) {
 					uni.showToast({
 						icon: 'none',
 						title: '密码不正确'
 					});
 					return;
 				}
-				// if (this.code.length != 4) {
-				// 	uni.showToast({
-				// 		icon: 'none',
-				// 		title: '验证码不正确'
-				// 	});
-				// 	return;
-				// }
+				if (this.code.length != 4) {
+					uni.showToast({
+						icon: 'none',
+						title: '验证码不正确'
+					});
+					return;
+				}
 				this.http.ajax({
 					url: 'user/register',
 					method: 'GET',
 					data: {
 						mobile: this.phone,
 						password: this.password,
-						// code: this.code
+						code: this.code
 					},
 					success: function(res) {
-						wx.showToast({
+						uni.showToast({
 							title: res.message,
-							icon: 'none'
+							icon: 'none',
+							duration:1000
 						})
 						if (res.code == 200) {
 							setTimeout(() => {
