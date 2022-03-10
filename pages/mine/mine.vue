@@ -10,23 +10,38 @@
 				<view>{{user.renzheng_company}}</view>
 			</view>
 		</view>
-		<view class="list">
+		<!-- <view class="list">
 			<uni-list>
-				<uni-list-item thumb="../../static/images/meico1.png" title="我的预约" link to="./order"></uni-list-item>
-				<view v-if="user.renzheng_company">
-					<uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="已认证" link
-						to="./authe"></uni-list-item>
-				</view>
-				<view v-if="!user.renzheng_company">
-					<uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证" link
-						to="./authe"></uni-list-item>
-				</view>
-				<uni-list-item thumb="../../static/images/meico3.png" title="联系客服" :rightText=this.phone link
-					@click="cell()"></uni-list-item>
-				<uni-list-item thumb="../../static/images/meico4.png" title="服务协议" link to="./contract"></uni-list-item>
-				<uni-list-item thumb="../../static/images/meico5.png" title="关于我们" link to="./about"></uni-list-item>
-				<uni-list-item thumb="../../static/images/meico6.png" title="设置" link to="./setUp"></uni-list-item>
-			</uni-list>
+			    <uni-list-item thumb="../../static/images/meico1.png" title="我的预约" link to="./order"></uni-list-item>
+			    <view v-if="user.renzheng_company">
+			     <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="已认证" link
+			      to="./authe"></uni-list-item>
+			    </view>
+			    <view v-if="!user.renzheng_company">
+			     <uni-list-item thumb="../../static/images/meico2.png" title="认证信息" rightText="未认证" link
+			      to="./authe"></uni-list-item>
+			    </view>
+			    <uni-list-item thumb="../../static/images/meico3.png" title="联系客服" :rightText=this.phone link
+			     @click="cell()"></uni-list-item>
+			    <uni-list-item thumb="../../static/images/meico4.png" title="服务协议" link to="./contract"></uni-list-item>
+			    <uni-list-item thumb="../../static/images/meico4.png" title="用户协议" link to="../login/agreement"></uni-list-item>
+			    <uni-list-item thumb="../../static/images/meico4.png" title="隐私协议" link to="../login/privacyPolicy"></uni-list-item>
+			    <uni-list-item thumb="../../static/images/meico5.png" title="关于我们" link to="./about"></uni-list-item>
+			    <uni-list-item thumb="../../static/images/meico6.png" title="设置" link to="./setUp"></uni-list-item>
+			   </uni-list>
+				 
+		</view> -->
+		<view class="list" v-for="(item,index) in list" :key='index' @click="topage(index)">
+			<view class="left">
+				<image :src="item.url"></image>
+				<view>{{item.title}}</view>
+			</view>
+			<view class="right">
+				<view v-if="index == 1 && user.renzheng_company">已认证</view>
+				<view v-if="index == 1 && !user.renzheng_company">未认证</view>
+				<view v-if="index == 2">{{phone}}</view>
+				<image src="../../static/images/rzai.png" mode=""></image>
+			</view>
 		</view>
 	</view>
 </template>
@@ -38,6 +53,31 @@
 				user: {},
 				kfphone: 0,
 				phone: '',
+				list:[{
+					url:'../../static/images/meico1.png',
+					title:'我的预约',
+				},{
+					url:'../../static/images/meico2.png',
+					title:'认证信息',
+				},{
+					url:'../../static/images/meico3.png',
+					title:'联系客服',
+				},{
+					url:'../../static/images/meico4.png',
+					title:'服务协议',
+				},{
+					url:'../../static/images/meico4.png',
+					title:'用户协议',
+				},{
+					url:'../../static/images/meico4.png',
+					title:'隐私协议',
+				},{
+					url:'../../static/images/meico5.png',
+					title:'关于我们',
+				},{
+					url:'../../static/images/meico6.png',
+					title:'设置',
+				}]
 			}
 		},
 		onShow() {
@@ -58,11 +98,46 @@
 			});
 		},
 		methods: {
-			cell() {
-				uni.makePhoneCall({
-					phoneNumber: this.phone
-				});
+			topage(e){
+				if(e == 0){
+					uni.navigateTo({
+						url:'./order'
+					})
+				}else if(e == 1){
+					uni.navigateTo({
+						url:'./authe'
+					})
+				}else if(e == 2){
+					uni.makePhoneCall({
+						phoneNumber: this.phone
+					});
+				}else if(e == 3){
+					uni.navigateTo({
+						url:'./contract'
+					})
+				}else if(e == 4){
+					uni.navigateTo({
+						url:'../login/agreement'
+					})
+				}else if(e == 5){
+					uni.navigateTo({
+						url:'../login/privacyPolicy'
+					})
+				}else if(e == 6){
+					uni.navigateTo({
+						url:'./about'
+					})
+				}else if(e == 7){
+					uni.navigateTo({
+						url:'./setUp'
+					})
+				}
 			},
+			// cell() {
+			// 	uni.makePhoneCall({
+			// 		phoneNumber: this.phone
+			// 	});
+			// },
 			uploadImage() {
 				uni.chooseImage({
 					count: 1,
@@ -100,8 +175,46 @@
 </script>
 
 <style>
+	.right view{
+		font-size: 24rpx;
+		font-family: PingFangSC-Regular, PingFang SC;
+		font-weight: 400;
+		color: #666666;
+	}
+	.right image{
+		width: 66rpx;
+		height: 66rpx;
+	}
+	.left,.right{
+		display: flex;
+		align-items: center;
+	}
+	.left view{
+		font-size: 30rpx;
+		font-family: PingFangSC-Regular, PingFang SC;
+		font-weight: 400;
+		color: #51565D;
+		margin-left: 9rpx;
+	}
+	.left image{
+		width: 40rpx;
+		height: 40rpx;
+	}
+	.list{
+		width: 720rpx;
+		height: 96rpx;
+		background: #FFFFFF;
+		border-radius: 14rpx;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 20rpx;
+		padding-left: 22rpx;
+		box-sizing: border-box;
+	}
 	body {
-		background: #fff !important;
+		background: #F4F7F7 !important;
 	}
 
 	.topMian {
@@ -112,6 +225,7 @@
 		display: flex;
 		padding-top: 170rpx;
 		box-sizing: border-box;
+		margin-bottom: 20rpx;
 	}
 
 	.tmLeft {
@@ -146,19 +260,19 @@
 		color: #fff;
 	}
 
-	.list {
+	/* .list {
 		padding-top: 20rpx;
-	}
+	} */
 
-	uni-list-item {
+	/* .unilist view{
 		line-height: 40rpx;
 		border: 0;
 		margin-bottom: 20rpx;
-	}
+	} */
 
-	.uni-list--border-top,
-	.uni-list--border-bottom {
+	/* .view--border-top,
+	.view--border-bottom {
 		border: 0 !important;
 		height: 0 !important;
-	}
+	} */
 </style>

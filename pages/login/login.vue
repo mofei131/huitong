@@ -16,10 +16,10 @@
 
 		</view>
 		<view class="agreement">
-			<text>登录即代表同意</text>
+			<!-- <text>登录即代表同意</text>
 			<navigator url="agreement" open-type="navigate">用户协议</navigator>
 			<text>和</text>
-			<navigator url="privacyPolicy" open-type="navigate">隐私政策</navigator>
+			<navigator url="privacyPolicy" open-type="navigate">隐私政策</navigator> -->
 		</view>
 		<view class="button-login" ref="login" @tap="bindLogin()">
 			<text>确认登录</text>

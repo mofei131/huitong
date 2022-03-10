@@ -26,7 +26,7 @@
 			</view>
 			<view class="listitem" @tap="tologin()">
 				<view class="list">
-					<view>退出登录</view>
+					<view>注销账号</view>
 					<image src="@/static/images/rightico.png"></image>
 				</view>
 			</view>
