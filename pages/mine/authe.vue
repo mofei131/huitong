@@ -16,9 +16,19 @@
 			<input type="text" :disabled="disabled" v-model="company"  placeholder="请输入公司名称" />
 			</view>
 			<text class="border"></text>
-			<view>
+			<!-- <view>
 			<text>职务:</text>
 			<input type="text" :disabled="disabled" v-model="post"  placeholder="请输入职务" />
+			</view> -->
+			<view>
+			<text>职务:</text>
+			<picker class="gather" :disabled="disabled" @change="anjianChange2" :value="index2" :range="array2" range-key="record">
+				<view class="flex-row">
+					<text v-if="isll">{{position}}</text>
+					<text v-else>{{array2[index2].record}}</text>
+					<image src="../../static/images/rzai.png"></image>
+				</view>
+			</picker>
 			</view>
 			<text class="border"></text>
 			<view>
@@ -42,6 +52,14 @@
 				post:'',
 				address:'',
 				disabled: false,
+				array2: [{
+					record: '管理员',id:0
+				}, {
+					record: '负责人',id:1
+				}],
+				index2: 0,
+				isll:true,
+				position:'',
 			}
 		},
 		onLoad() {
@@ -53,10 +71,17 @@
 			this.address = userInfo.renzheng_address ? userInfo.renzheng_address : ''
 			if (userInfo.renzheng_name) this.disabled = true
 		},
+		onShow() {
+			this.position = uni.getStorageSync('userInfo').renzheng_position
+		},
 		onNavigationBarButtonTap(e) {
 			this.disabled = false
 		},
 		methods:{
+			anjianChange2(e) {
+				this.index2 = e.detail.value;
+				this.isll = false
+			},
 			searchClick() {
 				if (!this.name) {
 					uni.showToast({
@@ -102,7 +127,7 @@
 						renzheng_name: this.name,
 						renzheng_mobile: this.phone,
 						renzheng_company: this.company,
-						renzheng_position: this.post,
+						renzheng_position: this.index2 == 0?'管理员':'负责人',
 						renzheng_address: this.address
 					},
 					success: function(res) {
@@ -130,6 +155,23 @@
 </script>
 
 <style>
+	.flex-row image{
+		width: 66rpx;
+		height: 66rpx;
+	}
+	.gather text{
+		width: 500rpx!important;
+		/* margin-top: 0rpx!important; */
+	}
+	.flex-row{
+		padding-top: 0rpx!important;
+		color: grey;
+		padding-left: 15rpx;
+		box-sizing: border-box;
+	}
+	.gather{
+		width: 550rpx;
+	}
 	body{
 		background: #fff!important;
 	}

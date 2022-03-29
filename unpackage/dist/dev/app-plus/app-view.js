@@ -2349,44 +2349,67 @@ var render = function() {
             { attrs: { _i: 14 } },
             [
               _c("v-uni-text", { attrs: { _i: 15 } }, [_vm._v("职务:")]),
-              _c("v-uni-input", {
-                attrs: {
-                  type: "text",
-                  disabled: _vm._$g(16, "a-disabled"),
-                  placeholder: "请输入职务",
-                  _i: 16
-                },
-                model: {
-                  value: _vm._$g(16, "v-model"),
-                  callback: function($$v) {
-                    _vm.$handleVModelEvent(16, $$v)
+              _c(
+                "v-uni-picker",
+                {
+                  staticClass: _vm._$g(16, "sc"),
+                  attrs: {
+                    disabled: _vm._$g(16, "a-disabled"),
+                    value: _vm._$g(16, "a-value"),
+                    range: _vm._$g(16, "a-range"),
+                    "range-key": "record",
+                    _i: 16
                   },
-                  expression: "post"
-                }
-              })
+                  on: {
+                    change: function($event) {
+                      return _vm.$handleViewEvent($event)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "v-uni-view",
+                    { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                    [
+                      _vm._$g(18, "i")
+                        ? _c("v-uni-text", { attrs: { _i: 18 } }, [
+                            _vm._v(_vm._$g(18, "t0-0"))
+                          ])
+                        : _c("v-uni-text", { attrs: { _i: 19 } }, [
+                            _vm._v(_vm._$g(19, "t0-0"))
+                          ]),
+                      _c("v-uni-image", {
+                        attrs: { src: _vm._$g(20, "a-src"), _i: 20 }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
             ],
             1
           ),
           _c("v-uni-text", {
-            staticClass: _vm._$g(17, "sc"),
-            attrs: { _i: 17 }
+            staticClass: _vm._$g(21, "sc"),
+            attrs: { _i: 21 }
           }),
           _c(
             "v-uni-view",
-            { attrs: { _i: 18 } },
+            { attrs: { _i: 22 } },
             [
-              _c("v-uni-text", { attrs: { _i: 19 } }, [_vm._v("公司地址:")]),
+              _c("v-uni-text", { attrs: { _i: 23 } }, [_vm._v("公司地址:")]),
               _c("v-uni-input", {
                 attrs: {
                   type: "text",
-                  disabled: _vm._$g(20, "a-disabled"),
+                  disabled: _vm._$g(24, "a-disabled"),
                   placeholder: "请输入公司地址",
-                  _i: 20
+                  _i: 24
                 },
                 model: {
-                  value: _vm._$g(20, "v-model"),
+                  value: _vm._$g(24, "v-model"),
                   callback: function($$v) {
-                    _vm.$handleVModelEvent(20, $$v)
+                    _vm.$handleVModelEvent(24, $$v)
                   },
                   expression: "address"
                 }
@@ -2399,13 +2422,13 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+        { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
         [
-          _vm._$g(22, "i")
+          _vm._$g(26, "i")
             ? _c(
                 "v-uni-button",
                 {
-                  attrs: { _i: 22 },
+                  attrs: { _i: 26 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
@@ -2510,7 +2533,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX.2.6.1.20200226.full/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\nbody{\n\tbackground: #fff!important;\n}\n.authe{\n\twidth: 720rpx;\n\t/* height: 484rpx; */\n\tbackground: #FFFFFF;\n\tborder-radius: 14rpx;\n\tmargin: auto;\n\tfont-size: 28rpx;\n\tpadding-left: 20rpx;\n\tmargin-top: 20rpx;\n\tbox-sizing: border-box;\n}\n.authe uni-view{\n\tdisplay: flex;\n\tbox-sizing: border-box;\n\theight: 104rpx;\n\tpadding-top: 30rpx;\n}\n.authe uni-view uni-text{\n\twidth: 170rpx;\n\ttext-align: start;\n}\n.authe uni-view uni-input{\n\twidth: 550rpx;\n\tfont-size: 28rpx;\n}\n.autheDis uni-view uni-input{\n\tcolor: #999;\n}\n.keep uni-button{\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
+exports.push([module.i, "\n.flex-row uni-image{\n\twidth: 66rpx;\n\theight: 66rpx;\n}\n.gather uni-text{\n\twidth: 500rpx!important;\n\t/* margin-top: 0rpx!important; */\n}\n.flex-row{\n\tpadding-top: 0rpx!important;\n\tcolor: grey;\n\tpadding-left: 15rpx;\n\tbox-sizing: border-box;\n}\n.gather{\n\twidth: 550rpx;\n}\nbody{\n\tbackground: #fff!important;\n}\n.authe{\n\twidth: 720rpx;\n\t/* height: 484rpx; */\n\tbackground: #FFFFFF;\n\tborder-radius: 14rpx;\n\tmargin: auto;\n\tfont-size: 28rpx;\n\tpadding-left: 20rpx;\n\tmargin-top: 20rpx;\n\tbox-sizing: border-box;\n}\n.authe uni-view{\n\tdisplay: flex;\n\tbox-sizing: border-box;\n\theight: 104rpx;\n\tpadding-top: 30rpx;\n}\n.authe uni-view uni-text{\n\twidth: 170rpx;\n\ttext-align: start;\n}\n.authe uni-view uni-input{\n\twidth: 550rpx;\n\tfont-size: 28rpx;\n}\n.autheDis uni-view uni-input{\n\tcolor: #999;\n}\n.keep uni-button{\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
