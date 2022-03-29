@@ -78,7 +78,7 @@
 			}
 		},
 		onShow() {
-			// this.jiazai()
+			this.jiazai()
 		},
 		onReachBottom() {
 			this.page++
