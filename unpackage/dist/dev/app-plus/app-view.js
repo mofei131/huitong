@@ -3063,7 +3063,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX.2.6.1.20200226.full/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 15);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .uni-video-progress-container{\n\tpointer-events: none!important;\n}\n.uni-video-progress{\n\tpointer-events: none!important;\n\t\n} */\n.video {\n\tposition: relative;\n}\n.video uni-video {\n\twidth: 750rpx;\n\tmargin-top: 8rpx;\n\tz-index: 10;\n}\n.videoback {\n\tposition: absolute;\n\tbottom: 0rpx;\n\theight: 90rpx;\n\twidth: 540rpx;\n\tleft: 90rpx;\n\tz-index: 99999;\n\t/* background-color: #007AFF; */\n}\n.content {\n\twidth: 680rpx;\n\tmargin: auto;\n}\n.chapter {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tborder-left: 6rpx solid #1890FF;\n\twidth: 142rpx;\n\ttext-align: center;\n\tmargin: 54rpx 0 20rpx 0;\n}\n.content uni-view:nth-child(2) {\n\tcolor: #51565D;\n\tfont-size: 30rpx;\n\tmargin-bottom: 20rpx;\n}\n.content uni-view:nth-child(3) {\n\tcolor: #51565D;\n\tfont-size: 26rpx;\n\tline-height: 37rpx;\n}\n.cen {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin-top: 20rpx;\n}\n.cen uni-view {\n\tfont-size: 24rpx !important;\n\tcolor: #9EA3A7 !important;\n}\n.button1 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n.button2 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #999;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .uni-video-progress-container{\n\tpointer-events: none!important;\n}\n.uni-video-progress{\n\tpointer-events: none!important;\n\t\n} */\n.video {\n\tposition: relative;\n}\n.video uni-video {\n\twidth: 750rpx;\n\tmargin-top: 8rpx;\n\tz-index: 10;\n}\n.videoback {\n\tposition: absolute;\n\tbottom: 0rpx;\n\theight: 90rpx;\n\twidth: 540rpx;\n\tleft: 90rpx;\n\tz-index: 99999;\n\t/* background-color: #007AFF; */\n}\n.content {\n\twidth: 680rpx;\n\tmargin: auto;\n}\n.chapter {\n\tcolor: #51565D;\n\tfont-size: 28rpx;\n\tborder-left: 6rpx solid #1890FF;\n\twidth: 142rpx;\n\ttext-align: center;\n\tmargin: 54rpx 0 20rpx 0;\n}\n.content uni-view:nth-child(2) {\n\tcolor: #51565D;\n\tfont-size: 30rpx;\n\tmargin-bottom: 20rpx;\n}\n.content uni-view:nth-child(3) {\n\tcolor: #51565D;\n\tfont-size: 26rpx;\n\tline-height: 37rpx;\n}\n.cen {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tmargin-top: 20rpx;\n}\n.cen uni-view {\n\tfont-size: 24rpx !important;\n\tcolor: #9EA3A7 !important;\n}\n.button1 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #1890FF;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n.button2 {\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\tmargin: 0 auto;\n\twidth: 680rpx;\n\theight: 76rpx;\n\tbackground: #999;\n\tborder-radius: 39rpx;\n\tcolor: #fff;\n\tfont-size: 28rpx;\n\tbottom: 72rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -6785,7 +6785,22 @@ var render = function() {
             ],
             1
           )
-        : _vm._e()
+        : _vm._e(),
+      _c(
+        "v-uni-view",
+        { attrs: { _i: 20 } },
+        [
+          _c("v-uni-video", {
+            attrs: {
+              src: "http://hlstore.yimetal.cn/2022/three~1.mp4",
+              "initial-time": 15,
+              autoplay: true,
+              _i: 21
+            }
+          })
+        ],
+        1
+      )
     ],
     2
   )

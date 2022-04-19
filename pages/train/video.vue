@@ -62,6 +62,7 @@
 			}
 		},
 		onLoad(options) {
+			console.log(options.id)
 			this.id = options.id
 		},
 		// onShow() {
@@ -126,7 +127,7 @@
 								}
 							]
 							
-							// uni.createVideoContext('myVideo').seek(parseInt(time))
+							// uni.createVideoContext('myVideo').seek(parseInt(res.data.now))
 							that.time = parseInt(time)
 							that.videoInit = parseInt(time);
 							that.showDialog = true
@@ -177,7 +178,7 @@
 							default:
 								this.bianhua = true
 								uni.createVideoContext('myVideo').play()
-								// uni.createVideoContext('myVideo').seek(parseInt(time))
+								// uni.createVideoContext('myVideo').seek(parseInt(res.data.now))
 								break;
 						}
 					}
@@ -255,8 +256,9 @@
 			},
 			timeupdate(e) {
 				// console.log(e)
-				// console.log(e.detail.currentTime, this.xzTime)
-				let currentTime = e.detail.currentTime == 0 ? this.originTime : e.detail.currentTime; 
+				// console.log(this.originTime)
+				// console.log(typeof(this.originTime))
+				let currentTime = e.detail.currentTime == 0 ? parseInt(this.originTime) : e.detail.currentTime; 
 				// console.log(currentTime);
 				if ((currentTime - parseInt(this.xzTime) > 2 || currentTime - parseInt(this.xzTime) < -2) && this.bianhua) {
 						let myVideo = uni.createVideoContext('myVideo')

@@ -27,6 +27,14 @@
 				</view>
 			</view>
 		</view>
+		<view>
+				<!-- <video src="https://zaihang.oss-cn-beijing.aliyuncs.com/%E4%B8%89%E5%90%8C%E6%97%B6%E5%9F%B9%E8%AE%AD.mp4"
+						:initial-time="15" :autoplay='true'></video>
+						<video src="https://zaihang.oss-cn-beijing.aliyuncs.com/%E8%81%8C%E4%B8%9A%E5%8D%AB%E7%94%9F%E7%AE%A1%E7%90%86-1.mp4"
+								:initial-time="15" :autoplay='true'></video> -->
+								<video src="http://hlstore.yimetal.cn/2022/three~1.mp4"
+										:initial-time="15" :autoplay='true'></video>
+		</view>
 	</view>
 </template>
 
